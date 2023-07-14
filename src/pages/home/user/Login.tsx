@@ -1,5 +1,6 @@
 import React from 'react'
-import MainLayout from '../components/layout/MainLayout'
+import MainLayout from '../../../components/layout/MainLayout'
+import {Link} from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -13,7 +14,7 @@ const Login = () => {
           {/* <img
             className="mx-auto h-10 w-auto"
             src=""
-            alt="Your Company"
+            alt="Company"
           /> */}
           Shoe-Trek
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -74,9 +75,9 @@ const Login = () => {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              Start a 14 day free trial
-            </a>
+            <Link to="/register"className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              Register Now!
+            </Link>
           </p>
         </div>
       </div>
