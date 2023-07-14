@@ -3,17 +3,12 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {  FaCartPlus } from "react-icons/fa";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx"
 import { BiSearchAlt } from "react-icons/bi"
+import { Link } from "react-router-dom";
 
 
 
 
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'New Arrivals', href: '#new', current: false },
-  { name: 'Sale', href: '#sale', current: false },
-  { name: 'Trending', href: '#trending', current: false },
-  
-]
+
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
@@ -37,12 +32,13 @@ export const Header = () => {
             <div className="relative flex h-16 items-center justify-between">
               
             <div className="flex  items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <img
+                <div className="flex flex-shrink-0 items-center text-white">
+                  {/* <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src=""
                     alt="Your Company"
-                  />
+                  /> */}
+                  Shoe-Trek
                 </div>
               </div>
 
@@ -155,39 +151,22 @@ export const Header = () => {
               </div>
 
    <div className="hidden sm:ml-6 sm:block pt-2 pb-2">
-                  <div className="flex justify-center space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+                  <div className="flex justify-center space-x-4 text-white">
+                    
+                      <div>
+                        <Link to="/">Home</Link>
+
+                      </div>
+                      <div>
+                      <Link to="/login">Login</Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
+               
 
                 <Disclosure.Panel className="sm:hidden ">
             <div className="space-y-1  px-2 pb-3 pt-2 mt-9">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
+              code f\goes hekeals
             </div>
           </Disclosure.Panel>
           </>
