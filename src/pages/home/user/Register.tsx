@@ -1,5 +1,6 @@
 import React from 'react'
 import MainLayout from '../../../components/layout/MainLayout'
+import "./user.css"
 
 const Register = () => {
   return (
@@ -7,18 +8,18 @@ const Register = () => {
 
 <MainLayout>
 
-    <div className='container mx-auto grid grid-rows-2  gap-1  sm:mt-2 md:mt-2  lg:mt-2 xl:mt-2 2xl:mt-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 lg:grid-rows-1 xl:grid-rows-1 2xl:grid-rows-1 '>
+    <div className='container shadow-2xl p-4 m-4 mx-auto grid grid-rows-2  gap-1  sm:mt-2 md:mt-2  lg:mt-2 xl:mt-2 2xl:mt-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 lg:grid-rows-1 xl:grid-rows-1 2xl:grid-rows-1 '>
 
-        <div className='flex justify-end '>
-          <img src="https://images.unsplash.com/photo-1609188944094-394637c26769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="" className='h-4/6 w-full' />
+        <div className='flex justify-end bg-red-700 register-img '>
+         
         </div>
 
         {/* register form */}
         <div className='p-3'>
         <div className=" ">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Register</h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
-
+          <h1 className=" text-4xl text-center ">Register</h1>
+         
+<form>
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
               <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -28,8 +29,6 @@ const Register = () => {
                 <input
                   type="text"
                   name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -95,10 +94,21 @@ const Register = () => {
               </div>
             </div>
 
+            <div className="col-span-full">
+            <button
+                type="submit"
+                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Register
+              </button>
+            </div>
+
             
 
             
           </div>
+
+          </form>
         </div>
         </div>
 
