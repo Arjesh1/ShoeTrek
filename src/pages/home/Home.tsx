@@ -1,5 +1,6 @@
 import React from 'react'
 import MainLayout from '../../components/layout/MainLayout'
+import HomeCarousel from '../../components/carousel/Carousel'
 
 const Home = () => {
   return (
@@ -7,8 +8,10 @@ const Home = () => {
     <MainLayout>
 
         <div className="">
-            Home
+            <HomeCarousel/>
         </div>
+
+        <div>hello</div>
     </MainLayout>
       
     </>
