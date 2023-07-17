@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import Login from './pages/home/user/Login';
+import Login from './pages/user/Login';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
-import Register from './pages/home/user/Register';
+import Register from './pages/user/Register';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
 
       </Routes>
       
-      
+      <ToastContainer/>
     </>
   );
 }

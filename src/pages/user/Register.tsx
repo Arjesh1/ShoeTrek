@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useState } from 'react'
-import MainLayout from '../../../components/layout/MainLayout'
+import MainLayout from '../../components/layout/MainLayout'
 import "./user.css"
+import { registerUserAction } from './userAction';
+import { useDispatch } from 'react-redux';
 
 
 interface FormState {
@@ -13,7 +15,7 @@ interface FormState {
 }
 
 const Register = () => {
-  
+  const dispatch = useDispatch()
 
   const [form, setForm] = useState<FormState>({
     firstName: '',
@@ -34,10 +36,10 @@ const Register = () => {
 
   }
 
-  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
+  const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(form);
-
+  
     setForm({
       firstName: '',
       lastName: '',
@@ -45,9 +47,10 @@ const Register = () => {
       password: '',
       confirmPassword: '',
     });
-    
-
-  }
+  
+     dispatch (await registerUserAction({ data: form }));
+      
+  };
 
 
   return (
@@ -82,6 +85,7 @@ const Register = () => {
                   type="text"
                   name="firstName"
                   onChange={handleOnChange}
+                  required={true}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -96,6 +100,7 @@ const Register = () => {
                   type="text"
                   name="lastName"
                   onChange={handleOnChange}
+                  required={true}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -110,6 +115,7 @@ const Register = () => {
                   name="email"
                   type="email"
                   onChange={handleOnChange}
+                  required={true}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -124,6 +130,7 @@ const Register = () => {
                   name="password"
                   type="password"
                   onChange={handleOnChange}
+                  required={true}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -139,6 +146,7 @@ const Register = () => {
                   name="confirmPassword"
                   type="password"
                   onChange={handleOnChange}
+                  required={true}
                  
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
