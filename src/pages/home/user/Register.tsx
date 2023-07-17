@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react'
 import MainLayout from '../../../components/layout/MainLayout'
 import "./user.css"
-import { log } from 'console';
+
 
 interface FormState {
  
@@ -13,6 +13,7 @@ interface FormState {
 }
 
 const Register = () => {
+  
 
   const [form, setForm] = useState<FormState>({
     firstName: '',
@@ -36,6 +37,14 @@ const Register = () => {
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
     e.preventDefault();
     console.log(form);
+
+    setForm({
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
     
 
   }
