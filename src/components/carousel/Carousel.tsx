@@ -31,7 +31,7 @@ const HomeCarousel = () => {
     <>
     <div className=" isolate px-6  lg:px-8 h-84" style={{
                 // background:`url(${slideImg[activeIndex]})`,
-                 background:`url(${Slide3})`,
+                 background:`url(${Slide1})`,
                  backgroundSize: 'cover',
                  backgroundPosition: 'center',
                  backgroundRepeat: 'no-repeat',
