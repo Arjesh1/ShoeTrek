@@ -3,9 +3,12 @@ import React from 'react'
 import Slide1 from '../assets/images/whiteshoes.jpg'
 import Slide2 from '../assets/images/shoes2.jpg'
 import Slide3 from '../assets/images/shoes3.jpg'
+// import Slider from 'react-slick';
 
 
-const HomeCarousel = () => {
+
+
+const HomeCarousel: React.FC = () => {
 
     const slideImg = [Slide1, Slide2, Slide3]
     const [activeIndex, setActiveIndex] = React.useState<number>(0);
@@ -22,7 +25,13 @@ const HomeCarousel = () => {
         };
       }, [slideImg.length]);
 
-
+      const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      };
 
    
 
@@ -70,8 +79,19 @@ const HomeCarousel = () => {
         </div>
        
       </div>
+{/* 
+<Slider {...settings}>
+      <div>
+        <h3>Slide 1</h3>
+      </div>
+      <div>
+        <h3>Slide 2</h3>
+      </div>
+      <div>
+        <h3>Slide 3</h3>
+      </div>
+    </Slider> */}
 
-   
       
     </>
   )

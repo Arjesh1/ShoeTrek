@@ -160,6 +160,9 @@ export const Header = () => {
                       <div>
                       <Link to="/login">Login</Link>
                       </div>
+                      <div>
+                      <Link to="/contact">Contact</Link>
+                      </div>
                     </div>
                   </div>
                
@@ -172,6 +175,10 @@ export const Header = () => {
                       </div>
                       <div>
                       <Link to="/login">Login</Link>
+                      </div>
+
+                      <div>
+                      <Link to="/contact">Contact</Link>
                       </div>
             </div>
           </Disclosure.Panel>
