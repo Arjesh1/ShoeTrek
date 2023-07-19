@@ -5,7 +5,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-     <Disclosure as="nav" className="bg-gray-800 h-64   text-white">
+     <Disclosure as="nav" className="bg-gray-800 h-auto   text-white">
         
 
 <div className=" p-4 footer-content flex justify-evenly flex-wrap">

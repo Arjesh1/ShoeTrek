@@ -7,6 +7,9 @@ import { AnyAction } from "redux";
 import { useDispatch } from "react-redux";
 import ProductCard from '../../components/product/ProductCard';
 
+import FemaleBanner from '../../components/assets/images/whiteshoes.jpg'
+import Banner from '../../components/banner/Banner';
+
 
 const Home = () => {
   const dispatch= useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
@@ -26,6 +29,10 @@ const Home = () => {
 
         <div>
           <ProductCard/>
+        </div>
+
+        <div className="">
+          <Banner Banner={FemaleBanner}/>
         </div>
     </MainLayout>
       
