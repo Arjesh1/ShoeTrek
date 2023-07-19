@@ -10,7 +10,7 @@ const Footer = () => {
 
 <div className=" p-4 py-16 sm:py-24 lg:py-32 flex justify-between flex-wrap">
 
-    <div className="flex flex-row justify-evenly w-screen gap-4 gap-y-6">
+    <div className="flex flex-col sm:flex-row justify-evenly w-screen gap-4 gap-y-6">
         <div className="">
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Want product news and updates?
 </h2>
@@ -40,7 +40,7 @@ Sign up for our newsletter.</h2>
                 Subscribe
               </button>
             </div>
-            <p className="text-3xl  tracking-tight text-white sm:text-lg">
+            <p className="text-lg  mt-2 tracking-tight text-white sm:text-lg">
         We care about your data. Read our privacy policy.</p>
           </div>
     </div>
