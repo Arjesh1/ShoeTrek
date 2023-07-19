@@ -29,17 +29,17 @@ const ProductCard = () => {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700">
+                  <h3 className="text-md text-gray-700">
                     <a href={item?.slug}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {item?.name}
                     </a>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">kmk</p>
+                  <p className="mt-1 text-md text-gray-500">kmk</p>
                 </div>
                 <div>
-                <p className="text-sm font-medium text-gray-900 line-through">{item?.price}</p>
-                <p className="text-sm font-medium text-gray-900">{item?.salesPrice}</p>
+                <p className="text-md font-medium text-gray-900 ">$ <span className='line-through'>{item.price}</span> </p>
+                <p className="text-md font-medium text-gray-900">$ {item?.salesPrice}</p>
                 </div>
               </div>
             </div>
