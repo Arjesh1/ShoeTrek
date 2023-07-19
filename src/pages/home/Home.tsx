@@ -7,6 +7,7 @@ import { AnyAction } from "redux";
 import { useDispatch } from "react-redux";
 import ProductCard from '../../components/product/ProductCard';
 
+
 const Home = () => {
   const dispatch= useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
 
@@ -19,7 +20,7 @@ const Home = () => {
     <>
     <MainLayout>
 
-        <div className="">
+        <div className="mb-12">
             <HomeCarousel/>
         </div>
 
