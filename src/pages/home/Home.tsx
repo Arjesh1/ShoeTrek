@@ -34,6 +34,12 @@ const Home = () => {
         <div className="">
           <Banner Banner={FemaleBanner}/>
         </div>
+
+        <div>
+          <ProductCard/>
+        </div>
+
+        
     </MainLayout>
       
     </>

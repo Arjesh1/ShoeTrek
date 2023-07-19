@@ -8,16 +8,18 @@ const Footer = () => {
      <Disclosure as="nav" className="bg-gray-800 h-auto   text-white">
         
 
-<div className=" p-4 footer-content flex justify-evenly flex-wrap">
+<div className=" p-4 py-16 sm:py-24 lg:py-32 flex justify-between flex-wrap">
 
-    <div className="flex flex-col gap-y-6">
-        <div className="">Shoe-Trek</div>
-        <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
-            <p className="mt-4 text-lg leading-8 text-gray-300">
-            Want product news and updates?
-Sign up for our newsletter.
-            </p>
+    <div className="flex flex-row justify-evenly w-screen gap-4 gap-y-6">
+        <div className="">
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Want product news and updates?
+</h2>
+<h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+Sign up for our newsletter.</h2>
+        </div>
+        <div className="max-w-xl w-full lg:max-w-lg">
+            
+       
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -38,16 +40,11 @@ Sign up for our newsletter.
                 Subscribe
               </button>
             </div>
+            <p className="text-3xl  tracking-tight text-white sm:text-lg">
+        We care about your data. Read our privacy policy.</p>
           </div>
     </div>
-    <div className='justify-center'> 
-    <ul className='grid gap-4'>
-    <li>Home</li>
-    <li>New Arrivals</li>
-    <li>Sale</li>
-    <li>Trending</li>
-    </ul>
-    </div>
+    
     
 </div>
      </Disclosure>

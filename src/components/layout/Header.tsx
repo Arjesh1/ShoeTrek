@@ -1,7 +1,10 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {  FaCartPlus } from "react-icons/fa";
-import { RxHamburgerMenu, RxCross1 } from "react-icons/rx"
+import {  RxCross1 } from "react-icons/rx"
+import { GiHamburgerMenu } from "react-icons/gi"
+
+
 import { BiSearchAlt } from "react-icons/bi"
 import { Link } from "react-router-dom";
 
@@ -33,12 +36,14 @@ export const Header = () => {
               
             <div className="flex  items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center text-white">
-                  {/* <img
+                  <Link to="/">
+                    {/* <img
                     className="h-8 w-auto"
                     src=""
                     alt="Your Company"
                   /> */}
                   Shoe-Trek
+                  </Link>
                 </div>
               </div>
 
@@ -140,12 +145,12 @@ export const Header = () => {
         <>
    <div className="absolute inset-x-0 left-0 flex items-center sm:hidden bg-gray-800 mb-auto">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex z-50 items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     < RxCross1 className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    < RxHamburgerMenu className="block h-6 w-6" aria-hidden="true" />
+                    < GiHamburgerMenu className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -162,6 +167,22 @@ export const Header = () => {
                       </div>
                       <div>
                       <Link to="/contact">Contact</Link>
+                      
+                      
+                      
+                      </div>
+                      <div className="">
+                      <Link to="/">Men</Link>
+                      </div>
+                      <div className="">
+                      <Link to="/">Women</Link>
+                      </div>
+                      <div className="">
+                      <Link to="/">Kids</Link>
+                      </div>
+
+                      <div className="">
+                      <Link to="/">Sale</Link>
                       </div>
                     </div>
                   </div>
@@ -176,9 +197,24 @@ export const Header = () => {
                       <div>
                       <Link to="/login">Login</Link>
                       </div>
-
                       <div>
                       <Link to="/contact">Contact</Link>
+                      
+                      
+                      
+                      </div>
+                      <div className="">
+                      <Link to="/">Men</Link>
+                      </div>
+                      <div className="">
+                      <Link to="/">Women</Link>
+                      </div>
+                      <div className="">
+                      <Link to="/">Kids</Link>
+                      </div>
+
+                      <div className="">
+                      <Link to="/">Sale</Link>
                       </div>
             </div>
           </Disclosure.Panel>

@@ -13,13 +13,14 @@ const Banner = ({Banner}) => {
  
   <div className=''>
 
-  <div class="mx-auto h-full max-w-2xl  lg:mx-0 text-center justify-center flex items-center ">
+  <div class="mx-auto h-full max-w-2xl  lg:mx-0 text-center justify-center items-center sm:items-start flex  ">
     <div className=" h-3/6 ">
-      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-7xl">Shop Men</h1>
+      <h1 class="text-8xl font-bold tracking-tight text-white sm:text-8xl">Shop </h1>
+      <h1 class="text-8xl font-bold tracking-tight text-white sm:text-8xl"> Men</h1>
       <p class="mt-6 text-xl leading-8 text-white">Shop Men's Fashion, Your Way.</p>
       <button
           type="submit"
-          className="rounded-md bg-indigo-600 px-8  mt-3 py-2 text-md font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-md bg-indigo-600 px-16  mt-3 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Shop Men
         </button>
