@@ -20,7 +20,7 @@ const Home = () => {
     <>
     <MainLayout>
 
-        <div className="mb-12">
+        <div className="mb-3">
             <HomeCarousel/>
         </div>
 
