@@ -37,7 +37,7 @@ export const Header = () => {
                 <div className="flex flex-shrink-0 items-center text-white">
                   <Link to="/">
                     <img
-                    className="h-44 w-auto"
+                    className="h-20 w-auto"
                     src={Logo}
                     alt="Your Company"
                   />
