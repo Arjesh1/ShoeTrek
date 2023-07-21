@@ -3,8 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {  FaCartPlus } from "react-icons/fa";
 import {  RxCross1 } from "react-icons/rx"
 import { GiHamburgerMenu } from "react-icons/gi"
-
-
+import Logo from '../assets/images/logo.png'
 import { BiSearchAlt } from "react-icons/bi"
 import { Link } from "react-router-dom";
 
@@ -31,18 +30,18 @@ export const Header = () => {
    <Disclosure as="nav" className="bg-gray-800  ">
    
         
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  ">
+          <div className="mx-auto max-w-7xl px-2 py-1 sm:px-6 lg:px-8  ">
             <div className="relative flex h-16 items-center justify-between">
               
             <div className="flex  items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center text-white">
                   <Link to="/">
-                    {/* <img
-                    className="h-8 w-auto"
-                    src=""
+                    <img
+                    className="h-44 w-auto"
+                    src={Logo}
                     alt="Your Company"
-                  /> */}
-                  Shoe-Trek
+                  />
+                  
                   </Link>
                 </div>
               </div>
