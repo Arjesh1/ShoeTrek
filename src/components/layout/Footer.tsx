@@ -55,9 +55,9 @@ Sign up for our newsletter.</h2>
      <Disclosure as="nav" className="bg-gray-800 h-auto   text-white">
         
 
-<div className=" p-4 py-16 sm:py-24 lg:py-32 flex justify-between flex-wrap">
+<div className=" p-4 py-16 sm:py-24 lg:py-28 flex justify-between flex-wrap">
 
-    <div className="flex flex-col sm:flex-row justify-evenly w-screen gap-4 gap-y-6">
+    <div className="flex flex-col sm:flex-row justify-evenly w-screen gap-4 gap-y-10">
     <div className="flex flex-col  items-center justify-center sm:items-stretch sm:justify-start ">
                 <div className="flex flex-shrink-0 items-center text-white  ">
                   <Link to="/">
@@ -82,7 +82,18 @@ Sign up for our newsletter.</h2>
 
               </div>
 
-              <div className=" flex gap-16 ">
+              <div className=" flex  justify-center  items-start gap-32 ">
+
+              <div className="flex flex-col  items-center justify-center sm:items-stretch sm:justify-start">
+           <ul className='flex flex-col gap-3'>
+        <li className='font-bold'>Get Help</li>
+          <li><Link to="/">Contact Us</Link></li>
+          <li><Link to="/">Shipping & Delivery</Link></li>
+          <li><Link to="/">Men</Link></li>
+          <li><Link to="/">Women</Link></li>
+          <li><Link to="/">Kids</Link></li>
+          </ul>
+          </div>
 
               <div className="flex flex-col  items-center justify-center sm:items-stretch sm:justify-start">
            <ul className='flex flex-col gap-3'>
@@ -93,16 +104,7 @@ Sign up for our newsletter.</h2>
           </ul>
           </div>
 
-          <div className="flex flex-col  items-center justify-center sm:items-stretch sm:justify-start">
-           <ul className='flex flex-col gap-3'>
-        <li className='font-bold'>Get Help</li>
-          <li><Link to="/">Contact Us</Link></li>
-          <li><Link to="/">Shipping & Delivery</Link></li>
-          <li><Link to="/">Men</Link></li>
-          <li><Link to="/">Women</Link></li>
-          <li><Link to="/">Kids</Link></li>
-          </ul>
-          </div>
+          
 
 
               </div>
