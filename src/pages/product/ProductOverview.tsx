@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { RadioGroup } from '@headlessui/react'
 import MainLayout from '../../components/layout/MainLayout';
+import { useParams } from 'react-router-dom';
 
 interface Breadcrumb {
   id: number;
@@ -106,6 +107,11 @@ function classNames(...classes: (string | boolean | undefined)[]): string {
 const ProductOverview: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<Color>(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState<Size>(product.sizes[2]);
+  const {productName} = useParams()
+
+  console.log(productName);
+  
+  
 
   return (
     <>
