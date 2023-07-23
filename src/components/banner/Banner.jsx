@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Banner = ({banner}) => {
-  console.log(banner);
+  
   
   
   return (

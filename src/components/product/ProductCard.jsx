@@ -1,16 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 
 
 
 const ProductCard = ({product}) => {
+  
     
     
     
   return (
     <>
-      <div className="bg-white">
+      
         
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8 ">
        
@@ -18,8 +20,9 @@ const ProductCard = ({product}) => {
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
           {product.map((item) => (
             
-            
-            <div key={item?.id} className="group relative">
+
+            <Link to={`/product/${item.slug}`}>
+            <div key={item?.slug} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
                   src={item?.thumbnail}
@@ -44,10 +47,11 @@ const ProductCard = ({product}) => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>
-    </div>
+    
     </>
   )
 }
