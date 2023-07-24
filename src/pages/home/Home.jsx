@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductCard from '../../components/product/ProductCard';
 import MaleBanner from '../../components/assets/images/menbanner.jpg'
 import FemaleBanner from '../../components/assets/images/femlebanner.jpg'
+import KidsBanner from '../../components/assets/images/kidbanner.jpg'
 import Banner from '../../components/banner/Banner';
 
 
@@ -17,8 +18,7 @@ const Home = () => {
     dispatch(getProductsAction())
    }, [dispatch])
 
-   const mBanner = {MaleBanner, heading:"Men"}
-   const fBanner = {MaleBanner, heading:"Female"}
+   
 
    
 
@@ -36,7 +36,7 @@ const Home = () => {
         </div>
 
         <div className="">
-          <Banner banner={mBanner}/>
+          <Banner banner={MaleBanner} heading="Men"/>
         </div>
 
         <div>
@@ -46,7 +46,7 @@ const Home = () => {
         </div>
 
         <div className="">
-          <Banner banner={fBanner}/>
+          <Banner banner={FemaleBanner} heading="Women"/>
         </div>
 
         <div>
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
 
         <div className="">
-          <Banner banner={fBanner}/>
+          <Banner banner={KidsBanner} heading="Kids"/>
         </div>
 
         <div>
