@@ -4,6 +4,7 @@ import { RadioGroup } from '@headlessui/react'
 import MainLayout from '../../components/layout/MainLayout';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import {IoIosArrowBack} from 'react-icons/io'
 
 
 
@@ -54,11 +55,11 @@ const ProductOverview= () => {
     <>
     <MainLayout>
     <div className="bg-white">
-      <div className="container mx-auto pt-4">
-      <Link to="/"><button class="rounded py-1 px-2 bg-indigo-300 ">Back</button></Link>
+      <div className="container mx-auto pt-4 pl-2 mt-7 sm:mt-1">
+      <Link to="/"><button class="rounded flex text-center py-1 px-2 bg-indigo-300 "><IoIosArrowBack className='mt-1'/>Back</button></Link>
       </div>
       
-      <div className="pt-6">
+      <div className="pt-2">
 
         {/* Image gallery */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">

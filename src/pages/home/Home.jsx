@@ -18,6 +18,19 @@ const Home = () => {
     dispatch(getProductsAction())
    }, [dispatch])
 
+
+//kids product
+   const kidsProduct = product.find(item => item.parentCat === "kids" )
+   const kidsProductsArray = kidsProduct ? [kidsProduct] : [];
+
+   //men product
+   const menProduct = product.find(item => item.parentCat === "men" )
+   const menProductsArray = menProduct ? [menProduct] : [];
+
+   //women product
+   const womenProduct = product.find(item => item.parentCat === "women" )
+   const womenProductsArray = womenProduct ? [womenProduct] : [];
+
    
 
    
@@ -58,7 +71,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={product} heading="Trending Kids"/>
+        <ProductCard product={kidsProductsArray} heading="Trending Kids"/>
         </div>
 
 

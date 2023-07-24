@@ -43,7 +43,7 @@ const ProductCard = ({product, heading}) => {
                       {item?.name}
                     </a>
                   </h3>
-                  <p className="mt-1 text-md text-gray-500">kmk</p>
+                  <p className="mt-1 text-md text-gray-500">{item.quantity} left!</p>
                 </div>
                 <div>
                   {!item.salesPrice ?(
