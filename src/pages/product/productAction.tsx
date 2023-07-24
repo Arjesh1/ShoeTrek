@@ -1,4 +1,4 @@
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
@@ -30,6 +30,10 @@ export const getProductsAction = () => async (
     
   }
 };
+
+
+
+
 
 
 
