@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { RadioGroup } from '@headlessui/react'
 import MainLayout from '../../components/layout/MainLayout';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -54,6 +54,10 @@ const ProductOverview= () => {
     <>
     <MainLayout>
     <div className="bg-white">
+      <div className="container mx-auto pt-4">
+      <Link to="/"><button class="rounded py-1 px-2 bg-indigo-300 ">Back</button></Link>
+      </div>
+      
       <div className="pt-6">
 
         {/* Image gallery */}
@@ -105,7 +109,11 @@ const ProductOverview= () => {
               </>
               ):(
                 <>
+                <div className="flex gap-4">
+                <p className="text-3xl tracking-tight text-gray-900 line-through">${price}</p>
               <p className="text-3xl tracking-tight text-gray-900">${salesPrice}</p>
+                </div>
+                
               </>
 
               )
