@@ -32,7 +32,7 @@ const Home = () => {
         </div>
 
         <div>
-          <ProductCard product={product}/>
+          <ProductCard product={product} heading="Sales"/>
         </div>
 
         <div className="">
@@ -40,11 +40,9 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl lg:px-8">
-          <h2 className='text-2xl font-bold tracking-tight text-gray-900'>Trending</h2>
-          </div>
+          
          
-        <ProductCard product={product}/>
+        <ProductCard product={product} heading="Trending Men"/>
         </div>
 
         <div className="">
@@ -52,8 +50,18 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={product}/>
+        <ProductCard product={product} heading="Trending Women"/>
         </div>
+
+        <div className="">
+          <Banner banner={fBanner}/>
+        </div>
+
+        <div>
+        <ProductCard product={product} heading="Trending Kids"/>
+        </div>
+
+
 
         
     </MainLayout>
