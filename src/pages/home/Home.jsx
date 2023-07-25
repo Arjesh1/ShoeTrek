@@ -19,17 +19,23 @@ const Home = () => {
    }, [dispatch])
 
 
+   //sales product 
+   const salesProduct = product.filter(item => item.salesPrice !== undefined  )
+  //  
+
+   
+
 //kids product
-   const kidsProduct = product.find(item => item.parentCat === "kids" )
-   const kidsProductsArray = kidsProduct ? [kidsProduct] : [];
+   const kidsProduct = product.filter(item => item.parentCat === "kids" )
+   
 
    //men product
-   const menProduct = product.find(item => item.parentCat === "men" )
-   const menProductsArray = menProduct ? [menProduct] : [];
+   const menProduct = product.filter(item => item.parentCat === "men" )
+ 
 
    //women product
-   const womenProduct = product.find(item => item.parentCat === "women" )
-   const womenProductsArray = womenProduct ? [womenProduct] : [];
+   const womenProduct = product.filter(item => item.parentCat === "women" )
+  
 
    
 
@@ -45,7 +51,7 @@ const Home = () => {
         </div>
 
         <div>
-          <ProductCard product={product} heading="Sales"/>
+          <ProductCard product={salesProduct.slice(0,4)} heading="Sales"/>
         </div>
 
         <div className="">
@@ -55,7 +61,7 @@ const Home = () => {
         <div>
           
          
-        <ProductCard product={product} heading="Trending Men"/>
+        <ProductCard product={menProduct.slice(0,4)} heading="Trending Men"/>
         </div>
 
         <div className="">
@@ -63,7 +69,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={product} heading="Trending Women"/>
+        <ProductCard product={womenProduct.slice(0,4)} heading="Trending Women"/>
         </div>
 
         <div className="">
@@ -71,7 +77,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={kidsProductsArray} heading="Trending Kids"/>
+        <ProductCard product={kidsProduct.slice(0,4)} heading="Trending Kids"/>
         </div>
 
 
