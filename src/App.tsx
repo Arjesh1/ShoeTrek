@@ -12,6 +12,7 @@ import Home from './pages/home/Home';
 import ProductList from './pages/product/ProductList';
 import { getProductsAction } from './pages/product/productAction';
 import { AppDispatch } from './store';
+import ShopingCart from './pages/product/ShopingCart';
 
 
 
@@ -29,6 +30,8 @@ function App() {
         <Route path='contact' element={<Contact/>}/>
         <Route path='product/:productName' element={<ProductOverview/>}/>
         <Route path='productList/:parentCat' element={<ProductList/>}/>
+        <Route path='shopingCart' element={<ShopingCart/>}/>
+      
         
       </Routes>
       
