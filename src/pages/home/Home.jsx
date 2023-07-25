@@ -51,7 +51,7 @@ const Home = () => {
         </div>
 
         <div>
-          <ProductCard product={salesProduct.slice(0,4)} heading="Sales"/>
+          <ProductCard product={salesProduct.slice(0,4)} category="sales" heading="Sales"/>
         </div>
 
         <div className="">
@@ -61,7 +61,8 @@ const Home = () => {
         <div>
           
          
-        <ProductCard product={menProduct.slice(0,4)} heading="Trending Men"/>
+        <ProductCard product={menProduct.slice(0,4)} category="men" heading="Trending Men"/>
+        
         </div>
 
         <div className="">
@@ -69,7 +70,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={womenProduct.slice(0,4)} heading="Trending Women"/>
+        <ProductCard product={womenProduct.slice(0,4)} category="women" heading="Trending Women"/>
         </div>
 
         <div className="">
@@ -77,7 +78,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={kidsProduct.slice(0,4)} heading="Trending Kids"/>
+        <ProductCard product={kidsProduct.slice(0,4)} category="kids" heading="Trending Kids"/>
         </div>
 
 

@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 
 
 
-const ProductCard = ({product, heading}) => {
+const ProductCard = ({product, heading, category}) => {
   
-    
+    console.log(category);
     
     
   return (
@@ -16,8 +16,11 @@ const ProductCard = ({product, heading}) => {
         
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8 ">
 
-      <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 flex justify-between sm:px-6  lg:max-w-7xl lg:px-8">
           <h2 className='text-2xl font-bold tracking-tight text-gray-900'>{heading}</h2>
+          <Link to={`/productList/${category}`}>
+          <h2 className='text-xl font-bold tracking-tight text-gray-900'>More</h2></Link>
+          
           </div>
        
 
