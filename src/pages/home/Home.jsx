@@ -8,6 +8,7 @@ import MaleBanner from '../../components/assets/images/menbanner.jpg'
 import FemaleBanner from '../../components/assets/images/femlebanner.jpg'
 import KidsBanner from '../../components/assets/images/kidbanner.jpg'
 import Banner from '../../components/banner/Banner';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 
 const Home = () => {
@@ -51,7 +52,7 @@ const Home = () => {
         </div>
 
         <div>
-          <ProductCard product={salesProduct.slice(0,4)} category="sales" heading="Sales"/>
+          <ProductCard product={salesProduct.slice(0,4)} category="sales" heading="Sales" link= "Show more"/>
         </div>
 
         <div className="">
@@ -60,8 +61,8 @@ const Home = () => {
 
         <div>
           
-         
-        <ProductCard product={menProduct.slice(0,4)} category="men" heading="Trending Men"/>
+        
+        <ProductCard product={menProduct.slice(0,4)} category="men" heading="Trending Men"  link="Show more"/>
         
         </div>
 
@@ -70,7 +71,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={womenProduct.slice(0,4)} category="women" heading="Trending Women"/>
+        <ProductCard product={womenProduct.slice(0,4)} category="women" heading="Trending Women"  link="Show more"/>
         </div>
 
         <div className="">
@@ -78,7 +79,7 @@ const Home = () => {
         </div>
 
         <div>
-        <ProductCard product={kidsProduct.slice(0,4)} category="kids" heading="Trending Kids"/>
+        <ProductCard product={kidsProduct.slice(0,4)} category="kids" heading="Trending Kids"  link="Show more"/>
         </div>
 
 
