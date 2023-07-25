@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const ProductCard = ({product, heading, category, link}) => {
+const ProductCard = ({product, heading, category, link, icon}) => {
   
     
     
@@ -18,8 +18,8 @@ const ProductCard = ({product, heading, category, link}) => {
 
       <div className="mx-auto max-w-2xl px-4 flex justify-between sm:px-6  lg:max-w-7xl lg:px-8">
           <h2 className='text-2xl font-bold tracking-tight text-gray-900'>{heading}</h2>
-          <Link to={`/productList/${category}`}>
-          <h2 className='text-lg  tracking-tight text-gray-900'>{link}</h2></Link>
+          <Link to={`/productList/${category}` }className="flex text-center">
+          <h2 className='text-lg  tracking-tight text-gray-900'>{link}</h2> {icon}</Link>
           
           </div>
        

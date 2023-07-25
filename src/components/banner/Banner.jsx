@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Banner = ({banner, heading}) => {
   
@@ -21,12 +22,14 @@ const Banner = ({banner, heading}) => {
       <h1 class="text-8xl font-bold tracking-tight text-white sm:text-8xl">Shop </h1>
       <h1 class="text-8xl font-bold tracking-tight text-white sm:text-8xl"> {heading}</h1>
       <p class="mt-6 text-xl leading-8 text-white">Shop <span>{heading}</span>'s Fashion, Your Way.</p>
+      <Link to={`/productList/${heading.toLowerCase()}`}>
       <button
           type="submit"
           className="rounded-md bg-indigo-600 px-16  mt-3 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           {heading}
         </button>
+        </Link>
     </div>
     </div>
     
