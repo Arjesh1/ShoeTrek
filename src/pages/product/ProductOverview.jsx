@@ -60,9 +60,7 @@ const ProductOverview= () => {
     <>
     <MainLayout>
     <div className="bg-white ">
-      <div className="container mx-auto pt-4 pl-2 mt-7 sm:mt-1">
-      <Link to="/"><button class="rounded flex text-center py-1 px-2 bg-indigo-300 "><IoIosArrowBack className='mt-1'/>Back</button></Link>
-      </div>
+      
       
       <div className="pt-2">
 

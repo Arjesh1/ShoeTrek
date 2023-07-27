@@ -152,7 +152,7 @@ export const Header = () => {
         <>
    <div className="absolute inset-x-0 left-0 flex items-center sm:hidden bg-gray-800 mb-auto">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex z-50 items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className=" w-full inline-flex z-50 items-center justify-start  p-2 text-gray-400 bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     < RxCross1 className="block h-6 w-6" aria-hidden="true" />
@@ -187,32 +187,30 @@ export const Header = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                          to={`/productList/men`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop All Men
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link to={`/productList/men`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Trending
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
-                          >
+                          <Link to={`/productList/men`}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}>
+                          
                             Men Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -241,32 +239,32 @@ export const Header = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/women`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop All Women
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                          to={`/productList/women`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Trending
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                          to={`/productList/women`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Women Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -295,32 +293,32 @@ export const Header = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/kids`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop All Kids
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/kids`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Trending
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/kids`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Kids Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -349,42 +347,42 @@ export const Header = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/sales`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop All Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/sales`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop Men Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to={`/productList/sales`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop Women Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                          to={`/productList/sales`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
                           >
                             Shop Kids Sale
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -427,20 +425,20 @@ export const Header = () => {
 
 <Disclosure as="div" className="flex flex-col gap-2 mt-2">
           
-              <Link to="/contact">
+              <Link to={`/productList/men`}>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
                 <span>Shop All Men</span>
                 
               </Disclosure.Button>
               </Link>
-              <Link to="/contact">
+              <Link to={`/productList/men`}>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
                 <span>Trending</span>
                 
               </Disclosure.Button>
               </Link>
               
-              <Link to="/contact">
+              <Link to={`/productList/men`}>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
                 <span>Men Sale</span>
                 
@@ -478,20 +476,20 @@ export const Header = () => {
                   >
                     <Disclosure as="div" className="flex flex-col gap-2 mt-2">
           
-          <Link to="/contact">
+          <Link to={`/productList/women`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Shop All Women</span>
             
           </Disclosure.Button>
           </Link>
-          <Link to="/contact">
+          <Link to={`/productList/women`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Trending</span>
             
           </Disclosure.Button>
           </Link>
           
-          <Link to="/contact">
+          <Link to={`/productList/women`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Women Sale</span>
             
@@ -524,20 +522,20 @@ export const Header = () => {
                   >
                     <Disclosure as="div" className="flex flex-col gap-2 mt-2">
           
-          <Link to="/contact">
+          <Link to={`/productList/kids`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Shop All Kids</span>
             
           </Disclosure.Button>
           </Link>
-          <Link to="/contact">
+          <Link to={`/productList/kids`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Trending</span>
             
           </Disclosure.Button>
           </Link>
           
-          <Link to="/contact">
+          <Link to={`/productList/kids`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Kids Sale</span>
             
@@ -570,27 +568,27 @@ export const Header = () => {
                   >
                     <Disclosure as="div" className="flex flex-col gap-2 mt-2">
           
-          <Link to="/contact">
+          <Link to={`/productList/sales`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Shop All Sales</span>
             
           </Disclosure.Button>
           </Link>
-          <Link to="/contact">
+          <Link to={`/productList/sales`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Shop Men Sale</span>
             
           </Disclosure.Button>
           </Link>
           
-          <Link to="/contact">
+          <Link to={`/productList/sales`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Shop Women Sale</span>
             
           </Disclosure.Button>
           </Link>
 
-          <Link to="/contact">
+          <Link to={`/productList/sales`}>
             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
             <span>Shop Kids Sale</span>
             
