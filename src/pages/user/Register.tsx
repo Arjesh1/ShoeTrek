@@ -3,6 +3,7 @@ import MainLayout from '../../components/layout/MainLayout'
 import "./user.css"
 import { registerUserAction } from './userAction';
 import { useDispatch } from 'react-redux';
+import Logo from '../../components/assets/images/dark logo.png'
 
 
 interface FormState {
@@ -58,14 +59,16 @@ const Register = () => {
 
 <MainLayout>
   <div className="mt-12 mb-6">
-    <h1 className='text-center font-mono text-4xl'>Register</h1>
+    <h1 className='text-center  text-3xl text-center  font-bold leading-9 tracking-tight text-gray-900'>Register</h1>
   </div>
 
-    <div className='container  shadow-violet-200 shadow-2xl p-4 m-4 my-8 mx-auto grid grid-rows-2  gap-1  sm:mt-2 md:mt-2  lg:mt-2 xl:mt-2 2xl:mt-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 lg:grid-rows-1 xl:grid-rows-1 2xl:grid-rows-1 '>
+    <div className='container shadow-violet-200 shadow-2xl p-4 m-4 my-8 mx-auto  sm:mt-2 
+    flex flex-col justify-around sm:flex-row '>
 
     
 
-        <div className='flex justify-end bg-red-700 register-img '>
+        <div className='flex  items-center justify-center  '>
+          <img src={Logo} alt="logo" className=' h-72 w-auto '  />
          
         </div>
 
@@ -86,7 +89,7 @@ const Register = () => {
                   name="firstName"
                   onChange={handleOnChange}
                   required={true}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -101,7 +104,7 @@ const Register = () => {
                   name="lastName"
                   onChange={handleOnChange}
                   required={true}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -116,7 +119,7 @@ const Register = () => {
                   type="email"
                   onChange={handleOnChange}
                   required={true}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -131,7 +134,7 @@ const Register = () => {
                   type="password"
                   onChange={handleOnChange}
                   required={true}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -148,7 +151,7 @@ const Register = () => {
                   onChange={handleOnChange}
                   required={true}
                  
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

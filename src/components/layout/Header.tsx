@@ -31,13 +31,13 @@ export const Header = () => {
    
         
           <div className="mx-auto max-w-7xl px-2 py-1 sm:px-6 lg:px-8  ">
-            <div className="relative flex h-16 items-center justify-between">
+            <div className="relative flex h-16 items-center sm:justify-between">
               
             <div className="flex  items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center text-white">
                   <Link to="/">
                     <img
-                    className="h-20 w-auto"
+                    className="h-14  sm:h-20 w-auto"
                     src={Logo}
                     alt="Your Company"
                   />
@@ -46,9 +46,9 @@ export const Header = () => {
                 </div>
               </div>
 
-              <div className=" w-96 ">
-              <form className='flex '>
-              <label className="relative block w-full">
+              <div className=" w-56 sm:w-96 px-2 ">
+              <form className=' '>
+              <label className="relative block w-auto sm:w-full">
 
   <input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300  rounded-full py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-white text-center " placeholder="Search for anything..." type="text" name="search" onChange={handleOnChange}/>
 
@@ -96,8 +96,9 @@ export const Header = () => {
                     leave="transition ease-in duration-75"
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
+                    
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                       <Menu.Item>
                         {({ active }) => (
                           <a
@@ -157,33 +158,33 @@ export const Header = () => {
               </div>
 
    <div className="hidden sm:ml-6 sm:block pt-2 pb-2">
-                  <div className="flex justify-center space-x-4 text-white">
+                  <div className="flex justify-center space-x-1 text-white">
                     
                       <div>
-                        <Link to="/">Home</Link>
+                        <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900  rounded-md px-3 py-2 text-sm font-medium" to="/">Home</Link>
 
                       </div>
                       <div>
-                      <Link to="/login">Login</Link>
+                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/login">Login</Link>
                       </div>
                       <div>
-                      <Link to="/contact">Contact</Link>
+                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/contact">Contact</Link>
                       
                       
                       
                       </div>
                       <div className="">
-                      <Link to="/">Men</Link>
+                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Men</Link>
                       </div>
                       <div className="">
-                      <Link to="/">Women</Link>
+                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Women</Link>
                       </div>
                       <div className="">
-                      <Link to="/">Kids</Link>
+                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Kids</Link>
                       </div>
 
                       <div className="">
-                      <Link to="/">Sale</Link>
+                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Sale</Link>
                       </div>
                     </div>
                   </div>
@@ -192,30 +193,30 @@ export const Header = () => {
                 <Disclosure.Panel className="sm:hidden ">
             <div className="space-y-1  px-2 pb-3 pt-2 mt-9 text-white ">
             <div>
-                        <Link to="/">Home</Link>
+                        <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Home</Link>
 
                       </div>
                       <div>
-                      <Link to="/login">Login</Link>
+                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/login">Login</Link>
                       </div>
                       <div>
-                      <Link to="/contact">Contact</Link>
+                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/contact">Contact</Link>
                       
                       
                       
                       </div>
                       <div className="">
-                      <Link to="/">Men</Link>
+                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Men</Link>
                       </div>
                       <div className="">
-                      <Link to="/">Women</Link>
+                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Women</Link>
                       </div>
                       <div className="">
-                      <Link to="/">Kids</Link>
+                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Kids</Link>
                       </div>
 
                       <div className="">
-                      <Link to="/">Sale</Link>
+                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Sale</Link>
                       </div>
             </div>
           </Disclosure.Panel>

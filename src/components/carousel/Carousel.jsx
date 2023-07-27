@@ -14,7 +14,7 @@ const HomeCarousel = () => {
   return (
     <>
 
-    <div className="relative"
+    <div className="relative z-0"
     style={{
       height:"60vh"
     }}>
@@ -69,7 +69,7 @@ const HomeCarousel = () => {
 
       </Swiper>
 
-      <div className="mx-auto max-w-2xl absolute z-50 top-16  right-0 whitespace-normal">
+      <div className="mx-auto max-w-2xl absolute z-50 top-16  right-0 whitespace-normal z-10">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-black hover:ring-gray-900/20">
               Free shipping when you shop over $50.{' '}
@@ -80,7 +80,7 @@ const HomeCarousel = () => {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900  sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900  sm:text-6xl ">
             Shoes that Make a Statement
             </h1>
             

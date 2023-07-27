@@ -1,7 +1,7 @@
 import React from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import {Link} from 'react-router-dom'
-import Logo from '../../components/assets/images/logo.png'
+import Logo from '../../components/assets/images/dark logo.png'
 
 const Login = () => {
   return (
@@ -9,12 +9,12 @@ const Login = () => {
 
     <MainLayout>
 
-        <div className=" ">
+        <>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center">
-          <div className="flex justify-center">
+          <div className="flex justify-center ">
           <img
-                    className="h-20 w-auto"
+                    className="h-50 w-auto"
                     src={Logo}
                     alt="Your Company"
                   />
@@ -22,7 +22,7 @@ const Login = () => {
           </div>
         
           
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className=" mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
         </div>
@@ -40,7 +40,7 @@ const Login = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -63,7 +63,7 @@ const Login = () => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -86,7 +86,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-        </div>
+        </>
 
 
 
