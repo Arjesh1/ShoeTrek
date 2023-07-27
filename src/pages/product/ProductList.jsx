@@ -42,7 +42,8 @@ const ProductList = () => {
     <MainLayout>
 
 
-        <ProductCard product={cat} />
+
+        <ProductCard product={cat} heading={category.parentCat.slice(0,1).toUpperCase() + category.parentCat.slice(1)} />
     </MainLayout>
       
     </>

@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import Logo from '../assets/images/logo.png'
 import { BiSearchAlt } from "react-icons/bi"
 import { Link } from "react-router-dom";
+import { AiOutlineDown } from 'react-icons/ai';
 
 
 
@@ -142,6 +143,10 @@ export const Header = () => {
       
    </Disclosure>
 
+
+
+
+
    <Disclosure as="nav" className="bg-gray-800 border-t-2 border-white-500  ">
    {({ open }) => (
         <>
@@ -160,64 +165,448 @@ export const Header = () => {
    <div className="hidden sm:ml-6 sm:block pt-2 pb-2">
                   <div className="flex justify-center space-x-1 text-white">
                     
-                      <div>
-                        <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900  rounded-md px-3 py-2 text-sm font-medium" to="/">Home</Link>
-
-                      </div>
-                      <div>
-                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/login">Login</Link>
-                      </div>
-                      <div>
-                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/contact">Contact</Link>
-                      
-                      
-                      
-                      </div>
-                      <div className="">
-                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Men</Link>
-                      </div>
-                      <div className="">
-                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Women</Link>
-                      </div>
-                      <div className="">
-                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Kids</Link>
-                      </div>
 
                       <div className="">
-                      <Link  className="text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium" to="/">Sale</Link>
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Men</span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop All Men
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Trending
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Men Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
                       </div>
+
+                      <div className="">
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Women</span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop All Women
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Trending
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Women Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+                      </div>
+
+                      <div className="">
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Kids</span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop All Kids
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Trending
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Kids Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+                      </div>
+
+                      <div className="">
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Sale</span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop All Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop Men Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop Women Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-md text-gray-700')}
+                          >
+                            Shop Kids Sale
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+                      </div>
+
+
+
+                      
+                      
                     </div>
                   </div>
                
 
                 <Disclosure.Panel className="sm:hidden ">
             <div className="space-y-1  px-2 pb-3 pt-2 mt-9 text-white ">
-            <div>
-                        <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Home</Link>
-
-                      </div>
-                      <div>
-                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/login">Login</Link>
-                      </div>
-                      <div>
-                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/contact">Contact</Link>
-                      
-                      
-                      
-                      </div>
-                      <div className="">
-                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Men</Link>
-                      </div>
-                      <div className="">
-                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Women</Link>
-                      </div>
-                      <div className="">
-                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Kids</Link>
-                      </div>
+            
+                    
 
                       <div className="">
-                      <Link  className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md focus:bg-gray-900 active:bg-gray-900 px-3 py-2 text-base font-medium' to="/">Sale</Link>
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex w-full justify-between text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Men</span>
+                      <span><AiOutlineDown/></span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+
+<Disclosure as="div" className="flex flex-col gap-2 mt-2">
+          
+              <Link to="/contact">
+                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+                <span>Shop All Men</span>
+                
+              </Disclosure.Button>
+              </Link>
+              <Link to="/contact">
+                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+                <span>Trending</span>
+                
+              </Disclosure.Button>
+              </Link>
+              
+              <Link to="/contact">
+                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+                <span>Men Sale</span>
+                
+              </Disclosure.Button>
+              </Link>
+           
+        </Disclosure>
+      
+                    
+                  </Transition>
+                </Menu>
+
+
+
                       </div>
+
+                      <div className="">
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex w-full justify-between text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Women</span>
+                      <span><AiOutlineDown/></span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Disclosure as="div" className="flex flex-col gap-2 mt-2">
+          
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Shop All Women</span>
+            
+          </Disclosure.Button>
+          </Link>
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Trending</span>
+            
+          </Disclosure.Button>
+          </Link>
+          
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Women Sale</span>
+            
+          </Disclosure.Button>
+          </Link>
+       
+    </Disclosure>
+                  </Transition>
+                </Menu>
+                      </div>
+
+                      <div className="">
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex w-full justify-between text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Kids</span>
+                      <span><AiOutlineDown/></span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Disclosure as="div" className="flex flex-col gap-2 mt-2">
+          
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Shop All Kids</span>
+            
+          </Disclosure.Button>
+          </Link>
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Trending</span>
+            
+          </Disclosure.Button>
+          </Link>
+          
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Kids Sale</span>
+            
+          </Disclosure.Button>
+          </Link>
+       
+    </Disclosure>
+                  </Transition>
+                </Menu>
+                      </div>
+
+                      <div className="">
+                      <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex w-full justify-between text-white hover:bg-gray-700 focus:bg-gray-900 active:bg-gray-900 rounded-md px-3 py-2 text-md font-medium">
+                      <span className=" ">Sale</span>
+                      <span><AiOutlineDown/></span>
+                      
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    
+                  >
+                    <Disclosure as="div" className="flex flex-col gap-2 mt-2">
+          
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Shop All Sales</span>
+            
+          </Disclosure.Button>
+          </Link>
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Shop Men Sale</span>
+            
+          </Disclosure.Button>
+          </Link>
+          
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Shop Women Sale</span>
+            
+          </Disclosure.Button>
+          </Link>
+
+          <Link to="/contact">
+            <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+            <span>Shop Kids Sale</span>
+            
+          </Disclosure.Button>
+          </Link>
+       
+    </Disclosure>
+                  </Transition>
+                </Menu>
+                      </div>
+
+
+
+                      
+                      
+                    
             </div>
           </Disclosure.Panel>
           </>

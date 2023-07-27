@@ -1,24 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Banner = ({banner, heading}) => {
+const BannerRotated = ({banner, heading}) => {
   
   
   
   return (
     <>
 
-<div className=" h-auto grid grid-row-2 bg-gray-300  my-4    sm:grid-cols-2 pb-2 sm:pb-0">
+<div className=" h-auto grid grid-row-2 bg-gray-300  my-4    sm:grid-cols-2 ">
   
-<div className='' >
-  <img src={banner} alt="modal" className=' ' />
-  </div>
+
   
   
  
   <div className=''>
 
-  <div class="mx-auto h-full max-w-2xl  lg:mx-0 text-center flex justify-center items-center ">
+  <div class="mx-auto h-full max-w-2xl  lg:mx-0 text-center flex justify-center items-center  mb-5 sm:mb-0">
     <div className=" h-auto  ">
       <h1 class="text-8xl font-bold tracking-tight text-white sm:text-8xl">Shop </h1>
       <h1 class="text-8xl font-bold tracking-tight text-white sm:text-8xl"> {heading}</h1>
@@ -36,10 +34,15 @@ const Banner = ({banner, heading}) => {
     
 
   </div>
+
+
+  <div className='' >
+  <img src={banner} alt="modal" className=' ' />
+  </div>  
 </div>
       
     </>
   )
 }
 
-export default Banner
+export default BannerRotated

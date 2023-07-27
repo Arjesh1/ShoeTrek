@@ -8,7 +8,9 @@ import MaleBanner from '../../components/assets/images/menbanner.jpg'
 import FemaleBanner from '../../components/assets/images/femlebanner.jpg'
 import KidsBanner from '../../components/assets/images/kidbanner.jpg'
 import Banner from '../../components/banner/Banner';
+
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import BannerRotated from '../../components/banner/BannerRotated';
 
 
 
@@ -68,7 +70,7 @@ const Home = () => {
         </div>
 
         <div className="">
-          <Banner banner={FemaleBanner} heading="Women"/>
+          <BannerRotated banner={FemaleBanner} heading="Women"/>
         </div>
 
         <div>
