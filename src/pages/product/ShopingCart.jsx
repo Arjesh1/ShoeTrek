@@ -1,12 +1,15 @@
 import React, { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { AiOutlineClose } from 'react-icons/ai'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCartShow } from '../../system/cartSlice'
 
 
 
 
 const ShopingCart = () => {
-    const [open, setOpen] = useState(true)
+  const dispatch = useDispatch()
+  const {cartShow} = useSelector(state =>state.system)
 
 
     const products = [
@@ -35,8 +38,8 @@ const ShopingCart = () => {
       ]
   return (
     <>
-       <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+       <Transition.Root show={cartShow} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={()=> dispatch (setCartShow(false))}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -70,7 +73,7 @@ const ShopingCart = () => {
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={()=> dispatch (setCartShow(false))}
                           >
                             <span className="sr-only">Close panel</span>
                             <AiOutlineClose className="h-6 w-6" aria-hidden="true" />
@@ -141,7 +144,7 @@ const ShopingCart = () => {
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={()=> dispatch (setCartShow(false))}
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>

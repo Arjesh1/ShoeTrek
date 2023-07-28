@@ -8,10 +8,10 @@ const Banner = ({banner, heading}) => {
   return (
     <>
 
-<div className=" h-auto grid grid-row-2 bg-gray-300  my-4    sm:grid-cols-2 pb-2 sm:pb-0">
+<div className=" h-4/6 grid grid-row-2 bg-gray-300  my-4    sm:grid-cols-2 pb-2 sm:pb-0">
   
 <div className='' >
-  <img src={banner} alt="modal" className=' ' />
+  <img src={banner} alt="modal" className='h-full' />
   </div>
   
   

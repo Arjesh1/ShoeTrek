@@ -7,6 +7,9 @@ import Logo from '../assets/images/logo.png'
 import { BiSearchAlt } from "react-icons/bi"
 import { Link } from "react-router-dom";
 import { AiOutlineDown } from 'react-icons/ai';
+import ShopingCart from '../../pages/product/ShopingCart';
+import { useDispatch } from 'react-redux';
+import { setCartShow } from '../../system/cartSlice';
 
 
 
@@ -24,9 +27,20 @@ function classNames(...classes: string[]) {
 
   }
 
+
+
 export const Header = () => {
+const dispatch = useDispatch()
+
+  
+  const handleOnClick = () =>{
+    dispatch(setCartShow(true))
+  }
+
+
   return (
   <>
+  <ShopingCart/>
   {/* logo and cart */}
    <Disclosure as="nav" className="bg-gray-800  ">
    
@@ -67,15 +81,16 @@ export const Header = () => {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Link to="/shopingCart">
+                
                 <button
                   type="button"
+                  onClick={handleOnClick}
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   
                   <FaCartPlus className="h-6 w-6" aria-hidden="true" />
                 </button>
-                </Link>
+                
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">

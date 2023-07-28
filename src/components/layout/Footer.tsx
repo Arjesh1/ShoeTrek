@@ -87,11 +87,11 @@ Sign up for our newsletter.</h2>
               <div className="flex flex-col  items-center justify-center sm:items-stretch sm:justify-start">
            <ul className='flex flex-col gap-3'>
         <li className='font-bold'>Get Help</li>
-          <li><Link to="/">Contact Us</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
           <li><Link to="/">Shipping & Delivery</Link></li>
-          <li><Link to="/">Men</Link></li>
-          <li><Link to="/">Women</Link></li>
-          <li><Link to="/">Kids</Link></li>
+          <li><Link to={`/productList/men`}>Men</Link></li>
+          <li><Link to={`/productList/women`}>Women</Link></li>
+          <li><Link to={`/productList/kids`}>Kids</Link></li>
           </ul>
           </div>
 
