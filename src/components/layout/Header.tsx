@@ -35,57 +35,44 @@ function classNames(...classes: string[]) {
         featured: [
           {
             name: 'New Arrivals',
-            href: '#',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
+            href: 'productList/women',
+            imageSrc: 'https://images.pexels.com/photos/841128/pexels-photo-841128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
           },
           {
             name: 'Basic Tees',
             href: '#',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
+            imageSrc: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
             imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
           },
+
+          {
+            name: 'New Arrivals',
+            href: '#',
+            imageSrc: 'https://images.unsplash.com/photo-1571210862729-78a52d3779a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+          },
+          // {
+          //   name: 'Artwork Tees',
+          //   href: '#',
+          //   imageSrc: 'https://images.pexels.com/photos/345415/pexels-photo-345415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+          //   imageAlt:
+          //     'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
+          // },
         ],
-        sections: [
-          {
-            id: 'clothing',
-            name: 'Clothing',
-            items: [
-              { name: 'Tops', href: '#' },
-              { name: 'Dresses', href: '#' },
-              { name: 'Pants', href: '#' },
-              { name: 'Denim', href: '#' },
-              { name: 'Sweaters', href: '#' },
-              { name: 'T-Shirts', href: '#' },
-              { name: 'Jackets', href: '#' },
-              { name: 'Activewear', href: '#' },
-              { name: 'Browse All', href: '#' },
-            ],
-          },
-          {
-            id: 'accessories',
-            name: 'Accessories',
-            items: [
-              { name: 'Watches', href: '#' },
-              { name: 'Wallets', href: '#' },
-              { name: 'Bags', href: '#' },
-              { name: 'Sunglasses', href: '#' },
-              { name: 'Hats', href: '#' },
-              { name: 'Belts', href: '#' },
-            ],
-          },
-          {
-            id: 'brands',
-            name: 'Brands',
-            items: [
-              { name: 'Full Nelson', href: '#' },
-              { name: 'My Way', href: '#' },
-              { name: 'Re-Arranged', href: '#' },
-              { name: 'Counterfeit', href: '#' },
-              { name: 'Significant Other', href: '#' },
-            ],
-          },
-        ],
+        // sections: [
+          
+        //   {
+        //     id: 'brands',
+        //     name: 'Brands',
+        //     items: [
+        //       { name: 'Full Nelson', href: '#' },
+        //       { name: 'My Way', href: '#' },
+        //       { name: 'Re-Arranged', href: '#' },
+        //       { name: 'Counterfeit', href: '#' },
+        //       { name: 'Significant Other', href: '#' },
+        //     ],
+        //   },
+        // ],
       },
       {
         id: 'men',
@@ -105,43 +92,19 @@ function classNames(...classes: string[]) {
               'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
           },
         ],
-        sections: [
-          {
-            id: 'clothing',
-            name: 'Clothing',
-            items: [
-              { name: 'Tops', href: '#' },
-              { name: 'Pants', href: '#' },
-              { name: 'Sweaters', href: '#' },
-              { name: 'T-Shirts', href: '#' },
-              { name: 'Jackets', href: '#' },
-              { name: 'Activewear', href: '#' },
-              { name: 'Browse All', href: '#' },
-            ],
-          },
-          {
-            id: 'accessories',
-            name: 'Accessories',
-            items: [
-              { name: 'Watches', href: '#' },
-              { name: 'Wallets', href: '#' },
-              { name: 'Bags', href: '#' },
-              { name: 'Sunglasses', href: '#' },
-              { name: 'Hats', href: '#' },
-              { name: 'Belts', href: '#' },
-            ],
-          },
-          {
-            id: 'brands',
-            name: 'Brands',
-            items: [
-              { name: 'Re-Arranged', href: '#' },
-              { name: 'Counterfeit', href: '#' },
-              { name: 'Full Nelson', href: '#' },
-              { name: 'My Way', href: '#' },
-            ],
-          },
-        ],
+        // sections: [
+          
+        //   {
+        //     id: 'brands',
+        //     name: 'Brands',
+        //     items: [
+        //       { name: 'Re-Arranged', href: '#' },
+        //       { name: 'Counterfeit', href: '#' },
+        //       { name: 'Full Nelson', href: '#' },
+        //       { name: 'My Way', href: '#' },
+        //     ],
+        //   },
+        // ],
       },
       {
         id: 'kids',
@@ -161,43 +124,19 @@ function classNames(...classes: string[]) {
               'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
           },
         ],
-        sections: [
-          {
-            id: 'clothing',
-            name: 'Clothing',
-            items: [
-              { name: 'Tops', href: '#' },
-              { name: 'Pants', href: '#' },
-              { name: 'Sweaters', href: '#' },
-              { name: 'T-Shirts', href: '#' },
-              { name: 'Jackets', href: '#' },
-              { name: 'Activewear', href: '#' },
-              { name: 'Browse All', href: '#' },
-            ],
-          },
-          {
-            id: 'accessories',
-            name: 'Accessories',
-            items: [
-              { name: 'Watches', href: '#' },
-              { name: 'Wallets', href: '#' },
-              { name: 'Bags', href: '#' },
-              { name: 'Sunglasses', href: '#' },
-              { name: 'Hats', href: '#' },
-              { name: 'Belts', href: '#' },
-            ],
-          },
-          {
-            id: 'brands',
-            name: 'Brands',
-            items: [
-              { name: 'Re-Arranged', href: '#' },
-              { name: 'Counterfeit', href: '#' },
-              { name: 'Full Nelson', href: '#' },
-              { name: 'My Way', href: '#' },
-            ],
-          },
-        ],
+        // sections: [
+          
+        //   {
+        //     id: 'brands',
+        //     name: 'Brands',
+        //     items: [
+        //       { name: 'Re-Arranged', href: '#' },
+        //       { name: 'Counterfeit', href: '#' },
+        //       { name: 'Full Nelson', href: '#' },
+        //       { name: 'My Way', href: '#' },
+        //     ],
+        //   },
+        // ],
       },
 
       {
@@ -218,43 +157,19 @@ function classNames(...classes: string[]) {
               'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
           },
         ],
-        sections: [
-          {
-            id: 'clothing',
-            name: 'Clothing',
-            items: [
-              { name: 'Tops', href: '#' },
-              { name: 'Pants', href: '#' },
-              { name: 'Sweaters', href: '#' },
-              { name: 'T-Shirts', href: '#' },
-              { name: 'Jackets', href: '#' },
-              { name: 'Activewear', href: '#' },
-              { name: 'Browse All', href: '#' },
-            ],
-          },
-          {
-            id: 'accessories',
-            name: 'Accessories',
-            items: [
-              { name: 'Watches', href: '#' },
-              { name: 'Wallets', href: '#' },
-              { name: 'Bags', href: '#' },
-              { name: 'Sunglasses', href: '#' },
-              { name: 'Hats', href: '#' },
-              { name: 'Belts', href: '#' },
-            ],
-          },
-          {
-            id: 'brands',
-            name: 'Brands',
-            items: [
-              { name: 'Re-Arranged', href: '#' },
-              { name: 'Counterfeit', href: '#' },
-              { name: 'Full Nelson', href: '#' },
-              { name: 'My Way', href: '#' },
-            ],
-          },
-        ],
+        // sections: [
+          
+        //   {
+        //     id: 'brands',
+        //     name: 'Brands',
+        //     items: [
+        //       { name: 'Re-Arranged', href: '#' },
+        //       { name: 'Counterfeit', href: '#' },
+        //       { name: 'Full Nelson', href: '#' },
+        //       { name: 'My Way', href: '#' },
+        //     ],
+        //   },
+        // ],
       },
     ],
     
@@ -459,7 +374,7 @@ const [open, setOpen] = useState(false)
                       <Tab.Panel key={category.name} className="space-y-10 px-4 pb-8 pt-10">
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
-                            <div key={item.name} className="group relative text-sm">
+                            <div key={item.name} className="group relative text-sm mb-7">
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
                               </div>
@@ -473,7 +388,7 @@ const [open, setOpen] = useState(false)
                             </div>
                           ))}
                         </div>
-                        {category.sections.map((section) => (
+                        {/* {category.sections.map((section) => (
                           <div key={section.name}>
                             <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
                               {section.name}
@@ -492,7 +407,7 @@ const [open, setOpen] = useState(false)
                               ))}
                             </ul>
                           </div>
-                        ))}
+                        ))} */}
                       </Tab.Panel>
                     ))}
                   </Tab.Panels>
@@ -500,30 +415,7 @@ const [open, setOpen] = useState(false)
 
                 
 
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Sign in
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Create account
-                    </a>
-                  </div>
-                </div>
-
-                <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="#" className="-m-2 flex items-center p-2">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
+                
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -533,17 +425,17 @@ const [open, setOpen] = useState(false)
       <header className="relative  bg-gray-800 border-t-2 border-white">
         
 
-        <nav aria-label="Top" className=" mx-auto flex  justify-center max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className=" mx-auto flex  justify-start lg:justify-center max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               <button
                 type="button"
-                className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="relative rounded-md p-2 text-white lg:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
-                <RxCross1 className="h-6 w-6" aria-hidden="true" />
+                <GiHamburgerMenu className="h-6 w-6" aria-hidden="true" />
               </button>
 
               
@@ -579,13 +471,13 @@ const [open, setOpen] = useState(false)
                             leaveTo="opacity-0"
                           >
                             <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
-                              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+                              
                               <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
                               <div className="relative bg-white">
                                 <div className="mx-auto max-w-7xl px-8">
-                                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                                    <div className="col-start-2 grid grid-cols-2 gap-x-8">
+                                  <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-16">
+                                    <div className="col-start-2 grid grid-cols-4 gap-x-8 gap-y-8">
                                       {category.featured.map((item) => (
                                         <div key={item.name} className="group relative text-base sm:text-sm">
                                           <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
@@ -605,8 +497,8 @@ const [open, setOpen] = useState(false)
                                         </div>
                                       ))}
                                     </div>
-                                    <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
-                                      {category.sections.map((section) => (
+                                    {/* <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm"> */}
+                                      {/* {category.sections.map((section) => (
                                         <div key={section.name}>
                                           <p id={`${section.name}-heading`} className="font-medium text-gray-900">
                                             {section.name}
@@ -625,8 +517,8 @@ const [open, setOpen] = useState(false)
                                             ))}
                                           </ul>
                                         </div>
-                                      ))}
-                                    </div>
+                                      ))} */}
+                                    {/* </div> */}
                                   </div>
                                 </div>
                               </div>

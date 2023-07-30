@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { RadioGroup } from '@headlessui/react'
 import MainLayout from '../../components/layout/MainLayout';
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {IoIosArrowBack} from 'react-icons/io'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { getProductsAction } from './productAction';
 
 
 
@@ -38,6 +39,13 @@ const ProductOverview= () => {
   const {productName} = useParams()
   const {product} = useSelector((state) => state.product)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const dispatch= useDispatch();
+  
+
+  useEffect(()=>{
+    dispatch(getProductsAction())
+   }, [dispatch])
+
 
   
   const selectedProduct = product.find(item => item.slug === productName )
