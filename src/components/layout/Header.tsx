@@ -34,109 +34,79 @@ function classNames(...classes: string[]) {
         name: 'Women',
         featured: [
           {
-            name: 'New Arrivals',
+            name: 'Shop All women',
             href: 'productList/women',
-            imageSrc: 'https://images.pexels.com/photos/841128/pexels-photo-841128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-            imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
+            imageSrc: 'https://images.pexels.com/photos/8968694/pexels-photo-8968694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
           },
           {
-            name: 'Basic Tees',
-            href: '#',
-            imageSrc: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
+            name: 'Trending',
+            href: 'producList/women-trending',
+            imageSrc: 'https://images.pexels.com/photos/5026387/pexels-photo-5026387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
           },
 
           {
-            name: 'New Arrivals',
-            href: '#',
-            imageSrc: 'https://images.unsplash.com/photo-1571210862729-78a52d3779a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+            name: 'Shop Women Sales',
+            href: 'producList/women-sales',
+            imageSrc: 'https://images.pexels.com/photos/318236/pexels-photo-318236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
           },
-          // {
-          //   name: 'Artwork Tees',
-          //   href: '#',
-          //   imageSrc: 'https://images.pexels.com/photos/345415/pexels-photo-345415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-          //   imageAlt:
-          //     'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-          // },
-        ],
-        // sections: [
           
-        //   {
-        //     id: 'brands',
-        //     name: 'Brands',
-        //     items: [
-        //       { name: 'Full Nelson', href: '#' },
-        //       { name: 'My Way', href: '#' },
-        //       { name: 'Re-Arranged', href: '#' },
-        //       { name: 'Counterfeit', href: '#' },
-        //       { name: 'Significant Other', href: '#' },
-        //     ],
-        //   },
-        // ],
+        ],
+        
       },
       {
         id: 'men',
         name: 'Men',
         featured: [
           {
-            name: 'New Arrivals',
-            href: '#',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-            imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
+            name: 'Shop All Men',
+            href: 'productList/men',
+            imageSrc: 'https://images.pexels.com/photos/15113597/pexels-photo-15113597/free-photo-of-young-people-in-casual-clothes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
+      
           },
           {
-            name: 'Artwork Tees',
-            href: '#',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-            imageAlt:
-              'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
+            name: 'Men Trending',
+            href: 'productList/trending-men',
+            imageSrc: 'https://images.pexels.com/photos/5264913/pexels-photo-5264913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
+          },
+
+          {
+            name: 'Men Sales',
+            href: 'productList/men-sales',
+            imageSrc: 'https://images.pexels.com/photos/906361/pexels-photo-906361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
           },
         ],
-        // sections: [
-          
-        //   {
-        //     id: 'brands',
-        //     name: 'Brands',
-        //     items: [
-        //       { name: 'Re-Arranged', href: '#' },
-        //       { name: 'Counterfeit', href: '#' },
-        //       { name: 'Full Nelson', href: '#' },
-        //       { name: 'My Way', href: '#' },
-        //     ],
-        //   },
-        // ],
+        
       },
       {
         id: 'kids',
         name: 'Kids',
         featured: [
           {
-            name: 'New Arrivals',
-            href: '#',
+            name: 'Shop All Kids',
+            href: 'productList/kids',
             imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-            imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
+            imageAlt: 'image',
           },
           {
-            name: 'Artwork Tees',
-            href: '#',
+            name: 'Kids Trending',
+            href: 'productList/kids-trendng',
             imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-            imageAlt:
-              'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
+            imageAlt: 'image',
+          },
+          {
+            name: 'Kids Sales',
+            href: 'productList/kids-sales',
+            imageSrc: 'https://images.pexels.com/photos/906361/pexels-photo-906361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            imageAlt: 'image',
           },
         ],
-        // sections: [
-          
-        //   {
-        //     id: 'brands',
-        //     name: 'Brands',
-        //     items: [
-        //       { name: 'Re-Arranged', href: '#' },
-        //       { name: 'Counterfeit', href: '#' },
-        //       { name: 'Full Nelson', href: '#' },
-        //       { name: 'My Way', href: '#' },
-        //     ],
-        //   },
-        // ],
+       
       },
 
       {
@@ -147,29 +117,16 @@ function classNames(...classes: string[]) {
             name: 'New Arrivals',
             href: '#',
             imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-            imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
+            imageAlt: 'image',
           },
           {
-            name: 'Artwork Tees',
+            name: 'New Arrivals',
             href: '#',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-            imageAlt:
-              'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
+            imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
+            imageAlt: 'image',
           },
         ],
-        // sections: [
-          
-        //   {
-        //     id: 'brands',
-        //     name: 'Brands',
-        //     items: [
-        //       { name: 'Re-Arranged', href: '#' },
-        //       { name: 'Counterfeit', href: '#' },
-        //       { name: 'Full Nelson', href: '#' },
-        //       { name: 'My Way', href: '#' },
-        //     ],
-        //   },
-        // ],
+        
       },
     ],
     
@@ -388,26 +345,7 @@ const [open, setOpen] = useState(false)
                             </div>
                           ))}
                         </div>
-                        {/* {category.sections.map((section) => (
-                          <div key={section.name}>
-                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
-                              {section.name}
-                            </p>
-                            <ul
-                              role="list"
-                              aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                              className="mt-6 flex flex-col space-y-6"
-                            >
-                              {section.items.map((item) => (
-                                <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 block p-2 text-gray-500">
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))} */}
+                        
                       </Tab.Panel>
                     ))}
                   </Tab.Panels>
@@ -497,28 +435,7 @@ const [open, setOpen] = useState(false)
                                         </div>
                                       ))}
                                     </div>
-                                    {/* <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm"> */}
-                                      {/* {category.sections.map((section) => (
-                                        <div key={section.name}>
-                                          <p id={`${section.name}-heading`} className="font-medium text-gray-900">
-                                            {section.name}
-                                          </p>
-                                          <ul
-                                            role="list"
-                                            aria-labelledby={`${section.name}-heading`}
-                                            className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                          >
-                                            {section.items.map((item) => (
-                                              <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
-                                                  {item.name}
-                                                </a>
-                                              </li>
-                                            ))}
-                                          </ul>
-                                        </div>
-                                      ))} */}
-                                    {/* </div> */}
+                                   
                                   </div>
                                 </div>
                               </div>
