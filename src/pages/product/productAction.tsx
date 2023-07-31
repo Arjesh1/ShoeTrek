@@ -10,7 +10,10 @@ export const getProductsAction = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>
 ) => {
   try {
-    const q = query(collection(db, "product"));
+    const q = query(collection(db, "product"),
+    // can be uncommented when completed -- only calls active products
+    //  where("status", "==", "active")
+     );
     const prodSnap = await getDocs(q);
     const prodList: any[] = [];
 
