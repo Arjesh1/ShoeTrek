@@ -171,7 +171,7 @@ const [open, setOpen] = useState(false)
                     <img
                     className="h-14  sm:h-20 w-auto"
                     src={Logo}
-                    alt="Your Company"
+                    alt="Company Logo"
                   />
                   
                   </Link>
@@ -347,10 +347,10 @@ const [open, setOpen] = useState(false)
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
                               </div>
-                              <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                              <Link to={item.href} className="mt-6 block font-medium text-gray-900">
                                 <span className="absolute inset-0 z-10" aria-hidden="true" />
                                 {item.name}
-                              </a>
+                              </Link>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
                               </p>
@@ -437,10 +437,10 @@ const [open, setOpen] = useState(false)
                                               className="object-cover object-center"
                                             />
                                           </div>
-                                          <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                                          <Link to={item.href} className="mt-6 block font-medium text-gray-900">
                                             <span className="absolute inset-0 z-10" aria-hidden="true" />
                                             {item.name}
-                                          </a>
+                                          </Link>
                                           <p aria-hidden="true" className="mt-1">
                                             Shop now
                                           </p>
