@@ -49,7 +49,20 @@ const Register = () => {
       confirmPassword: '',
     });
   
-     dispatch (await registerUserAction({ data: form }));
+    try {
+      
+      const result = await registerUserAction(form);
+      if (result && result.type === 'REGISTER_USER_SUCCESS') {
+        
+        console.log('User registered successfully');
+      } else {
+        
+        console.log('User registration failed');
+      }
+    } catch (error) {
+      console.log('Error:', error);
+    }
+     
       
   };
 
