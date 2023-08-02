@@ -77,7 +77,7 @@ export const setClientAction = async ({ uid, ...rest }: RegisterUserData) => {
 
  
 
-export const loginClientAction =  async (userData: LoginUserData): Promise<AnyAction | undefined> => {
+export const loginClientAction  = async (userData: LoginUserData) => {
 
   
   try {
@@ -94,7 +94,7 @@ export const loginClientAction =  async (userData: LoginUserData): Promise<AnyAc
 
     const { user } = await promiseUser;
     if (user.uid) {
-      await getClientAction(dispatch, { uid:user.uid });
+      await getClientAction({ uid:user.uid });
       
     } else {
       return undefined;
@@ -106,7 +106,7 @@ export const loginClientAction =  async (userData: LoginUserData): Promise<AnyAc
 };
 
 //get user data basen on login user uid
-export const getClientAction = async ( dispatch: Dispatch, { uid }: LoginUserData) => {
+export const getClientAction = async ( { uid }: LoginUserData) => {
   try {
     
     if (uid) {
@@ -116,7 +116,7 @@ export const getClientAction = async ( dispatch: Dispatch, { uid }: LoginUserDat
           const user = {...docSnap.data(), uid}
           console.log(user);
           
-          dispatch(setUser(user))
+          setUser(user)
       }
       
     }

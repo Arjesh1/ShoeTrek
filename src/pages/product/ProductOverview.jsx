@@ -8,6 +8,7 @@ import {IoIosArrowBack} from 'react-icons/io'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { getProductsAction } from './productAction';
+import { setCartProd } from './productSlice';
 
 
 
@@ -15,14 +16,14 @@ import { getProductsAction } from './productAction';
 const product1 = {
   
   sizes: [
-    { name: '4', inStock: false },
-    { name: '5', inStock: true },
-    { name: '6', inStock: true },
-    { name: '7', inStock: true },
-    { name: '8', inStock: true },
-    { name: '9', inStock: true },
-    { name: '10', inStock: true },
-    { name: '11', inStock: true },
+    { size: '4', inStock: false },
+    { size: '5', inStock: true },
+    { size: '6', inStock: true },
+    { size: '7', inStock: true },
+    { size: '8', inStock: true },
+    { size: '9', inStock: true },
+    { size: '10', inStock: true },
+    { size: '11', inStock: true },
   ],
 
 };
@@ -37,7 +38,7 @@ const ProductOverview= () => {
   
   const [selectedSize, setSelectedSize] = useState(product1.sizes[2]);
   const {productName} = useParams()
-  const {product} = useSelector((state) => state.product)
+  const {product, cart} = useSelector((state) => state.product)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const dispatch= useDispatch();
   
@@ -50,26 +51,36 @@ const ProductOverview= () => {
   
   const selectedProduct = product.find(item => item.slug === productName )
 
-  const {name, status, saleStarts, thumbnail, saleEnds, quantity, imgUrlList, description, salesPrice, price, slug} = selectedProduct
-
-  
-  
+  const {name,  saleStarts, thumbnail, saleEnds, quantity, imgUrlList, description, salesPrice, price, slug} = selectedProduct
 
 
-  if (!selectedProduct) {
-    return <div>Loading...</div>;
+
+  // if (!selectedProduct) {
+  //   return <div>Loading...</div>;
+  // }
+
+  const {size, inStock} = selectedSize
+
+  const handleOnClick = (e) =>{
+    e.preventDefault()
+    const obj = {
+      img: thumbnail,
+      name: name,
+      price: price,
+      salesPrice: salesPrice,
+      size: size
+    }
+  const cartObj = [...cart, obj]
+
+    dispatch(setCartProd(cartObj))
   }
-
-  
   
   
 
   return (
     <>
     <MainLayout>
-    <div className="bg-white ">
-      
-      
+    <div className="bg-white "> 
       <div className="pt-2">
 
         {/* Image gallery on big screen */}
@@ -197,7 +208,7 @@ const ProductOverview= () => {
               <div className="mt-10">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                  <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500" alt="size">
                     Size guide
                   </a>
                 </div>
@@ -207,7 +218,7 @@ const ProductOverview= () => {
                   <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
                     {product1.sizes.map((size) => (
                       <RadioGroup.Option
-                        key={size.name}
+                        key={size.size}
                         value={size}
                         disabled={!size.inStock}
                         className={({ active }) =>
@@ -222,7 +233,7 @@ const ProductOverview= () => {
                       >
                         {({ active, checked }) => (
                           <>
-                            <RadioGroup.Label as="span">{size.name}</RadioGroup.Label>
+                            <RadioGroup.Label as="span">{size.size}</RadioGroup.Label>
                             {size.inStock ? (
                               <span
                                 className={classNames(
@@ -256,8 +267,8 @@ const ProductOverview= () => {
               </div>
 
               <button
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleOnClick}
               >
                 Add to bag
               </button>
