@@ -1,9 +1,55 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import {Link} from 'react-router-dom'
 import Logo from '../../components/assets/images/dark logo.png'
+import { loginClientAction } from './userAction'
+import { useAppDispatch } from "../../hooks";
 
 const Login = () => {
+  const dispatch= useAppDispatch()
+
+  
+interface FormState {
+  email: string;
+  password: string;
+}
+
+
+
+const [form, setForm] = useState<FormState>({
+  email: '',
+  password: '',
+
+});
+
+
+
+const handleOnChange = (e: ChangeEvent<HTMLInputElement>) =>{
+  const { name, value } = e.target;
+  setForm((data) => ({
+    ...data,
+    [name]: value,
+  }));
+
+}
+
+const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setForm({
+    email: '',
+    password: '',
+  });   
+
+  console.log(form);
+  
+
+    await dispatch(loginClientAction(form));
+    
+  
+   
+    
+};
+
   return (
     <>
 
@@ -28,7 +74,7 @@ const Login = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm ">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" action="#" method="POST" onSubmit={handleOnSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
@@ -40,6 +86,7 @@ const Login = () => {
                   type="email"
                   autoComplete="email"
                   required
+                  onChange={handleOnChange}
                   className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -63,6 +110,7 @@ const Login = () => {
                   type="password"
                   autoComplete="current-password"
                   required
+                  onChange={handleOnChange}
                   className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>

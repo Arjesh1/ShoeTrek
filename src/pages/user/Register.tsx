@@ -16,7 +16,7 @@ interface FormState {
 }
 
 const Register = () => {
-  const dispatch = useDispatch()
+  
 
   const [form, setForm] = useState<FormState>({
     firstName: '',
@@ -49,19 +49,17 @@ const Register = () => {
       confirmPassword: '',
     });
   
-    try {
+    
       
-      const result = await registerUserAction(form);
-      if (result && result.type === 'REGISTER_USER_SUCCESS') {
+      await registerUserAction(form);
+      // if (result && result.type === 'REGISTER_USER_SUCCESS') {
         
-        console.log('User registered successfully');
-      } else {
+      //   console.log('User registered successfully');
+      // } else {
         
-        console.log('User registration failed');
-      }
-    } catch (error) {
-      console.log('Error:', error);
-    }
+      //   console.log('User registration failed');
+      // }
+    
      
       
   };
