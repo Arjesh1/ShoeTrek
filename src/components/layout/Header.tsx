@@ -209,8 +209,17 @@ const { cart } = useSelector((state: RootState) => state.product)
                   onClick={handleOnClick}
                   className="rounded-full bg-gray-800 d-flex p-1 text-gray-400 hover:text-white focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
-                  <p className='text-white rounded-full bg-red-500 text-md font-medium text-center'>{cart.length}</p>
-                  <FaCartPlus className="h-6 w-6 " aria-hidden="true" /> 
+                  {!cart.length?(
+                    <>
+                    <FaCartPlus className="h-6 w-6 " aria-hidden="true" />
+                    </>
+                  ):(
+                    <>
+<p className='text-white rounded-full bg-red-500 text-sm font-small text-center'>{cart.length}</p>
+                  <FaCartPlus className="h-6 w-6 " aria-hidden="true" />
+                  </>
+                  )}
+                   
                   
                   
                 </button>

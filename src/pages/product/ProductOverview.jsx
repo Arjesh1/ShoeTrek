@@ -9,6 +9,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { getProductsAction } from './productAction';
 import { setCartProd } from './productSlice';
+import { toast } from 'react-toastify';
 
 
 
@@ -59,7 +60,7 @@ const ProductOverview= () => {
   //   return <div>Loading...</div>;
   // }
 
-  const {size, inStock} = selectedSize
+  const {size} = selectedSize
 
   const handleOnClick = (e) =>{
     e.preventDefault()
@@ -68,11 +69,13 @@ const ProductOverview= () => {
       name: name,
       price: price,
       salesPrice: salesPrice,
-      size: size
+      id:slug,
+      size: size,
     }
   const cartObj = [...cart, obj]
 
     dispatch(setCartProd(cartObj))
+    toast.success("Item has been added.")
   }
   
   

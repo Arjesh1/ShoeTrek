@@ -79,33 +79,7 @@ export const setClientAction = async ({ uid, ...rest }: RegisterUserData) => {
 
  
 
-// export const loginClientAction  = async (userData: LoginUserData) => {
 
-  
-//   try {
-//     const { password, email } = userData;
-//     if (!password) {
-//       throw new Error("Password is required.");
-//     }
-//     const promiseUser: Promise<UserCredential> = signInWithEmailAndPassword(auth, email, password);
-    
-//     toast.promise(promiseUser, {
-//       pending: "Please wait....",
-//       success: "Login has been successfully.",
-//     });
-
-//     const { user } = await promiseUser;
-//     if (user.uid) {
-//       await getClientAction({ uid:user.uid });
-      
-//     } else {
-//       return undefined;
-//     }
-//   } catch (error: any) {
-//     console.log(error.message);
-    
-//   }
-// };
 
 export const loginClientAction =
 (

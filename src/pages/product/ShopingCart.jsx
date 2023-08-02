@@ -3,6 +3,9 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCartShow } from '../../system/cartSlice'
+import { setCartProd } from './productSlice'
+import { toast } from 'react-toastify'
+
 
 
 
@@ -11,6 +14,13 @@ const ShopingCart = () => {
   const dispatch = useDispatch()
   const {cartShow} = useSelector(state =>state.system)
   const {cart} = useSelector(state => state.product)
+
+
+  const handleOnDelete = (obj) =>{
+    const updatedCart = cart.filter((item) => item.id !== obj.id)
+    dispatch(setCartProd(updatedCart));
+    toast.success("Item has been removed")
+  }
 
 
    
@@ -80,7 +90,7 @@ const ShopingCart = () => {
                                       </h3>
                                       <p className="ml-4">{product.price}</p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.size}</p>
+                                    <p className="mt-1 text-sm text-gray-500">Size: {product.size}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="text-gray-500">Qty </p>
@@ -88,6 +98,7 @@ const ShopingCart = () => {
                                     <div className="flex">
                                       <button
                                         type="button"
+                                        onClick={() => handleOnDelete(product)}
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
                                       >
                                         Remove
