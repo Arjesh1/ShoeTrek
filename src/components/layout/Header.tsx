@@ -8,8 +8,9 @@ import { BiSearchAlt } from "react-icons/bi"
 import { Link } from "react-router-dom";
 import { AiOutlineDown } from 'react-icons/ai';
 import ShopingCart from '../../pages/product/ShopingCart';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCartShow } from '../../system/cartSlice';
+import { RootState } from '../../store';
 
 
 
@@ -148,6 +149,10 @@ function classNames(...classes: string[]) {
 export const Header = () => {
 const dispatch = useDispatch()
 const [open, setOpen] = useState(false)
+const { cart } = useSelector((state: RootState) => state.product)
+
+
+
 
   
   const handleOnClick = () =>{
@@ -202,10 +207,12 @@ const [open, setOpen] = useState(false)
                 <button
                   type="button"
                   onClick={handleOnClick}
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="rounded-full bg-gray-800 d-flex p-1 text-gray-400 hover:text-white focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
+                  <p className='text-white rounded-full bg-red-500 text-md font-medium text-center'>{cart.length}</p>
+                  <FaCartPlus className="h-6 w-6 " aria-hidden="true" /> 
                   
-                  <FaCartPlus className="h-6 w-6" aria-hidden="true" />
+                  
                 </button>
                 
 

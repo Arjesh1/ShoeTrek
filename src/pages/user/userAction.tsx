@@ -4,6 +4,8 @@ import { AnyAction, Dispatch } from 'redux';
 import { toast } from 'react-toastify';
 import { UserCredential, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { setUser } from "./userSlice";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
+import { RootState } from "../../store";
 
 
 
@@ -77,36 +79,71 @@ export const setClientAction = async ({ uid, ...rest }: RegisterUserData) => {
 
  
 
-export const loginClientAction  = async (userData: LoginUserData) => {
+// export const loginClientAction  = async (userData: LoginUserData) => {
 
   
-  try {
-    const { password, email } = userData;
-    if (!password) {
-      throw new Error("Password is required.");
-    }
-    const promiseUser: Promise<UserCredential> = signInWithEmailAndPassword(auth, email, password);
+//   try {
+//     const { password, email } = userData;
+//     if (!password) {
+//       throw new Error("Password is required.");
+//     }
+//     const promiseUser: Promise<UserCredential> = signInWithEmailAndPassword(auth, email, password);
     
-    toast.promise(promiseUser, {
-      pending: "Please wait....",
-      success: "Login has been successfully.",
-    });
+//     toast.promise(promiseUser, {
+//       pending: "Please wait....",
+//       success: "Login has been successfully.",
+//     });
 
-    const { user } = await promiseUser;
-    if (user.uid) {
-      await getClientAction({ uid:user.uid });
+//     const { user } = await promiseUser;
+//     if (user.uid) {
+//       await getClientAction({ uid:user.uid });
       
-    } else {
-      return undefined;
-    }
-  } catch (error: any) {
-    console.log(error.message);
+//     } else {
+//       return undefined;
+//     }
+//   } catch (error: any) {
+//     console.log(error.message);
     
-  }
+//   }
+// };
+
+export const loginClientAction =
+(
+userData: LoginUserData
+): ThunkAction<void, RootState, undefined, AnyAction> =>
+async (
+dispatch: ThunkDispatch<RootState, undefined, AnyAction>
+): Promise<void> => {
+try {
+const { password } = userData;
+const email = userData.email!;
+if (!password) {
+throw new Error("Password is required.");
+}
+const promiseUser: Promise<UserCredential> = signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+toast.promise(promiseUser, {
+pending: "Please wait....",
+success: "Login has been successfully.",
+});
+
+const { user } = await promiseUser;
+if (user.uid) {
+await getClientAction(dispatch, { uid: user.uid });
+} else {
+return undefined;
+}
+} catch (error: any) {
+console.log(error.message);
+}
 };
 
 //get user data basen on login user uid
-export const getClientAction = async ( { uid }: LoginUserData) => {
+export const getClientAction = async ( dispatch: Dispatch, { uid }: LoginUserData) => {
   try {
     
     if (uid) {
@@ -116,7 +153,7 @@ export const getClientAction = async ( { uid }: LoginUserData) => {
           const user = {...docSnap.data(), uid}
           console.log(user);
           
-          setUser(user)
+          dispatch(setUser(user))
       }
       
     }
