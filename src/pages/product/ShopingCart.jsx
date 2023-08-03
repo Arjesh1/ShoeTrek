@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCartShow } from '../../system/cartSlice'
 import { decreaseQty, increateQty, setCartProd } from './productSlice'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
+import CheckOut from '../checkOut/CheckOut'
 
 
 
@@ -56,6 +58,7 @@ const ShopingCart = () => {
    
   return (
     <>
+    
        <Transition.Root show={cartShow} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={()=> dispatch (setCartShow(false))}>
         <Transition.Child
@@ -109,7 +112,9 @@ const ShopingCart = () => {
 
                             <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cart?.map((product) => (
+                              
                               <li key={product.id} className="flex py-6">
+                                <Link to={`/product/${product.id}`} onClick={()=> dispatch (setCartShow(false))} >
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
                                     src={product.img}
@@ -117,12 +122,13 @@ const ShopingCart = () => {
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
+                                </Link>
 
                                 <div className="ml-4 flex flex-1 flex-col">
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.name}>{product.name.slice(0,15)}...</a>
+                                        <p>{product.name.slice(0,15)}...</p>
                                       </h3>
                                       
                                         <p className="ml-2">$ {product.price * product.quantity}</p>
@@ -173,6 +179,7 @@ const ShopingCart = () => {
                                   </div>
                                 </div>
                               </li>
+                              
                             ))}
                           </ul>
                           )}
@@ -190,12 +197,13 @@ const ShopingCart = () => {
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
-                        <a
-                          href="#"
+                        <Link
+                          to ="/checkout"
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700" 
+                          onClick={()=> dispatch (setCartShow(false))}
                         >
                           Checkout
-                        </a>
+                        </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>

@@ -13,6 +13,7 @@ import ProductList from './pages/product/ProductList';
 import { getProductsAction } from './pages/product/productAction';
 import { AppDispatch } from './store';
 import ShopingCart from './pages/product/ShopingCart';
+import CheckOut from './pages/checkOut/CheckOut';
 
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='contact' element={<Contact/>}/>
         <Route path='product/:productName' element={<ProductOverview/>}/>
         <Route path='productList/:parentCat' element={<ProductList/>}/>
+        <Route path='checkout' element={<CheckOut/>}/>
         
       
         

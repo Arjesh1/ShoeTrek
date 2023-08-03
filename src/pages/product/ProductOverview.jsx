@@ -56,7 +56,7 @@ const ProductOverview= () => {
   
   const selectedProduct = product.find(item => item.slug === productName )
 
-  const {name,  saleStarts, thumbnail, saleEnds, quantity, imgUrlList, description, salesPrice, price, slug} = selectedProduct
+  const {name,   thumbnail, quantity, imgUrlList, description, salesPrice, price, slug} = selectedProduct
 
 
 
