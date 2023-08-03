@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,11 +10,12 @@ import { toast } from 'react-toastify'
 
 
 
-
 const ShopingCart = () => {
   const dispatch = useDispatch()
   const {cartShow} = useSelector(state =>state.system)
   const {cart} = useSelector(state => state.product)
+  const [totalValue, settotalValue] = useState()
+  
   
   
 
@@ -25,21 +26,26 @@ const ShopingCart = () => {
     toast.success("Item has been removed")
   }
 
+  useEffect(() => {
+    if(cart.length > 0){
+      const calculatedTotal = (cart) => {
+       return cart?.reduce((total, item) => {
+         return total + +item.price * item.quantity
+         
+       }, 0)
+      }
+      const totalPrice =  calculatedTotal(cart)
+      settotalValue(totalPrice)
+   
+       
+     }
+
+  }, [cart.length, settotalValue, cart ])
+    
+
   
 
-  const totalPrice = cart?.reduce((total, item) => total + +item.price, 0)
-
-  const handleOnDecrease = (item) =>{
-    
-    const quantity = item.quantity -1 
-
-    const getCart = cart.find((product) => product.id === item.id)
-
-    const updatedCart = {...getCart, quantity}
-
-    dispatch(setCartProd([...cart, updatedCart]));
-    
-      }
+  
       
     
       
@@ -95,7 +101,13 @@ const ShopingCart = () => {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                          <ul role="list" className="-my-6 divide-y divide-gray-200">
+                          {cart.length === 0 ? (
+                            <>
+                            <h1>Cart empty</h1>
+                            </>
+                          ):(
+
+                            <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cart?.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -110,10 +122,10 @@ const ShopingCart = () => {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.name}>{product.name}</a>
+                                        <a href={product.name}>{product.name.slice(0,15)}...</a>
                                       </h3>
                                       
-                                        <p className="ml-4">$ {product.price}</p>
+                                        <p className="ml-2">$ {product.price * product.quantity}</p>
                                      
                                       
                                     </div>
@@ -163,6 +175,8 @@ const ShopingCart = () => {
                               </li>
                             ))}
                           </ul>
+                          )}
+                          
                         </div>
                       </div>
                     </div>
@@ -171,7 +185,7 @@ const ShopingCart = () => {
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
                         <p>$
-                          {/* {totalPrice} */}
+                          {totalValue}
                           </p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
