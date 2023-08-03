@@ -42,11 +42,15 @@ const ProductOverview= () => {
   const {product, cart} = useSelector((state) => state.product)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const dispatch= useDispatch();
+  const [prodQuantity, setProdQuantity] = useState(1)
+  const [prodPrice, setProdPrice] = useState()
+
   
 
   useEffect(()=>{
     dispatch(getProductsAction())
-   }, [dispatch])
+    
+   }, [dispatch ])
 
 
   
@@ -62,22 +66,45 @@ const ProductOverview= () => {
 
   const {size} = selectedSize
 
+  useEffect(()=>{
+    
+    if(!salesPrice){
+      setProdPrice(price)
+  
+    } else{
+      setProdPrice(salesPrice)
+    }
+   }, [dispatch,price, salesPrice ])
+
+  
+
   const handleOnClick = (e) =>{
     e.preventDefault()
     const obj = {
       img: thumbnail,
       name: name,
-      price: price,
-      salesPrice: salesPrice,
+      price: prodPrice,
       id:slug,
       size: size,
+      quantity: prodQuantity
     }
+
   const cartObj = [...cart, obj]
 
     dispatch(setCartProd(cartObj))
     toast.success("Item has been added.")
   }
+
+  const handleOnDecrease = (e) =>{
+e.preventDefault()
+setProdQuantity(prodQuantity - 1)
+  }
   
+
+  const handleOnIncrease = (e) =>{
+    e.preventDefault()
+    setProdQuantity(prodQuantity + 1)
+      }
   
 
   return (
@@ -191,8 +218,8 @@ const ProductOverview= () => {
               ):(
                 <>
                 <div className="flex gap-4">
-                <p className="text-3xl tracking-tight text-gray-900 line-through">${price}</p>
-              <p className="text-3xl tracking-tight text-gray-900">${salesPrice}</p>
+                <p className="text-3xl tracking-tight text-gray-600 line-through">${price}</p>
+              <p className="text-3xl tracking-tight text-red-500">${salesPrice}</p>
                 </div>
                 
               </>
@@ -267,6 +294,50 @@ const ProductOverview= () => {
                     ))}
                   </div>
                 </RadioGroup>
+              </div>
+
+              {/* quantity */}
+              <div className="mt-10">
+                <div className="">
+                <h3 className="text-sm font-medium text-gray-900">Quantity</h3> 
+                <div className="flex items-center justify-evenly mt-3">
+                  <div className="flex justify-center items-center rounded-full  p-2 px-5 border border-transparent bg-indigo-600  text-2xl font-bold text-white hover:bg-indigo-700">
+                  <button
+                onClick={handleOnDecrease}
+                className="   " 
+              >
+                -
+              </button>
+                  </div>
+
+                  <div className="">
+                  <input
+                  id="quantity"
+                  name="quantity"
+                  type="number"
+                  min={1}
+                  required
+                  value={prodQuantity}
+                  
+                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+                />
+
+
+                  </div>
+
+                  <div className="flex justify-center items-center rounded-full  p-2 px-4 border border-transparent bg-indigo-600  text-2xl font-bold text-white hover:bg-indigo-700 ">
+                  <button
+                onClick={handleOnIncrease}
+                className="  " 
+              >
+                +
+              </button>
+                  </div>
+                </div>
+                  
+                </div>
+
+                
               </div>
 
               <button

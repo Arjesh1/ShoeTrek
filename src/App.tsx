@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import './App.css';
 import Login from './pages/user/Login';
@@ -18,7 +18,9 @@ import ShopingCart from './pages/product/ShopingCart';
 
 
 function App() {
+  const dispatch = useDispatch()
   
+ 
 
   
   return (

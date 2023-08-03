@@ -55,9 +55,9 @@ const ProductCard = ({product, heading, category, link, icon}) => {
                     </>
                   ):(
                     <>
-                    <p className="text-md font-medium text-gray-900 ">$ <span className='line-through'>{item.price}</span> </p> 
+                    <p className="text-md font-medium text-gray-600 ">$ <span className='line-through'>{item.price}</span> </p> 
 
-                    <p className="text-md font-medium text-gray-900 ">$ <span className=''>{item.salesPrice}</span> </p> 
+                    <p className="text-md font-medium text-red-500 ">$ <span className=''>{item.salesPrice}</span> </p> 
                     </>
 
 

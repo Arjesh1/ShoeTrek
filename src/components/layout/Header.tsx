@@ -36,20 +36,20 @@ function classNames(...classes: string[]) {
         featured: [
           {
             name: 'Shop All women',
-            href: 'productList/women',
+            href: '/productList/women',
             imageSrc: 'https://images.pexels.com/photos/8968694/pexels-photo-8968694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
           {
             name: 'Trending',
-            href: 'producList/women-trending',
+            href: '/producList/women-trending',
             imageSrc: 'https://images.pexels.com/photos/5026387/pexels-photo-5026387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
 
           {
             name: 'Shop Women Sales',
-            href: 'producList/women-sales',
+            href: '/producList/women-sales',
             imageSrc: 'https://images.pexels.com/photos/318236/pexels-photo-318236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
@@ -63,21 +63,21 @@ function classNames(...classes: string[]) {
         featured: [
           {
             name: 'Shop All Men',
-            href: 'productList/men',
+            href: '/productList/men',
             imageSrc: 'https://images.pexels.com/photos/15113597/pexels-photo-15113597/free-photo-of-young-people-in-casual-clothes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
       
           },
           {
             name: 'Men Trending',
-            href: 'productList/trending-men',
+            href: '/productList/trending-men',
             imageSrc: 'https://images.pexels.com/photos/5264913/pexels-photo-5264913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
 
           {
             name: 'Men Sales',
-            href: 'productList/men-sales',
+            href: '/productList/men-sales',
             imageSrc: 'https://images.pexels.com/photos/906361/pexels-photo-906361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
@@ -90,19 +90,19 @@ function classNames(...classes: string[]) {
         featured: [
           {
             name: 'Shop All Kids',
-            href: 'productList/kids',
+            href: '/productList/kids',
             imageSrc: 'https://images.pexels.com/photos/35188/child-childrens-baby-children-s.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
           {
             name: 'Kids Trending',
-            href: 'productList/kids-trendng',
+            href: '/productList/kids-trendng',
             imageSrc: 'https://images.pexels.com/photos/5623675/pexels-photo-5623675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
           {
             name: 'Kids Sales',
-            href: 'productList/kids-sales',
+            href: '/productList/kids-sales',
             imageSrc: 'https://images.pexels.com/photos/2300334/pexels-photo-2300334.jpeg',
             imageAlt: 'image',
           },

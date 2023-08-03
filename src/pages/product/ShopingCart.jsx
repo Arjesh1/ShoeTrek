@@ -10,10 +10,13 @@ import { toast } from 'react-toastify'
 
 
 
+
 const ShopingCart = () => {
   const dispatch = useDispatch()
   const {cartShow} = useSelector(state =>state.system)
   const {cart} = useSelector(state => state.product)
+  const [prodQuantity, setProdQuantity] = useState()
+  
 
 
   const handleOnDelete = (obj) =>{
@@ -21,6 +24,23 @@ const ShopingCart = () => {
     dispatch(setCartProd(updatedCart));
     toast.success("Item has been removed")
   }
+
+  const totalPrice = cart.reduce((total, item) => total + +item.price, 0)
+
+  const handleOnDecrease = (e) =>{
+    e.preventDefault()
+    setProdQuantity(prodQuantity - 1)
+      }
+      
+    
+      const handleOnIncrease = (e) =>{
+        e.preventDefault()
+        setProdQuantity(prodQuantity + 1)
+          }
+
+          const handleOnQuantityChange = (item) =>{
+            console.log(item, 'smjaskj');
+          }
 
 
    
@@ -88,12 +108,42 @@ const ShopingCart = () => {
                                       <h3>
                                         <a href={product.name}>{product.name}</a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      
+                                        <p className="ml-4">$ {product.price}</p>
+                                     
+                                      
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">Size: {product.size}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty </p>
+                                    <div className="flex justify-evenly items-center">
+                                      <span> <button
+                onClick={handleOnDecrease}
+                className="  text-4xl " 
+              >
+                -
+              </button></span>
+                                      <input
+                  id="quantity"
+                  name="quantity"
+                  type="number"
+                  min={1}
+                  required
+                  value={product.quantity}
+                  // onChange={()=> handleOnQuantityChange(product.quantity)}
+                  
+                  className=" block text-center w-3/6 rounded-md border-0 py-1.5  text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+                                      <span>
+                                      <button
+                onClick={handleOnIncrease}
+                className=" text-3xl  " 
+              >
+                +
+              </button>
+                                      </span>
+                                    </div>
+                                     
 
                                     <div className="flex">
                                       <button
@@ -116,7 +166,7 @@ const ShopingCart = () => {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <p>${totalPrice}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
@@ -129,10 +179,10 @@ const ShopingCart = () => {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or
+                          or 
                           <button
                             type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                            className="ml-1 font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={()=> dispatch (setCartShow(false))}
                           >
                             Continue Shopping

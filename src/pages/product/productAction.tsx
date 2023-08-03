@@ -3,12 +3,13 @@ import { db } from "../../config/firebase-config";
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
 import { setProdu } from "./productSlice";
+import { RootState } from "../../store";
 
 
 
 export const getProductsAction = () => async (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>
-) => {
+  dispatch: ThunkDispatch<RootState, undefined, AnyAction>
+): Promise<void> => {
   try {
     const q = query(collection(db, "product"),
     // can be uncommented when completed -- only calls active products
