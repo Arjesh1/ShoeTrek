@@ -243,7 +243,7 @@ const CheckOut = () => {
                           <div className=" mt-8 border-b  pb-4">
                             <div className="flex justify-between">
                                 <p>Subtotal</p>
-                                <p>$200</p>
+                                <p>${totalValue-5}</p>
                             </div>
 
                             <div className="flex justify-between mt-3">

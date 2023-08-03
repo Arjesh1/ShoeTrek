@@ -153,6 +153,9 @@ const { cart } = useSelector((state: RootState) => state.product)
 
 
 
+const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.quantity, 0 )
+
+
 
   
   const handleOnClick = () =>{
@@ -215,7 +218,7 @@ const { cart } = useSelector((state: RootState) => state.product)
                     </>
                   ):(
                     <>
-<p className='text-white rounded-full bg-red-500 text-sm font-small text-center'>{cart.length}</p>
+<p className='text-white rounded-full bg-red-500 text-sm font-small text-center'>{cartItem}</p>
                   <FaCartPlus className="h-6 w-6 " aria-hidden="true" />
                   </>
                   )}
