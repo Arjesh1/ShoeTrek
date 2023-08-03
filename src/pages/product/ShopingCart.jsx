@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCartShow } from '../../system/cartSlice'
-import { setCartProd } from './productSlice'
+import { decreaseQty, increateQty, setCartProd } from './productSlice'
 import { toast } from 'react-toastify'
 
 
@@ -15,7 +15,7 @@ const ShopingCart = () => {
   const dispatch = useDispatch()
   const {cartShow} = useSelector(state =>state.system)
   const {cart} = useSelector(state => state.product)
-  const [prodQuantity, setProdQuantity] = useState()
+  
   
 
 
@@ -25,22 +25,26 @@ const ShopingCart = () => {
     toast.success("Item has been removed")
   }
 
-  const totalPrice = cart.reduce((total, item) => total + +item.price, 0)
+  
 
-  const handleOnDecrease = (e) =>{
-    e.preventDefault()
-    setProdQuantity(prodQuantity - 1)
+  const totalPrice = cart?.reduce((total, item) => total + +item.price, 0)
+
+  const handleOnDecrease = (item) =>{
+    
+    const quantity = item.quantity -1 
+
+    const getCart = cart.find((product) => product.id === item.id)
+
+    const updatedCart = {...getCart, quantity}
+
+    dispatch(setCartProd([...cart, updatedCart]));
+    
       }
       
     
-      const handleOnIncrease = (e) =>{
-        e.preventDefault()
-        setProdQuantity(prodQuantity + 1)
-          }
+      
 
-          const handleOnQuantityChange = (item) =>{
-            console.log(item, 'smjaskj');
-          }
+        
 
 
    
@@ -92,7 +96,7 @@ const ShopingCart = () => {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {cart.map((product) => (
+                            {cart?.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
@@ -118,7 +122,7 @@ const ShopingCart = () => {
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <div className="flex justify-evenly items-center">
                                       <span> <button
-                onClick={handleOnDecrease}
+                onClick={() => {dispatch(decreaseQty(product.id))}}
                 className="  text-4xl " 
               >
                 -
@@ -130,13 +134,13 @@ const ShopingCart = () => {
                   min={1}
                   required
                   value={product.quantity}
-                  // onChange={()=> handleOnQuantityChange(product.quantity)}
+                  
                   
                   className=" block text-center w-3/6 rounded-md border-0 py-1.5  text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                                       <span>
                                       <button
-                onClick={handleOnIncrease}
+                onClick={() => {dispatch(increateQty(product.id))}}
                 className=" text-3xl  " 
               >
                 +
@@ -166,7 +170,9 @@ const ShopingCart = () => {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>${totalPrice}</p>
+                        <p>$
+                          {/* {totalPrice} */}
+                          </p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
