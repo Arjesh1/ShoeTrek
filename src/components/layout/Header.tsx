@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition, Dialog, Popover, Tab, } from '@headlessui/react'
 import {  FaCartPlus } from "react-icons/fa";
 import {  RxCross1 } from "react-icons/rx"
@@ -6,11 +6,12 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import Logo from '../assets/images/logo.png'
 import { BiSearchAlt } from "react-icons/bi"
 import { Link } from "react-router-dom";
-import { AiOutlineDown } from 'react-icons/ai';
+import { AiOutlineArrowRight, AiOutlineDown } from 'react-icons/ai';
 import ShopingCart from '../../pages/product/ShopingCart';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCartShow } from '../../system/cartSlice';
+import { setCartShow, setSearchShow } from '../../system/cartSlice';
 import { RootState } from '../../store';
+import ProductCard from '../product/ProductCard';
 
 
 
@@ -21,12 +22,10 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
   }
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
-    const {name, value} = e.target
-    console.log(name, ":", value);
-    
+  
 
-  }
+ 
+
 
   const navigation = {
     categories: [
@@ -49,7 +48,7 @@ function classNames(...classes: string[]) {
 
           {
             name: 'Shop Women Sales',
-            href: '/producList/women-sales',
+            href: '/productList/women-sales',
             imageSrc: 'https://images.pexels.com/photos/318236/pexels-photo-318236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
@@ -116,25 +115,25 @@ function classNames(...classes: string[]) {
         featured: [
           {
             name: 'Shop All Sale',
-            href: 'productList/sales',
+            href: '/productList/sales',
             imageSrc: 'https://images.pexels.com/photos/5325588/pexels-photo-5325588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
           {
             name: 'Shop Men Sale',
-            href: 'productList/men-sales',
+            href: '/productList/men-sales',
             imageSrc: 'https://images.pexels.com/photos/1462231/pexels-photo-1462231.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
           {
             name: 'Shop Women Sale',
-            href: 'productList/women-sales',
+            href: '/productList/women-sales',
             imageSrc: 'https://images.pexels.com/photos/7202783/pexels-photo-7202783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
           {
             name: 'Shop Kids Sale',
-            href: 'productList/kids-sales',
+            href: '/productList/kids-sales',
             imageSrc: 'https://images.pexels.com/photos/5623031/pexels-photo-5623031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
@@ -145,11 +144,43 @@ function classNames(...classes: string[]) {
     
   }
 
+ 
 
 export const Header = () => {
 const dispatch = useDispatch()
 const [open, setOpen] = useState(false)
-const { cart } = useSelector((state: RootState) => state.product)
+const [display, setDisplay] = useState([])
+const [searchValue, setSearchValue] = useState("")
+const { cart, product } = useSelector((state: RootState) => state.product)
+const { search  } = useSelector((state: RootState) => state.system)
+
+
+console.log(searchValue.length);
+
+
+useEffect(()=>{
+
+  if(searchValue.length === 0){
+    dispatch(setSearchShow(false))
+  }else{
+    dispatch(setSearchShow(true))
+  }
+  
+
+}, [dispatch, searchValue.length ])
+
+
+const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  const {value} = e.target
+  setSearchValue(value)
+  const filteredItem = product.filter((item:any) =>
+  item.name.toLowerCase().includes(value.toLowerCase()) 
+
+);
+
+setDisplay(filteredItem);
+}
+
 
 
 
@@ -190,7 +221,7 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
               <form className=' '>
               <label className="relative block w-auto sm:w-full">
 
-  <input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300  rounded-full py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-white text-center " placeholder="Search for anything..." type="text" name="search" onChange={handleOnChange}/>
+  <input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300  rounded-full py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-white text-center " placeholder="Search Product..." type="text" name="search" onChange={handleOnChange}/>
 
   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
     <svg className="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><BiSearchAlt /></svg>
@@ -488,6 +519,40 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
       </header>
     </div>
 
+    <div className="">
+
+      {search === false ? (
+<></>
+      ):(
+
+        <> 
+
+        {!display.length? (
+          <>
+          <p className='text-center py-5'>Product Not found</p>
+          </>):(
+      
+            <>
+            
+            <div className=" d-flex justify-content-center flex-wrap gap-4">
+      
+      
+            <ProductCard   product={display} category="all" heading="Search Result" link= "Show All Product" icon={<AiOutlineArrowRight className=' pl-1 mt-2'/>} />
+            </div>
+            </>
+            
+          )
+          
+          
+          }
+          </>
+
+
+      )}
+
+
+
+</div>
    
 
     </>

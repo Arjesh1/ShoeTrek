@@ -28,7 +28,7 @@ const CheckOut = () => {
 
 
     
-      }, [cart.length, settotalValue, cart ])
+      }, [cart.length, settotalValue, cart, navigate ])
     
   return (
     <>

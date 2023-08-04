@@ -3,7 +3,7 @@ import MainLayout from '../../components/layout/MainLayout'
 import ProductCard from '../../components/product/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductsAction } from './productAction'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 const ProductList = () => {
@@ -20,6 +20,9 @@ const ProductList = () => {
     dispatch(getProductsAction());
     // Filter the products based on the category after the products have been fetched
 switch(category.parentCat){
+  case 'all' :
+    setCat(product)
+    break
   case 'sales' :
     setCat(product.filter(item => item.salesPrice !== undefined))
     break
@@ -33,34 +36,11 @@ switch(category.parentCat){
     setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `kids`))
     break
     default:
-      setCat(item => item.parentCat === `${category.parentCat}`);
+      setCat(product.filter(item => item.parentCat === `${category.parentCat}`));
 
 
 
 }
-
-
-
-    // if (category.parentCat === 'sales') {
-    //   const selectedCatProd = product.filter(item => item.salesPrice !== undefined);
-    //   setCat(selectedCatProd);
-    // }else if(category.parentCat === 'women-sales'){
-    //   const selectedCatProd = product.filter(item => item.salesPrice !== undefined && item.parentCat === `women` );
-    //   setCat(selectedCatProd);
-
-    // } else if(category.parentCat === 'men-sales'){
-    //   const selectedCatProd = product.filter(item => item.salesPrice !== undefined && item.parentCat === `men` );
-    //   setCat(selectedCatProd);
-
-    // }  else if(category.parentCat === 'kids-sales'){
-    //   const selectedCatProd = product.filter(item => item.salesPrice !== undefined && item.parentCat === `kids` );
-    //   setCat(selectedCatProd);
-
-    // }
-    // else {
-    //   const selectedCatProd = product.filter(item => item.parentCat === `${category.parentCat}` );
-    //   setCat(selectedCatProd);
-    // }
   }, [category.parentCat, product, dispatch]);
 
    
@@ -75,10 +55,23 @@ switch(category.parentCat){
   return (
     <>
     <MainLayout>
+      <div className="px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
+      <Link to="/" >
+
+<button
+          className="rounded-md bg-indigo-600  mt-3 p-3 text-md  text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Home
+        </button>
+</Link>
+
+      </div>
 
 
 
-        <ProductCard product={cat} heading={category.parentCat.slice(0,1).toUpperCase() + category.parentCat.slice(1)} />
+
+        <ProductCard product={cat} 
+        heading={category.parentCat.slice(0,1).toUpperCase() + category.parentCat.slice(1)} />
     </MainLayout>
       
     </>
