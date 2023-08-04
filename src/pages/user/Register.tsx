@@ -1,9 +1,11 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import "./user.css"
 import { registerUserAction } from './userAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../../components/assets/images/dark logo.png'
+import { useNavigate } from 'react-router-dom';
+import { RootState } from '../../store';
 
 
 interface FormState {
@@ -25,6 +27,18 @@ const Register = () => {
     password: '',
     confirmPassword: '',
   });
+
+  const navigate = useNavigate()
+  const { user  }: any = useSelector((state: RootState) => state.user)
+
+
+  useEffect(()=>{
+if(user.uid){
+  navigate("/")
+}
+
+  },[user.uid, navigate])
+
   
 
 

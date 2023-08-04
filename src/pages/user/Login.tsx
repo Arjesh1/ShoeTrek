@@ -1,14 +1,26 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Logo from '../../components/assets/images/dark logo.png'
 import { loginClientAction } from './userAction'
 import { useAppDispatch } from "../../hooks";
 import ForgetPassword from '../../components/modal/ForgetPassword'
 import { setForgetPassword } from '../../system/cartSlice'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 const Login = () => {
   const dispatch= useAppDispatch()
+  const navigate = useNavigate()
+  const { user  }: any = useSelector((state: RootState) => state.user)
+
+
+  useEffect(()=>{
+if(user.uid){
+  navigate("/")
+}
+
+  },[user.uid, navigate])
 
   
 interface FormState {
@@ -42,7 +54,7 @@ const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     password: '',
   });   
 
-  console.log(form);
+  ;
   
 
     await dispatch(loginClientAction(form));

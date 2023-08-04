@@ -126,7 +126,7 @@ export const getClientAction = async ({ uid }: LoginUserData) => {
 
       if (docSnap.exists()) {
         const user = { ...docSnap.data(), uid };
-        console.log(user);
+        
         return user; // Return the user data instead of dispatching the action
       }
     }
