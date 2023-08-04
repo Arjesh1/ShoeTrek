@@ -14,12 +14,13 @@ import { getProductsAction } from './pages/product/productAction';
 import { AppDispatch } from './store';
 import ShopingCart from './pages/product/ShopingCart';
 import CheckOut from './pages/checkOut/CheckOut';
+import OrderHistory from './pages/order/OrderHistory';
 
 
 
 
 function App() {
-  const dispatch = useDispatch()
+  
   
  
 
@@ -34,6 +35,7 @@ function App() {
         <Route path='product/:productName' element={<ProductOverview/>}/>
         <Route path='productList/:parentCat' element={<ProductList/>}/>
         <Route path='checkout' element={<CheckOut/>}/>
+        <Route path='order-history' element={<OrderHistory/>}/>
         
       
         

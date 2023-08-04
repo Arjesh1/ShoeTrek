@@ -38,7 +38,7 @@ const Contact = () => {
         Please feel free to reach out to us with any questions, concerns, or inquiries you may have.
         </p>
 
-        <div className="flex flex-col gap-3 text-start px-3 sm:px-0">
+        <div className="flex flex-col gap-8 text-start px-3 sm:px-0">
         <div className="flex gap-4 text-xl">
             <BsFillBuildingsFill className='text-2xl'/>
             <p className='text-gray-700'>Sydney, NSW, Australia. 2000</p>
