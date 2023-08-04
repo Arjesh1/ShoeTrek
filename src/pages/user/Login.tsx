@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import Logo from '../../components/assets/images/dark logo.png'
 import { loginClientAction } from './userAction'
 import { useAppDispatch } from "../../hooks";
+import ForgetPassword from '../../components/modal/ForgetPassword'
+import { setForgetPassword } from '../../system/cartSlice'
 
 const Login = () => {
   const dispatch= useAppDispatch()
@@ -52,6 +54,7 @@ const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <>
+<ForgetPassword/>
 
     <MainLayout>
 
@@ -74,7 +77,7 @@ const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm ">
-          <form className="space-y-6" action="#" method="POST" onSubmit={handleOnSubmit}>
+          <form className="space-y-6"  onSubmit={handleOnSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
@@ -98,9 +101,11 @@ const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <button 
+                  type='button'
+                  onClick={()=>{dispatch(setForgetPassword(true))}} className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="mt-2">

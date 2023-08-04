@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import './App.css';
 import Login from './pages/user/Login';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Register from './pages/user/Register';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,13 +26,17 @@ import { setUser } from './pages/user/userSlice';
 function App() {
   
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   onAuthStateChanged(auth, async (userData: any) =>{
-    if(userData.uid){
+    if(userData?.uid){
       const user = await getClientAction({ uid: userData.uid });
       if (user) {
         dispatch(setUser(user)); // Dispatch the action with the user data
+        
       }
+
+      
   
     }
   })

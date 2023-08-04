@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
    cartShow: false,
-   search: false
+   search: false,
+   forgetPassword: false,
 }
 
 const systemSlice = createSlice({
@@ -16,10 +17,13 @@ const systemSlice = createSlice({
           setSearchShow: (state, { payload }) => {
             state.search = payload;
           },
+          setForgetPassword: (state, { payload }) => {
+            state.forgetPassword = payload;
+          },
           
     }
 })
 
-export const {setCartShow, setSearchShow} = systemSlice.actions
+export const {setCartShow, setSearchShow, setForgetPassword} = systemSlice.actions
 
 export default systemSlice.reducer

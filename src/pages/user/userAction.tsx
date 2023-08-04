@@ -117,24 +117,7 @@ console.log(error.message);
 };
 
 //get user data basen on login user uid
-// export const getClientAction = async ( dispatch: Dispatch, { uid }: LoginUserData) => {
-//   try {
-    
-//     if (uid) {
-//       const docSnap = await getDoc(doc(db, "clients", uid))
 
-//       if (docSnap.exists()){
-//           const user = {...docSnap.data(), uid}
-//           console.log(user);
-          
-//           dispatch(setUser(user))
-//       }
-      
-//     }
-//   } catch (error: any) {
-//     console.log(error.message);
-//   }
-// }
 
 export const getClientAction = async ({ uid }: LoginUserData) => {
   try {
