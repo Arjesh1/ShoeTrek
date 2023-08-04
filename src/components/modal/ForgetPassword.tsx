@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from 'react'
+import React, { Fragment, useRef, useState, ChangeEvent } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { BiSolidErrorCircle } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,25 +6,42 @@ import { setForgetPassword } from '../../system/cartSlice'
 import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../../config/firebase-config'
 import { toast } from 'react-toastify'
+import { RootState } from '../../store'
 
 
 const ForgetPassword = () => {
-    const {forgetPassword} = useSelector(state => state.system)
-    const [form, setForm] = useState({})
+
+  interface FormState {
+    email: string;
+    
+  }
+
+
+    const {forgetPassword} = useSelector((state: RootState) => state.system)
+    const [form, setForm] = useState<FormState>({
+      email: ''
+      
+    
+    });
     const dispatch =  useDispatch()
 
   const cancelButtonRef = useRef(null)
 
-  const handleOnResetPasswordChange = (e) =>{
+
+
+  const handleOnResetPasswordChange = (e: ChangeEvent<HTMLInputElement>) =>{
     const {name, value} = e.target
     setForm({...form, [name]: value})
 
   }
 
-  const handleOnResetPasswordSubmit = (e) =>{
+  const handleOnResetPasswordSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
     e.preventDefault()
     try {
       sendPasswordResetEmail(auth, form.email).then(resp =>{
+
+        console.log(resp);
+        
 
         toast.success("Password reset link has been send to your email. ")
 

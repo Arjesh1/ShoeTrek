@@ -310,7 +310,7 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                         {({ active }) => (
                           <Link
                             to="/user-details"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100 ' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
                           </Link>
@@ -320,7 +320,7 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                         {({ active }) => (
                           <Link
                           to="/order-history"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100 ' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Order History
                           </Link>
@@ -330,7 +330,7 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                         {({ active }) => (
                           <button
                             onClick={handleOnLogOut}
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100 w-full' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Log out
                           </button>

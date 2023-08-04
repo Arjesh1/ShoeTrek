@@ -53,7 +53,7 @@ if(user.uid){
 
   const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(form);
+   
   
     setForm({
       firstName: '',
