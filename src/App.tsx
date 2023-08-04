@@ -15,6 +15,7 @@ import { AppDispatch } from './store';
 import ShopingCart from './pages/product/ShopingCart';
 import CheckOut from './pages/checkOut/CheckOut';
 import OrderHistory from './pages/order/OrderHistory';
+import UserDetails from './pages/user/UserDetails';
 
 
 
@@ -36,6 +37,7 @@ function App() {
         <Route path='productList/:parentCat' element={<ProductList/>}/>
         <Route path='checkout' element={<CheckOut/>}/>
         <Route path='order-history' element={<OrderHistory/>}/>
+        <Route path='user-details' element={<UserDetails/>}/>
         
       
         

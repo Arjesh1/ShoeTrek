@@ -1,5 +1,6 @@
 import React from 'react'
 import MainLayout from '../../components/layout/MainLayout'
+import { AiFillCheckCircle } from 'react-icons/ai'
 
 
 const OrderHistory = () => {
@@ -119,7 +120,8 @@ const OrderHistory = () => {
                                   </div>
                                 </div>
                               </li>
-                              <div className=" w-full flex justify-end mt-4 gap-5 py-3">
+                              <div className=" w-full flex justify-between mt-4 gap-5 py-3">
+                                <p className='text-base flex gap-1 items-center sm:text-xl font-medium text-gray-500'> <span className='text-base sm:text-2xl font-medium text-green-500'><AiFillCheckCircle/></span> Delivered</p>
                                 <button class="text-lg font-semibold leading-6 text-indigo-600 pb-2">View Product</button>
 
                                
