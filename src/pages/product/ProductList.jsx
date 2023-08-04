@@ -55,17 +55,7 @@ switch(category.parentCat){
   return (
     <>
     <MainLayout>
-      <div className="px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
-      <Link to="/" >
-
-<button
-          className="rounded-md bg-indigo-600  mt-3 p-3 text-md  text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Home
-        </button>
-</Link>
-
-      </div>
+      
 
 
 

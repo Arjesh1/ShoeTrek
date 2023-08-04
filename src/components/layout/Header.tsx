@@ -155,8 +155,6 @@ const { cart, product } = useSelector((state: RootState) => state.product)
 const { search  } = useSelector((state: RootState) => state.system)
 
 
-console.log(searchValue.length);
-
 
 useEffect(()=>{
 
