@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition, Dialog, Popover, Tab, } from '@headlessui/react'
-import {  FaCartPlus } from "react-icons/fa";
+import {  FaCartPlus, FaUserCircle } from "react-icons/fa";
 import {  RxCross1 } from "react-icons/rx"
 import { GiHamburgerMenu } from "react-icons/gi"
 import Logo from '../assets/images/logo.png'
@@ -12,6 +12,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCartShow, setSearchShow } from '../../system/cartSlice';
 import { RootState } from '../../store';
 import ProductCard from '../product/ProductCard';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../config/firebase-config';
+import { setUser } from '../../pages/user/userSlice';
 
 
 
@@ -153,6 +156,7 @@ const [display, setDisplay] = useState([])
 const [searchValue, setSearchValue] = useState("")
 const { cart, product } = useSelector((state: RootState) => state.product)
 const { search  } = useSelector((state: RootState) => state.system)
+const { user  }: any = useSelector((state: RootState) => state.user)
 
 
 
@@ -190,6 +194,14 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
   const handleOnClick = () =>{
     dispatch(setCartShow(true))
   }
+
+
+  const handleOnLogOut = () => {
+    signOut(auth).then(()=>{
+    dispatch(setUser({}))
+  
+  })
+}
 
 
   return (
@@ -234,12 +246,14 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
 </form>
               </div>
 
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="absolute flex gap-2 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+                <div className="">
                 
                 <button
                   type="button"
                   onClick={handleOnClick}
-                  className="rounded-full bg-gray-800 d-flex p-1 text-gray-400 hover:text-white focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="rounded-full bg-gray-800  p-1 text-gray-400 hover:text-white focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   {!cart.length?(
                     <>
@@ -255,18 +269,28 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                   
                   
                 </button>
+
+                </div>
                 
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+
+                <div className="">
+                {!user?.uid?(
+                  <>
+                  <Link to="/login">
+
+                  <p className='text-white '>Login/Register</p>
+                  </Link>
+                  </>
+
+                ):(
+                  <>
+                  <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
+                      <FaUserCircle className='h-6  w-6 text-white bg-gray-800   text-gray-400 hover:text-white focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-800'/>
                     </Menu.Button>
                   </div>
                   <Transition
@@ -296,23 +320,29 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Settings
+                            Order History
                           </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            onClick={handleOnLogOut}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
-                          </a>
+                            Log out
+                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
                 </Menu>
+                  </>
+
+                )}
+
+               </div>
+                
               </div>
               
             </div>

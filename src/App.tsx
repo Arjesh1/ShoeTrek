@@ -11,17 +11,31 @@ import ProductOverview from './pages/product/ProductOverview';
 import Home from './pages/home/Home';
 import ProductList from './pages/product/ProductList';
 import { getProductsAction } from './pages/product/productAction';
-import { AppDispatch } from './store';
 import ShopingCart from './pages/product/ShopingCart';
 import CheckOut from './pages/checkOut/CheckOut';
 import OrderHistory from './pages/order/OrderHistory';
 import UserDetails from './pages/user/UserDetails';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './config/firebase-config';
+import { getClientAction } from './pages/user/userAction';
+import { setUser } from './pages/user/userSlice';
 
 
 
 
 function App() {
   
+  const dispatch = useDispatch()
+
+  onAuthStateChanged(auth, async (userData: any) =>{
+    if(userData.uid){
+      const user = await getClientAction({ uid: userData.uid });
+      if (user) {
+        dispatch(setUser(user)); // Dispatch the action with the user data
+      }
+  
+    }
+  })
   
  
 

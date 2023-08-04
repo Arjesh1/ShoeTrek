@@ -107,7 +107,7 @@ success: "Login has been successfully.",
 
 const { user } = await promiseUser;
 if (user.uid) {
-await getClientAction(dispatch, { uid: user.uid });
+await getClientAction({ uid: user.uid });
 } else {
 return undefined;
 }
@@ -117,22 +117,38 @@ console.log(error.message);
 };
 
 //get user data basen on login user uid
-export const getClientAction = async ( dispatch: Dispatch, { uid }: LoginUserData) => {
-  try {
+// export const getClientAction = async ( dispatch: Dispatch, { uid }: LoginUserData) => {
+//   try {
     
-    if (uid) {
-      const docSnap = await getDoc(doc(db, "clients", uid))
+//     if (uid) {
+//       const docSnap = await getDoc(doc(db, "clients", uid))
 
-      if (docSnap.exists()){
-          const user = {...docSnap.data(), uid}
-          console.log(user);
+//       if (docSnap.exists()){
+//           const user = {...docSnap.data(), uid}
+//           console.log(user);
           
-          dispatch(setUser(user))
-      }
+//           dispatch(setUser(user))
+//       }
       
+//     }
+//   } catch (error: any) {
+//     console.log(error.message);
+//   }
+// }
+
+export const getClientAction = async ({ uid }: LoginUserData) => {
+  try {
+    if (uid) {
+      const docSnap = await getDoc(doc(db, 'clients', uid));
+
+      if (docSnap.exists()) {
+        const user = { ...docSnap.data(), uid };
+        console.log(user);
+        return user; // Return the user data instead of dispatching the action
+      }
     }
   } catch (error: any) {
     console.log(error.message);
   }
-}
+};
 
