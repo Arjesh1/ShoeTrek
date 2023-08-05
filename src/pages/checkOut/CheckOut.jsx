@@ -8,6 +8,7 @@ const CheckOut = () => {
     const [totalValue, settotalValue] = useState()
     const navigate = useNavigate()
     const [form, setForm] = useState({})
+    const {user} = useSelector(state => state.user)
     
 
 
@@ -38,7 +39,7 @@ const CheckOut = () => {
       const handleOnChange = (e) =>{
         const {name, value} = e.target
         
-        setForm({...form, [name]: value })
+        setForm({...form, [name]: value, user})
         
       }
 
@@ -74,7 +75,7 @@ const CheckOut = () => {
                   id="email"
                   name="email"
                   type="email"
-                  onChange={handleOnChange}
+                  value={user.email}
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

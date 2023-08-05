@@ -44,6 +44,7 @@ const ProductOverview= () => {
   const dispatch= useDispatch();
   const [prodQuantity, setProdQuantity] = useState(1)
   const [prodPrice, setProdPrice] = useState()
+  
 
   
 
@@ -88,6 +89,16 @@ const ProductOverview= () => {
       size: size,
       quantity: prodQuantity
     }
+
+    // const existingItem = cart.find((item) => item.name === obj.name &&  item.size === obj.size)
+
+    // if (existingItem) {
+      
+    //   existingItem.quantity += obj.quantity;
+    // } else {
+      
+    //   cart.push(obj);
+    // }
 
   const cartObj = [...cart, obj]
 
