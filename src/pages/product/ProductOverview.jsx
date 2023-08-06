@@ -44,6 +44,7 @@ const ProductOverview= () => {
   const dispatch= useDispatch();
   const [prodQuantity, setProdQuantity] = useState(1)
   const [prodPrice, setProdPrice] = useState()
+  const [cartProduct, setCartProduct] = useState([])
   
 
   
@@ -90,19 +91,29 @@ const ProductOverview= () => {
       quantity: prodQuantity
     }
 
-    // const existingItem = cart.find((item) => item.name === obj.name &&  item.size === obj.size)
+    // check for the product index
 
-    // if (existingItem) {
+    const existingProductIndex = cart.findIndex((item) => item.name === obj.name &&  item.size === obj.size)
+
+    if (existingProductIndex !== -1) {
+      // If the product with the same name and size exists in the cart, update its quantity
+      const updatedCart = cart.map((item, index) => {
+        if (index === existingProductIndex) {
+          return { ...item, quantity: item.quantity + obj.quantity }; // Create a deep copy and update the quantity
+        }
+        return item;
+      });
+
+      dispatch(setCartProd(updatedCart));
       
-    //   existingItem.quantity += obj.quantity;
-    // } else {
+    } else {
+      // If the product does not exist in the cart, add it
+      const updatedCart = [...cart, obj]; // Create a copy of the cart array with the new object
       
-    //   cart.push(obj);
-    // }
+      dispatch(setCartProd(updatedCart));
+    }
 
-  const cartObj = [...cart, obj]
-
-    dispatch(setCartProd(cartObj))
+    
     toast.success("Item has been added.")
   }
 
