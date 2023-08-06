@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import { Link,  useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addOrderedProductAction } from './checkoutAction'
 
 const CheckOut = () => {
     const {cart} = useSelector(state => state.product)
     const [totalValue, settotalValue] = useState()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [form, setForm] = useState({})
     const {user} = useSelector(state => state.user)
     
@@ -33,14 +35,14 @@ const CheckOut = () => {
 
 
       
-      
+      const {uid, ...rest} = user
 
       
 
       const handleOnChange = (e) =>{
         const {name, value} = e.target
         
-        setForm({...form, [name]: value, user})
+        setForm({...form, [name]: value, uid })
         
       }
 
@@ -71,7 +73,8 @@ const CheckOut = () => {
         
         const updatedForm= {...form, [orderNumber]: generatedorderNumber}
         
-        console.log(updatedForm);
+        dispatch(addOrderedProductAction(updatedForm));
+        
 
       }
     
@@ -101,6 +104,7 @@ const CheckOut = () => {
                   type="email"
                   required={true}
                   value={user.email}
+                  onChange={handleOnChange}
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -160,7 +164,7 @@ const CheckOut = () => {
                   type="number"
                   required={true}
                   onChange={handleOnChange}
-                  name="number"
+                  name="phoneNumber"
                   id="street-address"
                   autoComplete="street-address"
                   className="block w-full rounded-md pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
