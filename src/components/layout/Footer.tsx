@@ -43,7 +43,7 @@ Sign up for our newsletter.</h2>
                 Subscribe
               </button>
             </div>
-            <p className="text-lg pl-2 mt-2 tracking-tight text-white sm:text-sm">
+            <p className="text-md pl-2 mt-2 tracking-tight text-white sm:text-sm">
         We care about your data. Read our privacy policy.</p>
           </div>
     </div>

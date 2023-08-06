@@ -23,9 +23,7 @@ const ShopingCart = () => {
 
 
   const handleOnDelete = (obj) =>{
-    console.log(obj);
     const updatedCart = cart.filter((item) => !(item.id === obj.id && item.size === obj.size))
-    console.log(updatedCart);
     dispatch(setCartProd(updatedCart));
     toast.success("Item has been removed")
   }

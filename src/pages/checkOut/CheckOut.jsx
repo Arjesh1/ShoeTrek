@@ -28,11 +28,12 @@ const CheckOut = () => {
         } else{
             navigate("/")
         }
-
-
     
       }, [cart.length, settotalValue, cart, navigate ])
 
+
+      
+      
 
       
 
@@ -46,8 +47,31 @@ const CheckOut = () => {
       const handleOnSubmit= (e) =>{
         e.preventDefault()
         form["product"]= cart
+
+        function generateRandomLetter() {
+          const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          const randomIndex = Math.floor(Math.random() * letters.length);
+          return letters.charAt(randomIndex);
+        }
         
-        console.log(form);
+        function generateOrderNumber() {
+          const timestamp = Date.now().toString();
+          let randomLetters = '';
+          for (let i = 0; i < 4; i++) {
+            randomLetters += generateRandomLetter();
+          }
+          const orderNum = `${randomLetters}-${timestamp}`;
+          return orderNum;
+        }
+        
+        
+        const generatedorderNumber = generateOrderNumber();
+        const orderNumber = "orderNumber"
+
+        
+        const updatedForm= {...form, [orderNumber]: generatedorderNumber}
+        
+        console.log(updatedForm);
 
       }
     
@@ -75,6 +99,7 @@ const CheckOut = () => {
                   id="email"
                   name="email"
                   type="email"
+                  required={true}
                   value={user.email}
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -99,6 +124,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="firstName"
                   id="firstName"
@@ -115,6 +141,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="lastName"
                   id="lastName"
@@ -131,6 +158,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="number"
+                  required={true}
                   onChange={handleOnChange}
                   name="number"
                   id="street-address"
@@ -149,6 +177,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="country"
                   id="country"
@@ -165,6 +194,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="streetAddress"
                   id="streetAddress"
@@ -181,6 +211,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="city"
                   id="city"
@@ -197,6 +228,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="region"
                   id="region"
@@ -213,6 +245,7 @@ const CheckOut = () => {
               <div className="mt-2">
                 <input
                   type="text"
+                  required={true}
                   onChange={handleOnChange}
                   name="postalCode"
                   id="postalCode"
@@ -297,6 +330,7 @@ const CheckOut = () => {
                           <div className="col-span-full mt-10 py-4">
                           <button
                             type='submit'
+                            
                             className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                             
                           >

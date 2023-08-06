@@ -119,7 +119,9 @@ const ProductOverview= () => {
 
   const handleOnDecrease = (e) =>{
 e.preventDefault()
-setProdQuantity(prodQuantity - 1)
+if (prodQuantity > 1) {
+  setProdQuantity(prodQuantity - 1);
+}
   }
   
 

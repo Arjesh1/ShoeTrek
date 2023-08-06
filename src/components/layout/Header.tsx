@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition, Dialog, Popover, Tab, } from '@headlessui/react'
-import {  FaCartPlus, FaUserCircle } from "react-icons/fa";
+import {  FaCartPlus, FaUserAlt, FaUserCircle } from "react-icons/fa";
 import {  RxCross1 } from "react-icons/rx"
 import { GiHamburgerMenu } from "react-icons/gi"
 import Logo from '../assets/images/logo.png'
@@ -281,8 +281,12 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                 {!user?.uid?(
                   <>
                   <Link to="/login">
+                  <div className="flex gap-1 items-center text-white ">
+                  <span className='  text-lg'><FaUserAlt/></span>
+                  <p className='  hidden sm:block '> Login/Register</p>
 
-                  <p className='text-white '>Login/Register</p>
+                  </div>
+                  
                   </Link>
                   </>
 
@@ -427,9 +431,10 @@ const cartItem: number  = cart?.reduce((acc: number ,item: any) => acc + item.qu
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
                               </div>
-                              <Link to={item.href} className="mt-6 block font-medium text-gray-900">
+                              <Link to={item.href} className="mt-6 block font-medium text-gray-900" onClick={() => setOpen(false)}>
                                 <span className="absolute inset-0 z-10" aria-hidden="true" />
                                 {item.name}
+                                
                               </Link>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
