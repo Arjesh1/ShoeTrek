@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import { AiFillCheckCircle } from 'react-icons/ai'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserOrderAction } from './orderAction'
 
 
 const OrderHistory = () => {
+  const {user} = useSelector(state => state.user)
+  const dispatch = useDispatch()
+  const{uid, ...rest} = user
+  console.log(user);
+
+  useEffect(()=>{
+    dispatch(getUserOrderAction(uid))
+
+
+  }, [dispatch, uid])
   return (
     <>
      <MainLayout>

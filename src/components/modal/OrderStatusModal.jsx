@@ -14,7 +14,7 @@ const OrderStatusModal = () => {
   const dispatch = useDispatch()
   const {orderModal} = useSelector(state => state.system)
   const cancelButtonRef = useRef(null)
-  console.log(orderModal);
+  
 
   //status comes from the stripe
   const status = "successful"

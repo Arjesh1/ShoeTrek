@@ -11,6 +11,7 @@ import Banner from '../../components/banner/Banner';
 
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import BannerRotated from '../../components/banner/BannerRotated';
+import OrderStatusModal from '../../components/modal/OrderStatusModal';
 
 
 
@@ -48,6 +49,7 @@ const Home = () => {
    
   return (
     <>
+    <OrderStatusModal/>
     <MainLayout>
 
         <div className="mb-3">

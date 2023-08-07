@@ -43,8 +43,10 @@ const CheckOut = () => {
 
       const handleOnChange = (e) =>{
         const {name, value} = e.target
+        const status = "status"
+        const totalPrice = "totalPrice"
         
-        setForm({...form, [name]: value, uid })
+        setForm({...form, [name]: value, uid, [status]:"Processing", [totalPrice]: totalValue })
         
       }
 
@@ -75,15 +77,17 @@ const CheckOut = () => {
         
         const updatedForm= {...form, [orderNumber]: generatedorderNumber}
         
-        // dispatch(addOrderedProductAction(updatedForm));
-        dispatch(setOrderModal(true))
+        dispatch(addOrderedProductAction(updatedForm));
+        
+        
+        console.log(updatedForm);
         
 
       }
     
   return (
     <>
-    <OrderStatusModal/>
+    
     <MainLayout>
     <form action="" onSubmit={handleOnSubmit}>
     <div className="container mx-auto flex flex-col sm:flex-row mt-5 bg-slate-100 p-5 rounded-md">
