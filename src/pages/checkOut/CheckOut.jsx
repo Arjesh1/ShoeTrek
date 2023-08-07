@@ -4,6 +4,7 @@ import { Link,  useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addOrderedProductAction } from './checkoutAction'
 import { setOrderModal } from '../../system/cartSlice'
+import OrderStatusModal from '../../components/modal/OrderStatusModal'
 
 const CheckOut = () => {
     const {cart} = useSelector(state => state.product)
@@ -82,6 +83,7 @@ const CheckOut = () => {
     
   return (
     <>
+    <OrderStatusModal/>
     <MainLayout>
     <form action="" onSubmit={handleOnSubmit}>
     <div className="container mx-auto flex flex-col sm:flex-row mt-5 bg-slate-100 p-5 rounded-md">

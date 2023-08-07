@@ -1,6 +1,6 @@
 import React, { Fragment, useRef, useState, ChangeEvent } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { BiSolidErrorCircle } from 'react-icons/bi'
+import { TiTick } from 'react-icons/ti'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOrderModal } from '../../system/cartSlice'
 import { sendPasswordResetEmail } from 'firebase/auth'
@@ -11,8 +11,9 @@ import { RootState } from '../../store'
 
 const OrderStatusModal = () => {
   const dispatch = useDispatch()
-  const {orderModal} = useSelector((state) => state.system)
+  const {orderModal} = useSelector(state => state.system)
   const cancelButtonRef = useRef(null)
+  console.log(orderModal);
 
 
   
@@ -35,7 +36,7 @@ const OrderStatusModal = () => {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full items-end justify-center p-4 text-center items-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -46,19 +47,19 @@ const OrderStatusModal = () => {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-             
+            
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                  <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <BiSolidErrorCircle className="h-6 w-6 text-yellow-400" aria-hidden="true" />
+                  <div className="flex flex-col items-center">
+                    <div className="mx-auto flex sm:w-48 sm:h-48 w-24 h-24 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                      <TiTick className="sm:h-24 sm:w-24 w-12 h-12 text-green-400" aria-hidden="true" />
                     </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                        Order Confimed
+                    <div className="mt-3 text-center sm:ml-4 sm:mt-3 sm:text-left">
+                      <Dialog.Title as="h3" className="text-base text-center font-semibold leading-6 text-gray-900">
+                        Payment Successful!
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Payment has been successful. Your order number is HJAKJS-232Y2178.
+                          Your order number is FGHHG-11221324
                         </p>
                       </div>
                     </div>
@@ -66,14 +67,14 @@ const OrderStatusModal = () => {
                   
                   <div className=" mt-4  ">
                   
-            
+           
             
 
                   </div>
 
                   
                 </div>
-                
+               
                 
               </Dialog.Panel>
             </Transition.Child>
