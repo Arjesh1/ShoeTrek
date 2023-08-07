@@ -3,6 +3,7 @@ import MainLayout from '../../components/layout/MainLayout'
 import { Link,  useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addOrderedProductAction } from './checkoutAction'
+import { setOrderModal } from '../../system/cartSlice'
 
 const CheckOut = () => {
     const {cart} = useSelector(state => state.product)
@@ -73,7 +74,8 @@ const CheckOut = () => {
         
         const updatedForm= {...form, [orderNumber]: generatedorderNumber}
         
-        dispatch(addOrderedProductAction(updatedForm));
+        // dispatch(addOrderedProductAction(updatedForm));
+        dispatch(setOrderModal(true))
         
 
       }
@@ -334,6 +336,7 @@ const CheckOut = () => {
                           <div className="col-span-full mt-10 py-4">
                           <button
                             type='submit'
+                            
                             
                             className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                             

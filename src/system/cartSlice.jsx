@@ -5,6 +5,7 @@ const initialState = {
    cartShow: false,
    search: false,
    forgetPassword: false,
+   orderModal: false,
 }
 
 const systemSlice = createSlice({
@@ -20,10 +21,13 @@ const systemSlice = createSlice({
           setForgetPassword: (state, { payload }) => {
             state.forgetPassword = payload;
           },
+          setOrderModal: (state, { payload }) => {
+            state.orderModal = payload;
+          },
           
     }
 })
 
-export const {setCartShow, setSearchShow, setForgetPassword} = systemSlice.actions
+export const {setCartShow, setSearchShow, setForgetPassword, setOrderModal} = systemSlice.actions
 
 export default systemSlice.reducer
