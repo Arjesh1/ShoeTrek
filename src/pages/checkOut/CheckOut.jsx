@@ -45,8 +45,9 @@ const CheckOut = () => {
         const {name, value} = e.target
         const status = "status"
         const totalPrice = "totalPrice"
+        const orderDate = "orderDate"
         
-        setForm({...form, [name]: value, uid, [status]:"Processing", [totalPrice]: totalValue })
+        setForm({...form, [name]: value, uid, [status]:"Processing", [totalPrice]: totalValue, [orderDate]: Date.now() })
         
       }
 
@@ -69,6 +70,7 @@ const CheckOut = () => {
           const orderNum = `${randomLetters}-${timestamp}`;
           return orderNum;
         }
+
         
         
         const generatedorderNumber = generateOrderNumber();

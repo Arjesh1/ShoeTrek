@@ -6,10 +6,11 @@ import { getUserOrderAction } from './orderAction'
 
 
 const OrderHistory = () => {
-  const {user} = useSelector(state => state.user)
+  const {user, userOrders} = useSelector(state => state.user)
   const dispatch = useDispatch()
   const{uid, ...rest} = user
-  console.log(user);
+  
+  
 
   useEffect(()=>{
     dispatch(getUserOrderAction(uid))
