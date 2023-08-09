@@ -37,7 +37,7 @@ const CheckOut = () => {
 
 
       
-      const {uid, ...rest} = user
+      const {uid} = user
 
       
 
