@@ -35,15 +35,15 @@ const OrderHistory = () => {
 
 <div className=" flex justify-between items-center border-b border-slate-300">
     <div className=" flex justify-evenly gap-5 sm:gap-16 pb-3 ">
-        <div className=" flex flex-col gap-4"> 
+        <div className=" flex flex-col gap-4 items-center"> 
         <p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Order Number</p>
         <p className=' text-sm sm:text-lg leading-8 text-gray-600'>{item.orderNumber}</p>
         </div>
-        <div className="flex flex-col gap-4 hidden sm:block">
+        <div className="flex flex-col gap-4 items-center hidden sm:flex">
         <p  className=' text-sm sm:text-lg  font-semibold text-gray-900'>Date Placed</p>
-      <p className=' text-sm sm:text-lg leading-8 text-gray-600'>{new Date(item.orderDate).toLocaleString()} </p>
+      <p className=' text-sm sm:text-lg leading-8 text-gray-600'>{new Date(item.orderDate).toLocaleString().slice(0,10).replace(',', '')} </p>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center">
         <p  className='text-sm sm:text-lg font-semibold text-gray-900'> Total Amount</p>
         <p className=' text-sm sm:text-lg leading-8 text-gray-600'>$ {item.totalPrice}</p>
         </div>
@@ -60,7 +60,7 @@ const OrderHistory = () => {
     </div>
 </div>
 
-<div className=" border-b border-slate-500 mt-5 ">
+<div className="  mt-5 ">
 
   {item.product?.map((product)=>(
     <div className="">
@@ -87,19 +87,16 @@ const OrderHistory = () => {
         <p className="mt-1 text-sm sm:text-xl text-gray-500">Size: {product.size}</p>
         <p className="mt-1 text-sm sm:text-xl text-gray-500">Quantity: {product.quantity}</p>
       </div>
-      <div className="flex flex-1 items-end justify-between text-sm">
-        
+      <div className="flex flex-1 items-end justify-end text-sm">
+      <Link to={`/product/${product.id}`}>
+    <button class="text-lg font-semibold leading-6 text-indigo-600 pb-2">View Product</button>
+
+    </Link>
         
       </div>
     </div>
   </li>
-  <div className=" w-full flex justify-end mt-4 gap-5 py-3">
-    <Link to={`/product/${product.id}`}>
-    <button class="text-lg font-semibold leading-6 text-indigo-600 pb-2">View Product</button>
-
-    </Link>
-
-  </div>
+  
   </div>
 
   ))}
@@ -117,7 +114,11 @@ const OrderHistory = () => {
 
 
 
+<div className=" w-full flex justify-between  mt-4 gap-5 py-3 border-b border-slate-500">
+  <p className='text-base flex gap-1 items-center sm:text-xl font-medium text-gray-500'> <span className='text-base sm:text-2xl font-medium text-green-500'><AiFillCheckCircle/></span> {item.status}</p>
+   
 
+  </div>
 
 
 </div>
