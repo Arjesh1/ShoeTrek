@@ -27,7 +27,7 @@ const {user} = useSelector(state=> state.user)
           <button
                 type="button"
                 onClick={()=>setEditForm(false)}
-                className="flex  justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className={`flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${editForm === false ? 'hidden': ''}`}
               >
                 Edit
               </button>
@@ -191,7 +191,7 @@ const {user} = useSelector(state=> state.user)
                 type="submit"
                 disabled={editForm}
                 onClick={()=>{setEditForm(true)}}
-                className="flex w-2/6 justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+                className={`flex w-2/6 justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${editForm ? 'hidden' : ''}`}
               >
                 Save
               </button>
