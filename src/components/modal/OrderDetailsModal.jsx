@@ -54,7 +54,7 @@ const OrderDetailsModal = ({selectedOrder}) => {
 <div className="flex justify-between  items-start  px-5 hidden md:flex">
 
 <div className="flex gap-3">
-<div class=" grid grid-cols-1 sm:grid-cols-2 gap-0.5 ">
+<div class=" grid  grid-cols-1 sm:grid-cols-2 gap-2 ">
 
   {selectedOrder?.product.map((item) =>(
     <div className="h-32 w-32 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">

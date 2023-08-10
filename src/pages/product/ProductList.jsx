@@ -11,36 +11,49 @@ const ProductList = () => {
     const dispatch= useDispatch();
     const { product} = useSelector(state=> state.product);
     const category = useParams()
+
+   
  
     
 
 
   useEffect(() => {
 
-    dispatch(getProductsAction());
+    
     // Filter the products based on the category after the products have been fetched
-switch(category.parentCat){
-  case 'all' :
-    setCat(product)
-    break
-  case 'sales' :
-    setCat(product.filter(item => item.salesPrice !== undefined))
-    break
-    case 'women-sales' :
-    setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `women`))
-    break
-    case 'men-sales' :
-    setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `men`))
-    break
-    case 'kids-sales' :
-    setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `kids`))
-    break
-    default:
-      setCat(product.filter(item => item.parentCat === `${category.parentCat}`));
 
+    const handleCategoryChange = () =>{
+      switch(category.parentCat){
+        case 'all' :
+          setCat(product)
+          break
+        case 'sales' :
+          setCat(product.filter(item => item.salesPrice !== undefined))
+          break
+          case 'women-sales' :
+          setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `women`))
+          break
+          case 'men-sales' :
+          setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `men`))
+          break
+          case 'kids-sales' :
+          setCat(product.filter(item => item.salesPrice !== undefined && item.parentCat === `kids`))
+          break
+          case 'women-trending' :
+          setCat(product.filter(item => +item.quantity <= 50 && item.parentCat === `women`))
+          break
+          case 'men-trending' :
+          setCat(product.filter(item => +item.quantity <=50 && item.parentCat === `men`))
+          break
+          case 'kids-trending' :
+          setCat(product.filter(item => +item.quantity <= 50 && item.parentCat === `kids`))
+          break
+          default:
+            setCat(product.filter(item => item.parentCat === `${category.parentCat}`));
+      }
+    }
+    handleCategoryChange()
 
-
-}
   }, [category.parentCat, product, dispatch]);
 
    
@@ -59,9 +72,9 @@ switch(category.parentCat){
 
 
 
-
+{/* replace fi=unction */}
         <ProductCard product={cat} 
-        heading={category.parentCat.slice(0,1).toUpperCase() + category.parentCat.slice(1)} />
+        heading={category.parentCat.slice(0,1).toUpperCase() + category.parentCat.slice(1).replace("-", " ")} />
     </MainLayout>
       
     </>

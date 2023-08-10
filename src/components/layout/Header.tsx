@@ -45,7 +45,7 @@ function classNames(...classes: string[]) {
           },
           {
             name: 'Trending',
-            href: '/producList/women-trending',
+            href: '/productList/women-trending',
             imageSrc: 'https://images.pexels.com/photos/5026387/pexels-photo-5026387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
@@ -73,7 +73,7 @@ function classNames(...classes: string[]) {
           },
           {
             name: 'Men Trending',
-            href: '/productList/trending-men',
+            href: '/productList/men-trending',
             imageSrc: 'https://images.pexels.com/photos/5264913/pexels-photo-5264913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             imageAlt: 'image',
           },
@@ -99,7 +99,7 @@ function classNames(...classes: string[]) {
           },
           {
             name: 'Kids Trending',
-            href: '/productList/kids-trendng',
+            href: '/productList/kids-trending',
             imageSrc: 'https://images.pexels.com/photos/5623675/pexels-photo-5623675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             imageAlt: 'image',
           },
