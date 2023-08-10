@@ -12,8 +12,8 @@ export const getUserOrderAction = (uid) => async (dispatch) => {
   
       orderSnap.forEach((doc) => {
         const orderDt = {
-          ...doc.data(),
-          slug: doc.id,
+          ...doc.data()
+          
         };
   
         orderList.push(orderDt);

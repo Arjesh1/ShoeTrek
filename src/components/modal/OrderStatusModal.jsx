@@ -3,10 +3,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import { TiTick } from 'react-icons/ti'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOrderModal } from '../../system/cartSlice'
-import { sendPasswordResetEmail } from 'firebase/auth'
-import { auth } from '../../config/firebase-config'
-import { toast } from 'react-toastify'
-import { RootState } from '../../store'
 import { BiSolidErrorCircle } from 'react-icons/bi'
 
 

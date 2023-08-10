@@ -4,6 +4,8 @@ import { AiFillCheckCircle } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrderAction } from './orderAction'
 import { Link } from 'react-router-dom'
+import { setOrderDetailsModal } from '../../system/cartSlice'
+import OrderDetailsModal from '../../components/modal/OrderDetailsModal'
 
 
 const OrderHistory = () => {
@@ -18,6 +20,7 @@ const OrderHistory = () => {
   }, [dispatch, uid])
   return (
     <>
+    <OrderDetailsModal/>
      <MainLayout>
         
         <div className="container mx-auto mt-5 sm:mt-12 mb-5 sm:mb-12 p-4 sm:p-0">
@@ -115,7 +118,15 @@ const OrderHistory = () => {
 
 
 <div className=" w-full flex justify-between  mt-4 gap-5 py-3 border-b border-slate-500">
-  <p className='text-base flex gap-1 items-center sm:text-xl font-medium text-gray-500'> <span className='text-base sm:text-2xl font-medium text-green-500'><AiFillCheckCircle/></span> {item.status}</p>
+  <p className='text-base flex gap-1 items-center sm:text-xl font-medium text-gray-500'> <span className='text-base sm:text-2xl font-medium text-green-500'><AiFillCheckCircle/></span> {item.status}
+  {/* order places, processing, shipped, delivered */}
+  </p>
+
+  <button
+    className="block  rounded-md bg-slate-100 border border-black-200 px-6 py-2.5 text-center text-sm sm:text-base font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600" onClick={()=>{dispatch(setOrderDetailsModal(true))}}
+  >
+    View Details
+  </button>
    
 
   </div>

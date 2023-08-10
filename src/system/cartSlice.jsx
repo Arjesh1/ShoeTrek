@@ -6,6 +6,7 @@ const initialState = {
    search: false,
    forgetPassword: false,
    orderModal: false,
+   orderDetailsModal: false,
 }
 
 const systemSlice = createSlice({
@@ -24,10 +25,13 @@ const systemSlice = createSlice({
           setOrderModal: (state, { payload }) => {
             state.orderModal = payload;
           },
+          setOrderDetailsModal: (state, { payload }) => {
+            state.orderDetailsModal = payload;
+          },
           
     }
 })
 
-export const {setCartShow, setSearchShow, setForgetPassword, setOrderModal} = systemSlice.actions
+export const {setCartShow, setSearchShow, setForgetPassword, setOrderModal, setOrderDetailsModal} = systemSlice.actions
 
 export default systemSlice.reducer
