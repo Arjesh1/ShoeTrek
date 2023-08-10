@@ -1,19 +1,18 @@
 import React, { Fragment, useRef, useState, ChangeEvent } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { TiTick } from 'react-icons/ti'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOrderDetailsModal } from '../../system/cartSlice'
-import { BiSolidErrorCircle } from 'react-icons/bi'
 
 
-const OrderDetailsModal = () => {
+
+const OrderDetailsModal = ({selectedOrder}) => {
   const dispatch = useDispatch()
   const {orderDetailsModal} = useSelector(state => state.system)
   const cancelButtonRef = useRef(null)
+ 
   
 
-  //status comes from the stripe
-  const status = "successful"
+ 
 
   
   
@@ -47,67 +46,159 @@ const OrderDetailsModal = () => {
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
             
-                <div className="bg-white px-4 py-9">
-
-                 <div className="flex justify-between  items-start  px-5 n">
-
-                  <div className="flex gap-3">
-                  <div class=" grid grid-cols-1 sm:grid-cols-2 gap-0.5 ">
-                  
-                  <div className="h-32 w-32 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                <img
-                                  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-26906.appspot.com/o/product%2Fimages%2F1689756110460-6-10457__94975.jpg?alt=media&token=b49ab852-3043-4384-8c93-f689035d0974"
-                                  alt="product img"
-                                  className="h-full w-full object-cover object-center"
-                                />
-                              </div>
-                              
-                              <div className="h-32 w-32 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                <img
-                                  src="https://firebasestorage.googleapis.com/v0/b/ecommerce-26906.appspot.com/o/product%2Fimages%2F1689756110460-6-10457__94975.jpg?alt=media&token=b49ab852-3043-4384-8c93-f689035d0974"
-                                  alt="product img"
-                                  className="h-full w-full object-cover object-center"
-                                />
-                              </div>
-                
-
-                
-              </div>
-              <div className="">
-              <div className=" flex flex-col gap-4 items-center"> 
-        
-        <p className=' text-sm sm:text-lg leading-8 text-gray-600'>4545</p>
-        </div>
-        <div className="flex flex-col gap-4 items-center hidden sm:flex">
-        
-      <p className=' text-sm sm:text-lg leading-8 text-gray-600'>sdsd </p>
-        </div>
               
-              </div>
-                  </div>
-                 
-                  
-                  <div className="">
-                  <div className=" flex flex-col  items-center"> 
-        <p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Delivery Address</p>
-        <p className=' text-sm sm:text-lg leading-8 text-gray-600'>Floyd Miles7363</p>
-        <p className=' text-sm sm:text-lg leading-8 text-gray-600'>Floyd Miles7363</p>
-        <p className=' text-sm sm:text-lg leading-8 text-gray-600'>Floyd Miles7363</p>
-        </div>
-                  </div>
+
+<div className="bg-white px-4 py-9">
+{/* desktop view */}
+
+<div className="flex justify-between  items-start  px-5 hidden md:flex">
+
+<div className="flex gap-3">
+<div class=" grid grid-cols-1 sm:grid-cols-2 gap-0.5 ">
+
+  {selectedOrder?.product.map((item) =>(
+    <div className="h-32 w-32 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+    <img
+      src={item.img}
+      className="h-full w-full object-cover object-center"
+      alt='product '
+    />
+  </div>
+
+   ))} 
 
 
-                  <div className=""> 
-                  <div className=" flex flex-col gap-1 items-center"> 
-        <p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Customer Details</p>
-        <p className=' text-sm sm:text-lg leading-8 text-gray-600'>a@a.com </p>
-        <p className=' text-sm sm:text-lg leading-8 text-gray-600'>11122334 </p>
-        </div>
-                  </div>
-                 </div>
+            
+            
 
-                  
-                </div>
+
+
+</div>
+<div className="flex flex-col gap-4">
+<div className=" flex flex-col gap-4 items-center"> 
+
+<p className='  sm:text-lg  leading-8 font-medium text-gray-600'>Order Number: <br/>
+<span className='font-normal'>
+{selectedOrder?.orderNumber}
+</span>
+
+</p>
+</div>
+<div className="flex flex-col gap-4  hidden sm:flex">
+
+<p className=' sm:text-lg leading-8 font-medium text-gray-600'>Total:<br/> 
+<span className='font-normal'>
+${selectedOrder?.totalPrice}
+</span>
+ </p>
+</div>
+
+</div>
+</div>
+
+
+<div className="">
+<div className=" flex flex-col  items-center"> 
+<p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Delivery Address</p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.streetAddress + ","}</p>
+
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.city + ", " + selectedOrder?.region + ","}</p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.country + ", " + selectedOrder?.postalCode + ","}</p>
+</div>
+</div>
+
+
+<div className=""> 
+<div className=" flex flex-col gap-1 items-center"> 
+<p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Customer Details</p>
+<p className=' text-sm sm:text-lg leading-8 text-gray-600'>{selectedOrder?.firstName + " " + selectedOrder?.lastName } </p>
+<p className=' text-sm sm:text-lg leading-8 text-gray-600'>{selectedOrder?.email} @</p>
+<p className=' text-sm sm:text-lg leading-8 text-gray-600'>{selectedOrder?.phoneNumber} </p>
+</div>
+</div>
+</div>
+
+{/* tablet / mobile view*/}
+
+<div className="flex  flex-col items-start  px-5 flex md:hidden w-80">
+
+{/* order number , total price */}
+<div className=" flex  w-full justify-between mb-4">
+<div className=" flex flex-col gap-4 items-center"> 
+
+<p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Order Number<br/>
+<span className='font-normal'>
+{selectedOrder?.orderNumber}
+</span></p>
+</div>
+
+<div className="flex flex-col gap-4 items-center flex sm:hidden">
+
+<p className=' text-sm sm:text-lg  font-semibold text-gray-900 text-center'>Total price<br/> 
+<span className='font-normal'>
+${selectedOrder?.totalPrice}
+</span> </p>
+</div>
+
+</div>
+
+
+
+
+  {/* product img */}
+<div className="flex justify-center items-center ">
+<div class=" flex flex-wrap justify-center gap-2  ">
+
+{selectedOrder?.product.map((item) =>(
+  <div className="h-32 w-32 flex-shrink-0 justify-center  overflow-hidden rounded-md border border-gray-200">
+              <img
+                src={item.img}
+                alt="product img"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+
+))}
+
+
+            
+            
+           
+
+
+
+</div>
+
+</div>
+
+{/* deliver, customer details */}
+<div className=" flex justify-between w-full mt-4">
+<div className=" flex flex-col  items-center"> 
+<p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Delivery Address</p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.streetAddress + ","}</p>
+
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.city + ", " + selectedOrder?.region + ","}</p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.country + ", " + selectedOrder?.postalCode + ","}</p>
+
+</div>
+
+<div className=" flex flex-col gap-1 items-center"> 
+<p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Customer Details</p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.firstName + " " + selectedOrder?.lastName } </p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.email} @</p>
+<p className=' text-sm sm:text-lg leading-1 text-gray-600'>{selectedOrder?.phoneNumber} </p>
+</div>
+</div>
+
+
+
+</div>
+
+</div>
+
+                    
+
+                
                
                 
               </Dialog.Panel>

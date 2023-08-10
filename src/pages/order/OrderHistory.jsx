@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import { AiFillCheckCircle } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,16 +11,28 @@ import OrderDetailsModal from '../../components/modal/OrderDetailsModal'
 const OrderHistory = () => {
   const {user, userOrders} = useSelector(state => state.user)
   const dispatch = useDispatch()
+  const [selectedOrder, setSelectedOrder] = useState()
   const{uid} = user
+  
 
   useEffect(()=>{
     dispatch(getUserOrderAction(uid))
 
 
   }, [dispatch, uid])
+
+  const handleOnSelectedOrderDetails = (item) =>{
+    setSelectedOrder(item)
+    
+    dispatch(setOrderDetailsModal(true))
+    
+
+  }
+
+ 
   return (
     <>
-    <OrderDetailsModal/>
+    <OrderDetailsModal selectedOrder = {selectedOrder}/>
      <MainLayout>
         
         <div className="container mx-auto mt-5 sm:mt-12 mb-5 sm:mb-12 p-4 sm:p-0">
@@ -34,9 +46,9 @@ const OrderHistory = () => {
     
 {userOrders?.map((item) =>(
 
-<div className="border border-slate-300 p-10 rounded-md shadow-2xl mt-6">
+<div className="border border-slate-300 p-3 sm:p-10 rounded-md shadow-2xl mt-6">
 
-<div className=" flex justify-between items-center border-b border-slate-300">
+<div className=" flex justify-between items-end sm:items-start border-b border-slate-300 ">
     <div className=" flex justify-evenly gap-5 sm:gap-16 pb-3 ">
         <div className=" flex flex-col gap-4 items-center"> 
         <p className=' text-sm sm:text-lg  font-semibold text-gray-900'>Order Number</p>
@@ -53,11 +65,11 @@ const OrderHistory = () => {
 
     </div>
 
-    <div className=" ">
+    <div className="pb-2">
     <button
-    className="block  rounded-md bg-slate-100 border border-black-200 px-6 py-2.5 text-center text-sm sm:text-base font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
+    className="block rounded-md bg-slate-100 border border-black-200 px-6 py-2.5 text-center text-xs sm:text-base font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
   >
-    View Invoice
+     Invoice
   </button>
 
     </div>
@@ -90,9 +102,9 @@ const OrderHistory = () => {
         <p className="mt-1 text-sm sm:text-xl text-gray-500">Size: {product.size}</p>
         <p className="mt-1 text-sm sm:text-xl text-gray-500">Quantity: {product.quantity}</p>
       </div>
-      <div className="flex flex-1 items-end justify-end text-sm">
+      <div className="flex flex-1 items-end justify-end text-sm mt-3">
       <Link to={`/product/${product.id}`}>
-    <button class="text-lg font-semibold leading-6 text-indigo-600 pb-2">View Product</button>
+    <button class="sm:text-lg font-semibold leading-6 text-indigo-600 pb-2 text-xs">View Product</button>
 
     </Link>
         
@@ -123,7 +135,7 @@ const OrderHistory = () => {
   </p>
 
   <button
-    className="block  rounded-md bg-slate-100 border border-black-200 px-6 py-2.5 text-center text-sm sm:text-base font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600" onClick={()=>{dispatch(setOrderDetailsModal(true))}}
+    className="block  rounded-md bg-slate-100 border border-black-200 px-6 py-2.5 text-center text-sm sm:text-base font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600" onClick={()=>handleOnSelectedOrderDetails(item)}
   >
     View Details
   </button>
