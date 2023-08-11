@@ -7,6 +7,7 @@ const initialState = {
    forgetPassword: false,
    orderModal: false,
    orderDetailsModal: false,
+   reviewForm: false,
 }
 
 const systemSlice = createSlice({
@@ -28,10 +29,13 @@ const systemSlice = createSlice({
           setOrderDetailsModal: (state, { payload }) => {
             state.orderDetailsModal = payload;
           },
+          setReviewForm: (state, { payload }) => {
+            state.reviewForm = payload;
+          },
           
     }
 })
 
-export const {setCartShow, setSearchShow, setForgetPassword, setOrderModal, setOrderDetailsModal} = systemSlice.actions
+export const {setCartShow, setSearchShow, setForgetPassword, setOrderModal, setOrderDetailsModal, setReviewForm} = systemSlice.actions
 
 export default systemSlice.reducer

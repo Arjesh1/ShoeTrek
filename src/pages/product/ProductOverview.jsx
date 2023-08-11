@@ -10,6 +10,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { getProductsAction } from './productAction';
 import { setCartProd } from './productSlice';
 import { toast } from 'react-toastify';
+import Reviews from '../../components/reviews/Reviews';
+import ReviewFormsModal from '../../components/reviews/ReviewForm';
 
 
 
@@ -133,8 +135,9 @@ if (prodQuantity > 1) {
 
   return (
     <>
+    <ReviewFormsModal/>
     <MainLayout>
-    <div className="bg-white "> 
+    <div className="bg-white mb-9 "> 
       <div className="pt-2">
 
         {/* Image gallery on big screen */}
@@ -388,7 +391,13 @@ if (prodQuantity > 1) {
             </div>
           </div>
         </div>
+
+        <div className="mx-auto mt-6 max-w-2xl px-4 sm:px-6 lg:max-w-7xl  lg:px-8 ">
+        <Reviews/>
       </div>
+      </div>
+
+      
     </div>
 
 

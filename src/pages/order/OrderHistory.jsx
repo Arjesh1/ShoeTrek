@@ -46,7 +46,7 @@ const OrderHistory = () => {
     
 {userOrders?.map((item) =>(
 
-<div className="border border-slate-300 p-3 sm:p-10 rounded-md shadow-2xl mt-6">
+<div className="border border-slate-300 p-3 sm:p-10 rounded-md shadow-xl mt-6">
 
 <div className=" flex justify-between items-end sm:items-start border-b border-slate-300 ">
     <div className=" flex justify-evenly gap-5 sm:gap-16 pb-3 ">
