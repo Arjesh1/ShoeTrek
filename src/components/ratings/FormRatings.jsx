@@ -7,13 +7,13 @@ const FormRatings = ({ value, onChange }) => {
   return (
     <div>
       <label>Rating:</label>
-      <div className='flex '>
+      <div className='flex pt-3'>
         {stars.map(star => (
           <span
             key={star}
             onClick={() => onChange(star)}
             style={{ cursor: 'pointer' }}
-            className='hover:text-yellow-300 text-2xl text-yellow-300'
+            className='hover:text-yellow-300 text-4xl text-yellow-300'
           >
             {star <= value ? <AiFillStar /> : <AiOutlineStar />}
           </span>
