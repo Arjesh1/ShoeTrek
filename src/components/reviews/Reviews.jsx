@@ -20,9 +20,9 @@ const Reviews = () => {
           <div className="flex  mt-5 border-b border-slate-200 p-5 gap-10 ">
             <div className=" flex flex-col items-center basis-1/4">
                 <div className="flex  justify-center items-center rounded-full">
-            <p className='text-8xl '><FaUserCircle/></p>
+            <p className='text-8xl text-gray-400 '><FaUserCircle/></p>
             </div>
-            <p className='text-xl mb-2 '>Arjesh Khadka</p>
+            <p className='text-xl mb-2 pt-1'>Arjesh Khadka</p>
             <p className='text-xl'><Ratings/></p>
             </div>
             <div className=" flex justify-center gap-3 flex-col"> 
