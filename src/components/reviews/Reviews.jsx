@@ -26,7 +26,6 @@ const Reviews = () => {
             <p className='text-xl'><Ratings/></p>
             </div>
             <div className=" flex justify-center gap-3 flex-col"> 
-            <div className="font-semibold text-xl leading-8">Heading</div>
             <div className="text-md text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae earum nisi ut non unde, autem quia quibusdam, cumque nostrum quisquam vero delectus quo libero, quae illo? Quos minima laudantium eos?</div>
             
             </div>

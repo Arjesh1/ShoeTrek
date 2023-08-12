@@ -1,7 +1,10 @@
-import React, { Fragment, useRef, } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setReviewForm } from '../../system/cartSlice'
+import FormRatings from '../ratings/FormRatings'
+
+
 
 
 
@@ -9,6 +12,7 @@ const ReviewFormsModal = () => {
   const dispatch = useDispatch()
   const {reviewForm} = useSelector(state => state.system)
   const cancelButtonRef = useRef(null)
+  const [rating, setRating] = useState(0); // Initially no rating selected
  
 
   const handleOnChange = (e) =>{
@@ -19,6 +23,13 @@ const ReviewFormsModal = () => {
   const handleOnSubmit = () =>{
 
   }
+
+ 
+
+  const handleRatingChange = newRating => {
+    setRating(newRating);
+  };
+  
   
 
  
@@ -43,7 +54,7 @@ const ReviewFormsModal = () => {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full min-w-full items-end justify-center p-5 text-center items-center sm:p-0">
+          <div className="flex min-h-full  items-end justify-center p-4 text-center items-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -53,28 +64,18 @@ const ReviewFormsModal = () => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
             
               
 
-<div className="bg-white px-4 py-9">
+<div className="bg-white px-4 py-9 ">
 <form className="space-y-6 px-5"  onSubmit={handleOnSubmit}>
-            <div>
-              <label  className="block text-sm font-medium leading-6 text-gray-900">
-                Heading
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  onChange={handleOnChange}
-                  className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+
+<div className="">
+<FormRatings value={rating} onChange={handleRatingChange} />
+</div>
+
+            
 
             <div>
             <label  className="block text-sm font-medium leading-6 text-gray-900">
@@ -100,7 +101,7 @@ const ReviewFormsModal = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Submit
               </button>
             </div>
           </form>
