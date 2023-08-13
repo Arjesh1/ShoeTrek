@@ -1,17 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// interface Cart {
-//     img: string,
-//     name: string,
-//     price: string,
-//     id:string,
-//     size: any,
-//     quantity: any
-// }
 
 const initialState: any ={
     product:[],
     cart:[],
+    reviews:[],
     
 }
 
@@ -52,12 +45,16 @@ const productSlice = createSlice({
                }
                return item
            })
-       }
+       },
+       setReview: (state, {payload}) =>{
+        state.reviews = payload 
+    },
+
       
     }
 })
 
 const {reducer, actions} = productSlice
-export const {setProdu, setCartProd, increateQty, decreaseQty} = actions
+export const {setProdu, setCartProd, increateQty, decreaseQty, setReview} = actions
 
 export default reducer

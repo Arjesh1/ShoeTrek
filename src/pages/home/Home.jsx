@@ -12,6 +12,7 @@ import Banner from '../../components/banner/Banner';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import BannerRotated from '../../components/banner/BannerRotated';
 import OrderStatusModal from '../../components/modal/OrderStatusModal';
+import { getReviewsAction } from '../../components/reviews/reviewsAction';
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
 
   useEffect(()=>{
     dispatch(getProductsAction())
+    dispatch(getReviewsAction())
    }, [dispatch])
 
 

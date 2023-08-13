@@ -117,7 +117,7 @@ const OrderHistory = () => {
 
     </Link>
     <p className='sm:text-lg font-semibold leading-6 pb-2 text-xs'>
-      /
+      |
     </p>
 
     
