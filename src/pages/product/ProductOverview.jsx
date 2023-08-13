@@ -11,7 +11,7 @@ import { getProductsAction } from './productAction';
 import { setCartProd } from './productSlice';
 import { toast } from 'react-toastify';
 import Reviews from '../../components/reviews/Reviews';
-import ReviewFormsModal from '../../components/reviews/ReviewForm';
+
 
 
 
@@ -135,7 +135,7 @@ if (prodQuantity > 1) {
 
   return (
     <>
-    <ReviewFormsModal/>
+    
     <MainLayout>
     <div className="bg-white mb-9 "> 
       <div className="pt-2">

@@ -4,14 +4,16 @@ import { AiFillCheckCircle } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrderAction } from './orderAction'
 import { Link } from 'react-router-dom'
-import { setOrderDetailsModal } from '../../system/cartSlice'
+import { setOrderDetailsModal, setReviewForm } from '../../system/cartSlice'
 import OrderDetailsModal from '../../components/modal/OrderDetailsModal'
+import ReviewFormsModal from '../../components/reviews/ReviewForm'
 
 
 const OrderHistory = () => {
   const {user, userOrders} = useSelector(state => state.user)
   const dispatch = useDispatch()
   const [selectedOrder, setSelectedOrder] = useState()
+  const [selectedProductReview, setSelectedProductReview] = useState()
   const{uid} = user
   
 
@@ -25,13 +27,20 @@ const OrderHistory = () => {
     setSelectedOrder(item)
     
     dispatch(setOrderDetailsModal(true))
-    
+  }
+
+  const handleOnSelectedProductReview = (productId) =>{
+    const orderDetails = {["productId"]: productId, ["uid"]:uid}
+    setSelectedProductReview(orderDetails);
+    dispatch(setReviewForm(true))
 
   }
 
+  
  
   return (
     <>
+    <ReviewFormsModal orderDetails={selectedProductReview }/>
     <OrderDetailsModal selectedOrder = {selectedOrder}/>
      <MainLayout>
         
@@ -102,11 +111,19 @@ const OrderHistory = () => {
         <p className="mt-1 text-sm sm:text-xl text-gray-500">Size: {product.size}</p>
         <p className="mt-1 text-sm sm:text-xl text-gray-500">Quantity: {product.quantity}</p>
       </div>
-      <div className="flex flex-1 items-end justify-end text-sm mt-3">
+      <div className="flex flex-1 gap-2 items-end justify-end text-sm mt-3">
       <Link to={`/product/${product.id}`}>
     <button class="sm:text-lg font-semibold leading-6 text-indigo-600 pb-2 text-xs">View Product</button>
 
     </Link>
+    <p className='sm:text-lg font-semibold leading-6 pb-2 text-xs'>
+      /
+    </p>
+
+    
+    <button class="sm:text-lg font-semibold leading-6 text-yellow-500 pb-2 text-xs" onClick={() =>handleOnSelectedProductReview(product.id)}>Give Review</button>
+
+   
         
       </div>
     </div>
@@ -140,7 +157,6 @@ const OrderHistory = () => {
     View Details
   </button>
    
-
   </div>
 
 
