@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setReviewForm } from '../../system/cartSlice'
 import FormRatings from '../ratings/FormRatings'
+import { addReviewAction } from './reviewsAction'
 
 
 
@@ -42,7 +43,7 @@ const ReviewFormsModal = ({orderDetails}) => {
 
   const handleOnSubmit = (e) =>{
 e.preventDefault()
-console.log(form);
+dispatch(addReviewAction(form));
 
   }
 
