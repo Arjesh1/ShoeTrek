@@ -393,7 +393,7 @@ if (prodQuantity > 1) {
         </div>
 
         <div className="mx-auto mt-6 max-w-2xl px-4 sm:px-6 lg:max-w-7xl  lg:px-8 ">
-        <Reviews/>
+        <Reviews productName={productName}/>
       </div>
       </div>
 

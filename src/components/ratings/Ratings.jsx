@@ -2,8 +2,9 @@ import React from 'react'
 import {BsStarFill, BsStarHalf, BsStar} from 'react-icons/bs'
 const maxRate = 5
 
-const Ratings = ({rate = 5 }) => {
+const Ratings = ({rate }) => {
 
+  console.log(rate);
   const rateStar = rate || 5
   const hasDecimalValue = rateStar % 1;
 
