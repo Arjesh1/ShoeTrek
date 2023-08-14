@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Ratings from '../ratings/Ratings'
 import { FaUserCircle } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
@@ -6,8 +6,23 @@ import { useSelector } from 'react-redux'
 
 const Reviews = ({productName}) => {
   const {reviews} = useSelector(state=> state.product)
-  const selectedProdReviews = [reviews.find(item => item.productId === productName )]
-  console.log(selectedProdReviews);
+  const prodReviews = reviews?.find(item => item.productId === productName )
+  const [selectedProdReviews, setSelectedProdReviews] = useState([])
+
+  useEffect(()=>{
+    if(!prodReviews){
+      const selectedProdReviews = []
+      setSelectedProdReviews(selectedProdReviews)
+    } else{
+      const selectedProdReviews = [prodReviews]
+      setSelectedProdReviews(selectedProdReviews)
+      
+    }
+}, [prodReviews])
+  
+console.log(selectedProdReviews);
+  
+
   
 
     
@@ -18,7 +33,7 @@ const Reviews = ({productName}) => {
             
           </div>
 
-          {selectedProdReviews.length === undefined? (
+          {selectedProdReviews.length === 0 ? (
             <div className="flex  mt-5 text-lg sm:text-xl  p-5 gap-10 ">
               No reviews
             </div>
