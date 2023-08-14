@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Ratings from '../ratings/Ratings'
 import { FaUserCircle } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
@@ -6,21 +6,14 @@ import { useSelector } from 'react-redux'
 
 const Reviews = ({productName}) => {
   const {reviews} = useSelector(state=> state.product)
-  const prodReviews = reviews?.find(item => item.productId === productName )
-  const [selectedProdReviews, setSelectedProdReviews] = useState([])
 
-  useEffect(()=>{
-    if(!prodReviews){
-      const selectedProdReviews = []
-      setSelectedProdReviews(selectedProdReviews)
-    } else{
-      const selectedProdReviews = [prodReviews]
-      setSelectedProdReviews(selectedProdReviews)
-      
-    }
-}, [prodReviews])
+
+
+  const selectedProdReviews = reviews?.filter(item => item.productId === productName )
+
+
   
-console.log(selectedProdReviews);
+
   
 
   

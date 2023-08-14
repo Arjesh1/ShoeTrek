@@ -4,7 +4,7 @@ const maxRate = 5
 
 const Ratings = ({rate }) => {
 
-  console.log(rate);
+ 
   const rateStar = rate || 5
   const hasDecimalValue = rateStar % 1;
 
