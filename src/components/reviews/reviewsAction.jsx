@@ -41,7 +41,7 @@ export const getReviewsAction = () => async (dispatch) => {
     reviewSnap.forEach((doc) => {
       const reviewDt = {
         ...doc.data(),
-        slug: doc.id,
+        reviewId: doc.id,
       };
 
       reviewList.push(reviewDt);

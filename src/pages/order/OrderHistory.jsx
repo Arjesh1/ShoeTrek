@@ -15,7 +15,8 @@ const OrderHistory = () => {
   const [selectedOrder, setSelectedOrder] = useState()
   const [selectedProductReview, setSelectedProductReview] = useState()
   const{email, ...rest} = user
- 
+  const {reviews} = useSelector(state=> state.product)
+  console.log(reviews);
 
   useEffect(()=>{
     dispatch(getUserOrderAction(rest.uid))
@@ -30,7 +31,7 @@ const OrderHistory = () => {
   }
 
   const handleOnSelectedProductReview = (productId, orderNumber ) =>{
-    const orderDetails = {["productId"]: productId, ["orderNumber"]:orderNumber, ...rest}
+    const orderDetails = {productId: productId, orderNumber:orderNumber, ...rest}
     setSelectedProductReview(orderDetails);
     dispatch(setReviewForm(true))
 
@@ -122,8 +123,6 @@ const OrderHistory = () => {
 
     
     <button class="sm:text-lg font-semibold leading-6 text-yellow-500 pb-2 text-xs" onClick={() =>handleOnSelectedProductReview(product.id, item.orderNumber)}>Give Review</button>
-
-   
         
       </div>
     </div>
@@ -132,11 +131,6 @@ const OrderHistory = () => {
   </div>
 
   ))}
-
-
-
-               
-
 </div>
 
 
