@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { setOrderDetailsModal, setReviewForm } from '../../system/cartSlice'
 import OrderDetailsModal from '../../components/modal/OrderDetailsModal'
 import ReviewFormsModal from '../../components/reviews/ReviewForm'
+import { deleteReviewAction } from '../../components/reviews/reviewsAction'
 
 
 
@@ -34,11 +35,24 @@ const OrderHistory = () => {
   }
 
   const handleOnSelectedProductReview = (productId, orderNumber ) =>{
-    const orderDetails = {productId: productId, orderNumber:orderNumber, ...rest}
+    const orderDetails = {productId: productId, orderNumber:orderNumber}
     setSelectedProductReview(orderDetails);
     dispatch(setReviewForm(true))
 
   }
+
+  const handleOnDeleteSelectedProductReview = (productId, orderNumber, reviewId ) =>{
+    const reviewOrderDetails = {productId: productId, orderNumber:orderNumber, reviewId:reviewId}
+    dispatch(deleteReviewAction(reviewOrderDetails))
+   
+    
+   
+    
+
+  }
+
+
+
 
   
  
@@ -125,8 +139,12 @@ const OrderHistory = () => {
     </p>
 
 
+    {product.reviewId ? (
+      <button class="sm:text-lg font-semibold leading-6 text-red-500 pb-2 text-xs" onClick={() =>handleOnDeleteSelectedProductReview(product.id, item.orderNumber, product.reviewId)}>Delete Review</button>
+    ):(
+<button class="sm:text-lg font-semibold leading-6 text-yellow-500 pb-2 text-xs" onClick={() =>handleOnSelectedProductReview(product.id, item.orderNumber)}>Give Review</button>
+    )}
     
-    <button class="sm:text-lg font-semibold leading-6 text-yellow-500 pb-2 text-xs" onClick={() =>handleOnSelectedProductReview(product.id, item.orderNumber)}>Give Review</button>
         
       </div>
     </div>
