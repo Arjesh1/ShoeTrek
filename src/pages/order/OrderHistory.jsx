@@ -70,8 +70,13 @@ const OrderHistory = () => {
                 <p className='text-md sm:text-lg leading-8 mt-2 text-gray-600'>Check the status of recent orders and discover similar products.</p>
             </div>
 
-    
-{userOrders?.map((item) =>(
+            {userOrders.length === 0 ? (
+
+<p className='text-md sm:text-lg leading-8 mt-2 text-gray-600'>No Order history.</p>
+
+            ):(
+              <>
+              {userOrders?.map((item) =>(
 
 <div className="border border-slate-300 p-3 sm:p-10 rounded-md shadow-xl mt-6">
 
@@ -179,6 +184,11 @@ const OrderHistory = () => {
 </div>
 
 ))}
+              </>
+            )}
+
+    
+
     
         </div>
         </MainLayout> 

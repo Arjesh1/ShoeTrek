@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import MainLayout from '../../components/layout/MainLayout'
 import { useSelector } from 'react-redux'
+import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../../config/firebase-config'
+import { toast } from 'react-toastify'
 
 const UserDetails = () => {
 const [form, setForm] = useState({})
@@ -8,9 +11,34 @@ const [editForm, setEditForm] = useState(true)
 const {user} = useSelector(state=> state.user)
 
 
+
   useEffect(()=>{
     setForm(user)
   }, [user])
+
+
+  const handleonFormChange = (e) =>{
+    const {name, value} = e.target
+    setForm({
+      ...form, [name]:value, 
+    })
+
+    
+
+  }
+
+  const handleOnSave = async(e) =>{
+    e.preventDefault()
+    if (user.uid) {
+      
+      await setDoc(doc(db, "clients", user.uid), form);
+      toast.success("Update has been successful")
+    }
+    
+    setEditForm(true)
+  }
+
+
 
   return (
     <>
@@ -36,7 +64,7 @@ const {user} = useSelector(state=> state.user)
           <h2 className="text-base font-semibold leading-7 text-gray-900">User Information</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive product.</p>
 
-          <form >
+          <form onSubmit={handleOnSave} >
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             
             <div className="sm:col-span-3">
@@ -46,10 +74,12 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form.firstName}
+                onChange={handleonFormChange}
+                required= {true}
                 disabled={editForm}
                   type="text"
                   name="firstName"
-                  autoComplete="given-name"
+                  
                   className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -62,6 +92,8 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form.lastName}
+                onChange={handleonFormChange}
+                required= {true}
                 disabled={editForm}
                   type="text"
                   name="lastName"
@@ -78,6 +110,7 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form.email}
+                
                 disabled={true}
                   name="email"
                   type="email"
@@ -88,16 +121,18 @@ const {user} = useSelector(state=> state.user)
             </div>
 
             <div className="sm:col-span-3">
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label  className="block text-sm font-medium leading-6 text-gray-900">
                 Phone Number
               </label>
               <div className="mt-2">
                 <input
                 value={form.number}
+                onChange={handleonFormChange}
+                
                 disabled={editForm}
                   name="number"
                   type="number"
-                  autoComplete="number"
+                  
                   className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -110,6 +145,8 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
               <input
                 value={form?.country}
+                onChange={handleonFormChange}
+                
                 disabled={editForm}
                   name="country"
                   type="text"
@@ -126,6 +163,8 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form?.streetAddress}
+                onChange={handleonFormChange}
+                
                 disabled={editForm}
                   type="text"
                   name="streetAddress"
@@ -142,6 +181,8 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form?.city}
+                onChange={handleonFormChange}
+                
                 disabled={editForm}
                   type="text"
                   name="city"
@@ -158,6 +199,8 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form?.region}
+                onChange={handleonFormChange}
+                
                 disabled={editForm}
                   type="text"
                   name="region"
@@ -174,6 +217,8 @@ const {user} = useSelector(state=> state.user)
               <div className="mt-2">
                 <input
                 value={form?.postalCode}
+                onChange={handleonFormChange}
+                
                 disabled={editForm}
                   type="number"
                   
@@ -190,7 +235,6 @@ const {user} = useSelector(state=> state.user)
           
                 type="submit"
                 disabled={editForm}
-                onClick={()=>{setEditForm(true)}}
                 className={`flex w-2/6 justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${editForm ? 'hidden' : ''}`}
               >
                 Save
