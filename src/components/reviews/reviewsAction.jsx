@@ -1,4 +1,4 @@
-import { FieldValue, addDoc, collection, deleteDoc, doc, getDocs, query, setDoc, where } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs, query, setDoc, where } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { toast } from "react-toastify";
 import { setReviewForm } from "../../system/cartSlice";
@@ -37,7 +37,7 @@ export const getReviewsAction = () => async (dispatch) => {
 
 //add reviews data to db
 export const addReviewAction = (form) => async(dispatch) => {
-  const {firstName, lastName, uid, orderNumber, productId, ...rest} = form
+  console.log(form);
     try {
         const docRef = await addDoc(collection(db, "reviews"), form)
         

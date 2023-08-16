@@ -16,15 +16,15 @@ const OrderHistory = () => {
   const dispatch = useDispatch()
   const [selectedOrder, setSelectedOrder] = useState()
   const [selectedProductReview, setSelectedProductReview] = useState()
-  const{email, ...rest} = user
+  const{email, firstName, lastName, uid} = user
   
 
 
   useEffect(()=>{
-    dispatch(getUserOrderAction(rest.uid))
+    dispatch(getUserOrderAction(uid))
 
 
-  }, [dispatch, rest.uid])
+  }, [dispatch, uid])
 
   
 
@@ -35,7 +35,7 @@ const OrderHistory = () => {
   }
 
   const handleOnSelectedProductReview = (productId, orderNumber ) =>{
-    const orderDetails = {productId: productId, orderNumber:orderNumber}
+    const orderDetails = {productId: productId, orderNumber:orderNumber,firstName:firstName, lastName:lastName }
     setSelectedProductReview(orderDetails);
     dispatch(setReviewForm(true))
 
