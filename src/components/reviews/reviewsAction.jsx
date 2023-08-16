@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import { FieldValue, addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { toast } from "react-toastify";
 import { setReviewForm } from "../../system/cartSlice";
@@ -7,12 +7,53 @@ import { setReview } from "../../pages/product/productSlice";
 
 //add reviews data to db
 export const addReviewAction = (form) => async(dispatch) => {
+  const {firstName, lastName, uid, orderNumber, productId, ...rest} = form
     try {
         const docRef = await addDoc(collection(db, "reviews"), form)
         
         if(docRef?.id){
             toast.success("Your review has been added.")
             dispatch(setReviewForm(false))
+
+
+
+            const q =  query(collection(db, "orders"), where("orderNumber", "==", form.orderNumber))
+            const prodSnap = await getDocs(q);
+            let reviewProd = {}
+            prodSnap.forEach((doc) => {
+              const catDt = {
+                ...doc.data(),
+                
+              };
+              reviewProd = {...catDt}
+            });
+            const productreview = reviewProd.product.find((item) => item.id === form.productId)
+
+            const updatedproductwithReview = {...productreview, ...rest, reviewId:docRef.id  }
+
+            console.log(updatedproductwithReview);
+           
+           
+
+
+
+
+
+
+// const prod =  query(collection(db, "orders"), where("uid", "==", form.uid))
+
+// let a = {}
+// const querySnapshot = await getDocs(prod)
+// querySnapshot.forEach((doc) => {
+//  const order = doc.data()
+
+//  a = order.product.filter((prod) => prod.id === form.productId)
+// })
+
+//  await db.collection('orders').doc(form.orderNumber).update({
+//   product: FieldValue.arrayUnion({...a, form})
+// })
+
           
             return;
         }

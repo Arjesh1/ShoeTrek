@@ -18,10 +18,6 @@ const ReviewFormsModal = ({orderDetails}) => {
   const [form, setForm] = useState({})
   
 
- 
-  
-  
-
 
   const handleRatingChange = (newRating) => {
     setRating(newRating);
@@ -44,6 +40,8 @@ const ReviewFormsModal = ({orderDetails}) => {
   const handleOnSubmit = (e) =>{
 e.preventDefault()
 dispatch(addReviewAction(form));
+
+
 
   }
 

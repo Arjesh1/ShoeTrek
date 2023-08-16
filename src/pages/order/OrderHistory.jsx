@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { setOrderDetailsModal, setReviewForm } from '../../system/cartSlice'
 import OrderDetailsModal from '../../components/modal/OrderDetailsModal'
 import ReviewFormsModal from '../../components/reviews/ReviewForm'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import { db } from '../../config/firebase-config'
 
 
 const OrderHistory = () => {
@@ -16,13 +18,15 @@ const OrderHistory = () => {
   const [selectedProductReview, setSelectedProductReview] = useState()
   const{email, ...rest} = user
   const {reviews} = useSelector(state=> state.product)
-  console.log(reviews);
+
 
   useEffect(()=>{
     dispatch(getUserOrderAction(rest.uid))
 
 
   }, [dispatch, rest.uid])
+
+  
 
   const handleOnSelectedOrderDetails = (item) =>{
     setSelectedOrder(item)
@@ -120,6 +124,7 @@ const OrderHistory = () => {
     <p className='sm:text-lg font-semibold leading-6 pb-2 text-xs'>
       |
     </p>
+
 
     
     <button class="sm:text-lg font-semibold leading-6 text-yellow-500 pb-2 text-xs" onClick={() =>handleOnSelectedProductReview(product.id, item.orderNumber)}>Give Review</button>
