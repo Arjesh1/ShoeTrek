@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom'
 import { setOrderDetailsModal, setReviewForm } from '../../system/cartSlice'
 import OrderDetailsModal from '../../components/modal/OrderDetailsModal'
 import ReviewFormsModal from '../../components/reviews/ReviewForm'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../../config/firebase-config'
+
 
 
 const OrderHistory = () => {
@@ -17,7 +16,7 @@ const OrderHistory = () => {
   const [selectedOrder, setSelectedOrder] = useState()
   const [selectedProductReview, setSelectedProductReview] = useState()
   const{email, ...rest} = user
-  const {reviews} = useSelector(state=> state.product)
+  
 
 
   useEffect(()=>{

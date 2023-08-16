@@ -1,4 +1,4 @@
-import { FieldValue, addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { FieldValue, addDoc, collection, doc, getDocs, query, setDoc, where } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { toast } from "react-toastify";
 import { setReviewForm } from "../../system/cartSlice";
@@ -17,8 +17,11 @@ export const addReviewAction = (form) => async(dispatch) => {
 
 
 
+ 
             const q =  query(collection(db, "orders"), where("orderNumber", "==", form.orderNumber))
+            console.log(q);
             const prodSnap = await getDocs(q);
+            
             let reviewProd = {}
             prodSnap.forEach((doc) => {
               const catDt = {
@@ -27,11 +30,27 @@ export const addReviewAction = (form) => async(dispatch) => {
               };
               reviewProd = {...catDt}
             });
-            const productreview = reviewProd.product.find((item) => item.id === form.productId)
+
+
+            const productreview = reviewProd.product.find((item) => 
+               item.id === form.productId)
+
+               const productIndex = reviewProd.product.findIndex((item) => 
+               item.id === form.productId)
 
             const updatedproductwithReview = {...productreview, ...rest, reviewId:docRef.id  }
 
-            console.log(updatedproductwithReview);
+            reviewProd.product[productIndex] =  updatedproductwithReview
+
+            setDoc(doc(db, "orders", reviewProd.orderNumber), reviewProd);
+            
+
+
+
+
+            
+
+            
            
            
 
