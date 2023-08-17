@@ -5,6 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addOrderedProductAction } from './checkoutAction'
 import { setOrderModal } from '../../system/cartSlice'
 import OrderStatusModal from '../../components/modal/OrderStatusModal'
+import PaymentForm from './PaymentForm'
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK)
 
 const CheckOut = () => {
     const {cart} = useSelector(state => state.product)
@@ -87,6 +94,13 @@ const CheckOut = () => {
 
       }
     
+      const options = {
+        // passing the client secret obtained in step 3
+        clientSecret: '{{CLIENT_SECRET}}',
+        // Fully customizable with appearance API.
+        appearance: {/*...*/},
+      };
+
   return (
     <>
     
@@ -275,7 +289,83 @@ const CheckOut = () => {
 
         <div className="border-b mt-3 border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Payment Details</h2>
+
+          <Elements stripe={stripePromise} options={options}>
+      <PaymentForm />
+    </Elements>
+
+          {/* <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+          <div className="col-span-full">
+              <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                Name on Card
+              </label>
+              <div className="mt-2">
+                <input
+                  type="name"
+                  required={true}
+                  onChange={handleOnChange}
+                  name="cardName"
+                  autoComplete="card-number"
+                  className="block w-full rounded-md pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+          <div className="col-span-full">
+              <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                Card Number
+              </label>
+              <div className="mt-2">
+                <input
+                  type="number"
+                  required={true}
+                  onChange={handleOnChange}
+                  name="cardNumber"
+                  autoComplete="card-number"
+                  className="block w-full rounded-md pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="col-span-4">
+              <label  className="block text-sm font-medium leading-6 text-gray-900">
+                Expiry Date
+              </label>
+              <div className="mt-2">
+                <input
+                  type="date"
+                  required={true}
+                  name="expiryDate"
+                  autoComplete="address-level1"
+                  className="block w-full rounded-md border-0 pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+                CVC
+              </label>
+              <div className="mt-2">
+                <input
+                  type="number"
+                  required={true}
+                  name="cvc"
+                  autoComplete="postal-code"
+                  className="block w-full rounded-md border-0 pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            
+
+
+
+
+          </div> */}
           </div>
+
 
         </div>
 
