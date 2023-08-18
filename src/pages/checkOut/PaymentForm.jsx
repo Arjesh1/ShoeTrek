@@ -14,7 +14,7 @@ const PaymentForm = () => {
   return (
     <form>
     <PaymentElement />
-    <button>Submit</button>
+    
   </form>
   )
 }
