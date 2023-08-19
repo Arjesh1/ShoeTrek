@@ -6,9 +6,10 @@ import { addOrderedProductAction } from './checkoutAction'
 import { setOrderModal } from '../../system/cartSlice'
 import OrderStatusModal from '../../components/modal/OrderStatusModal'
 import PaymentForm from './PaymentForm'
-import {Elements} from '@stripe/react-stripe-js';
+import {Elements, useElements, useStripe} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import axios from 'axios'
+import { error } from 'console'
 
 
 
@@ -27,6 +28,8 @@ const CheckOut = () => {
     const [form, setForm] = useState({})
     const {user} = useSelector(state => state.user)
     const [clientSecret, setClientSecret] = useState('')
+    const stripe = useStripe()
+    const elements = useElements();
     
 
 
@@ -84,10 +87,26 @@ const CheckOut = () => {
         
       }
 
-      const handleOnSubmit= (e) =>{
+      const handleOnSubmit= async (e) =>{
         e.preventDefault()
         form["product"]= cart
+        
+        if (!stripe || elements){
+          return
+        }
 
+        const {error} = await stripe.confirmPayment({
+          elements, 
+          confirmParams: {
+            return_url: "http://localhost:3000/checkout"
+          }
+        })
+
+        if (error.type === 'card-error' || error.type === 'validation_error'){
+
+          dispatch(setOrderModal(true))
+
+        }
         function generateRandomLetter() {
           const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
           const randomIndex = Math.floor(Math.random() * letters.length);
@@ -310,14 +329,33 @@ const CheckOut = () => {
 
         <div className="border-b mt-3 border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Payment Details</h2>
-          <div className="text-sm font-medium leading-6 text-gray-900 mt-3">
-        
+          <div className="grid grid-cols-1">
+
+          <div className="col-span-full mb-3">
+              <label  className="block text-sm  leading-6 text-gray-700">
+                Name on Card
+              </label>
+              <div className="  ">
+                <input
+                  type="text"
+                  required={true}
+                  name="cardName"
+                  autoComplete="name"
+                  className="block w-full rounded-md pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+
+        <div className="col-span-full ">
           {clientSecret && (
-  <Elements stripe={stripePromise} options={options}>
+  <Elements stripe={stripePromise} options={options} >
       <PaymentForm />
     </Elements>
 
 )}
+
+</div>
 
           </div>
 

@@ -11,6 +11,8 @@ const PaymentForm = () => {
 
     }, [stripe])
 
+    
+
   return (
     <form>
     <PaymentElement />
