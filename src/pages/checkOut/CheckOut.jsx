@@ -6,9 +6,9 @@ import { addOrderedProductAction } from './checkoutAction'
 import { setOrderModal } from '../../system/cartSlice'
 import OrderStatusModal from '../../components/modal/OrderStatusModal'
 import PaymentForm from './PaymentForm'
-import {Elements, useElements, useStripe} from '@stripe/react-stripe-js';
+import {Elements, useElements, useStripe, PaymentElement} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
-import axios from 'axios'
+import axios from 'axios' 
 
 
 
@@ -17,7 +17,7 @@ const stripePromise = loadStripe(
   process.env.REACT_APP_STRIPE_PK
   )
 
-console.log(stripePromise);
+
 
 const CheckOut = () => {
     const {cart} = useSelector(state => state.product)
@@ -27,8 +27,8 @@ const CheckOut = () => {
     const [form, setForm] = useState({})
     const {user} = useSelector(state => state.user)
     const [clientSecret, setClientSecret] = useState('')
-    const stripe = useStripe()
-    const elements = useElements();
+    // const stripe = useStripe()
+    // const elements = useElements();
     const [message, setMessage] = useState("")
     
 
@@ -51,6 +51,9 @@ const CheckOut = () => {
         }
     
       }, [cart.length, settotalValue, cart, navigate ])
+
+
+      
 
       useEffect(() =>{
         const getSecret =   async() =>{
@@ -91,26 +94,39 @@ const CheckOut = () => {
         e.preventDefault()
         form["product"]= cart
         
-        if (!stripe || elements){
-          return
-        }
+  //       if (!stripe || elements){
+  //         return
+  //       }
 
-        const {error} = await stripe.confirmPayment({
-          elements, 
-          confirmParams: {
-            return_url: "http://localhost:3000/checkout"
-          }
-        })
+  //       const { error: submitError } = await elements.submit()
+  //   if (submitError) {
+  //     return
+  //   }
 
-        if (error.type === 'card-error' || error.type === 'validation_error'){
+  //   const { data } = await axios({
+  //     method: "post",
+  //     url: "http://localhost:8001/api/v1/payment/create-payment-intent",
+  //     data: {
+  //       amount: 30000,
+  //       currency: "aud",
+  //     },
+  //   })
 
-          setMessage(error.message);
+  //   const { clientSecret } = data
 
-        } else{
+  //   const { paymentIntent } = await stripe.confirmPayment({
+  //     elements,
+  //     clientSecret,
+  //     confirmParams: { return_url: "http://localhost:3001" },
+  //     redirect: "if_required",
+  //   })
 
-          setMessage("An unexpected error occured.");
-
-        }
+  //   if (paymentIntent.status === "succeeded") {
+  //     console.log("payment successful");
+  //   } else {
+  //     console.log("payment successful");
+  //   }
+  // }
 
         function generateRandomLetter() {
           const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -355,7 +371,7 @@ const CheckOut = () => {
         <div className="col-span-full ">
           {clientSecret && (
   <Elements stripe={stripePromise} options={options} >
-      <PaymentForm />
+      <PaymentElement />
     </Elements>
 
 )}

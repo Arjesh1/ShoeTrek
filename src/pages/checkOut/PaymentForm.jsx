@@ -11,11 +11,9 @@ const PaymentForm = () => {
 
     }, [stripe])
 
-    
-
   return (
     <form>
-    <PaymentElement />
+    <PaymentElement  />
     
   </form>
   )
