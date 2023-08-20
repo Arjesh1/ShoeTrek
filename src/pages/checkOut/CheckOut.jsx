@@ -9,7 +9,6 @@ import PaymentForm from './PaymentForm'
 import {Elements, useElements, useStripe} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import axios from 'axios'
-import { error } from 'console'
 
 
 
@@ -30,6 +29,7 @@ const CheckOut = () => {
     const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe()
     const elements = useElements();
+    const [message, setMessage] = useState("")
     
 
 
@@ -104,9 +104,14 @@ const CheckOut = () => {
 
         if (error.type === 'card-error' || error.type === 'validation_error'){
 
-          dispatch(setOrderModal(true))
+          setMessage(error.message);
+
+        } else{
+
+          setMessage("An unexpected error occured.");
 
         }
+
         function generateRandomLetter() {
           const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
           const randomIndex = Math.floor(Math.random() * letters.length);
