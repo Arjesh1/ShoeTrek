@@ -21,7 +21,7 @@ const stripePromise = loadStripe(
 
 const CheckOut = () => {
     const {cart} = useSelector(state => state.product)
-    const [totalValue, settotalValue] = useState()
+    const [totalValue, setTotalValue] = useState()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [form, setForm] = useState({})
@@ -43,39 +43,39 @@ const CheckOut = () => {
            }, 0)
           }
           const totalPrice =  calculatedTotal(cart) + 5
-          settotalValue(totalPrice)
+          setTotalValue(totalPrice)
        
            
         } else{
             navigate("/")
         }
     
-      }, [cart.length, settotalValue, cart, navigate ])
+      }, [cart.length, setTotalValue, cart, navigate ])
 
 
       
 
-      useEffect(() =>{
-        const getSecret =   async() =>{
-          const res = await  axios({
-            method: "post",
-            url: "http://localhost:8000/shoe-trek/payment/create-payment-intent",
-            data: {
-              amount: 1000,
-              currency: "aud"
-            }
-          })
-          setClientSecret(res.data.clientSecret)
-        }
-        getSecret()
-      }, [])
+      // useEffect(() =>{
+      //   const getSecret =   async() =>{
+      //     const res = await  axios({
+      //       method: "post",
+      //       url: "http://localhost:8000/shoe-trek/payment/create-payment-intent",
+      //       data: {
+      //         amount: 1000,
+      //         currency: "aud"
+      //       }
+      //     })
+      //     setClientSecret(res.data.clientSecret)
+      //   }
+      //   getSecret()
+      // }, [])
 
-      const options = {
+      // const options = {
         
-        clientSecret,
+      //   clientSecret,
         
-        // appearance: {/*...*/},
-      };
+      //   // appearance: {/*...*/},
+      // };
 
 
       const {uid} = user
@@ -146,11 +146,11 @@ const CheckOut = () => {
 
         
         
-        const generatedorderNumber = generateOrderNumber();
+        const generatedOrderNumber = generateOrderNumber();
         const orderNumber = "orderNumber"
 
         
-        const updatedForm= {...form, [orderNumber]: generatedorderNumber}
+        const updatedForm= {...form, [orderNumber]: generatedOrderNumber}
         
         dispatch(addOrderedProductAction(updatedForm));
         
@@ -368,7 +368,7 @@ const CheckOut = () => {
             </div>
 
 
-        <div className="col-span-full ">
+        {/* <div className="col-span-full ">
           {clientSecret && (
   <Elements stripe={stripePromise} options={options} >
       <PaymentElement />
@@ -376,7 +376,7 @@ const CheckOut = () => {
 
 )}
 
-</div>
+</div> */}
 
           </div>
 
