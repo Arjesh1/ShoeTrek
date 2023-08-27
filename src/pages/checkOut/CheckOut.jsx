@@ -20,7 +20,7 @@ const stripePromise = loadStripe(
 
 
 const CheckOut = () => {
-    const {cart} = useSelector(state => state.product)
+    const {cart, product} = useSelector(state => state.product)
     const [totalValue, setTotalValue] = useState()
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -76,6 +76,17 @@ const CheckOut = () => {
         
       //   // appearance: {/*...*/},
       // };
+
+
+
+
+
+
+     
+
+      
+
+
 
 
       const {uid} = user
@@ -151,11 +162,12 @@ const CheckOut = () => {
 
         
         const updatedForm= {...form, [orderNumber]: generatedOrderNumber}
+        console.log( updatedForm)
         
-        dispatch(addOrderedProductAction(updatedForm));
+        // dispatch(addOrderedProductAction(updatedForm));
         
         
-        console.log(updatedForm);
+       
         
 
       }
