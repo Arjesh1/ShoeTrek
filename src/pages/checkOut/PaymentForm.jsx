@@ -25,7 +25,6 @@ const PaymentForm = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({});
   const { user } = useSelector((state) => state.user);
-
   const [message, setMessage] = useState();
 
   useEffect(() => {
@@ -35,8 +34,14 @@ const PaymentForm = () => {
           return total + +item.price * item.quantity;
         }, 0);
       };
-      const totalPrice = calculatedTotal(cart) + 5;
-      setTotalValue(totalPrice);
+
+      if (user.uid) {
+        const totalPrice = calculatedTotal(cart);
+        setTotalValue(totalPrice);
+      } else {
+        const totalPrice = calculatedTotal(cart) + 5;
+        setTotalValue(totalPrice);
+      }
     } else {
       navigate("/");
     }
@@ -104,7 +109,7 @@ const PaymentForm = () => {
       const orderNumber = "orderNumber";
 
       const updatedForm = { ...form, [orderNumber]: generatedOrderNumber };
-      console.log(updatedForm);
+
       const status = "status";
 
       setMessage({
@@ -145,8 +150,6 @@ const PaymentForm = () => {
               toast.error(error.message);
               console.log(error);
             }
-
-            console.log(updatedItem); // Log the updated object
           }
         });
       }
