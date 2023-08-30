@@ -41,7 +41,7 @@ const CheckOut = () => {
         method: "post",
         url: "http://localhost:8000/shoe-trek/payment/create-payment-intent",
         data: {
-          amount: totalValue,
+          amount: 10000,
           currency: "aud",
         },
       });

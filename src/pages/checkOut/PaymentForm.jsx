@@ -173,7 +173,7 @@ const PaymentForm = () => {
                 Contact Information
               </h2>
 
-              <div className="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="col-span-full">
                   <label
                     htmlFor="email"
@@ -197,7 +197,7 @@ const PaymentForm = () => {
               </div>
             </div>
 
-            <div className="border-b mt-3 border-gray-900/10 pb-12">
+            <div className="border-b mt-1 border-gray-900/10 pb-12">
               <h2 className="text-base font-semibold leading-7 text-gray-900">
                 Shipping Information
               </h2>
@@ -205,7 +205,7 @@ const PaymentForm = () => {
                 Use correct details.
               </p>
 
-              <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="first-name"
