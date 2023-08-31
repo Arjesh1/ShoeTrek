@@ -45,7 +45,7 @@ export const getReviewsAction: any =
   };
 
 //add reviews data to db
-export const addReviewAction =
+export const addReviewAction: any =
   (form: ReviewType) =>
   async (
     dispatch: ThunkDispatch<RootState, undefined, AnyAction>

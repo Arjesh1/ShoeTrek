@@ -58,7 +58,7 @@ const Home = () => {
           <HomeCarousel />
         </div>
 
-        <div className="h-auto flex justify-around items-center my-8">
+        <div className="h-auto flex flex-wrap justify-around items-center my-8">
           <div className="flex justify-center  items-center ">
             <Link to="/productList/trending">
               <button className="button-home ">Trending</button>
@@ -67,6 +67,21 @@ const Home = () => {
           <div className="flex justify-center  items-center">
             <Link to="/productList/sales">
               <button className="button-home ">Sales</button>
+            </Link>
+          </div>
+          <div className="flex justify-center  items-center">
+            <Link to="/productList/men">
+              <button className="button-home ">Men</button>
+            </Link>
+          </div>
+          <div className="flex justify-center  items-center">
+            <Link to="/productList/women">
+              <button className="button-home ">Women</button>
+            </Link>
+          </div>
+          <div className="flex justify-center  items-center">
+            <Link to="/productList/kids">
+              <button className="button-home ">Kids</button>
             </Link>
           </div>
         </div>

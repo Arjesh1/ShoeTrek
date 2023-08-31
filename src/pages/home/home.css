@@ -1,10 +1,11 @@
 .button-home {
   --b: 3px; /* border thickness */
   --s: 0.45em; /* size of the corner */
-  --color: #373b44;
+  --color: rgb(79 70 229);
+  --textColor: black;
 
   padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
-  color: var(--color);
+  color: var(--textColor);
   --_p: var(--s);
   background: conic-gradient(
       from 90deg at var(--b) var(--b),
