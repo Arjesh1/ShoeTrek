@@ -39,7 +39,7 @@ const CheckOut = () => {
     const getSecret = async () => {
       const res = await axios({
         method: "post",
-        url: "http://localhost:8000/shoe-trek/payment/create-payment-intent",
+        url: "https://wandering-puce-pigeon.cyclic.app/shoe-trek/payment/create-payment-intent",
         data: {
           amount: 10000,
           currency: "aud",
