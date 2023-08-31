@@ -17,10 +17,12 @@ import { getReviewsAction } from "../../components/reviews/reviewsAction";
 import ImagesBanner from "../../components/banner/ImagesBanner";
 import "./home.css";
 import { Link } from "react-router-dom";
+import { RootState } from "../../store";
+import { ProductType } from "../../components/interfaces/interface";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { product } = useSelector((state) => state.product);
+  const { product } = useSelector((state: RootState) => state.product);
 
   useEffect(() => {
     dispatch(getProductsAction());
@@ -28,17 +30,25 @@ const Home = () => {
   }, [dispatch]);
 
   //sales product
-  const salesProduct = product.filter((item) => item.salesPrice !== undefined);
+  const salesProduct = product.filter(
+    (item: ProductType) => item.salesPrice !== undefined
+  );
   //
 
   //kids product
-  const kidsProduct = product.filter((item) => item.parentCat === "kids");
+  const kidsProduct = product.filter(
+    (item: ProductType) => item.parentCat === "kids"
+  );
 
   //men product
-  const menProduct = product.filter((item) => item.parentCat === "men");
+  const menProduct = product.filter(
+    (item: ProductType) => item.parentCat === "men"
+  );
 
   //women product
-  const womenProduct = product.filter((item) => item.parentCat === "women");
+  const womenProduct = product.filter(
+    (item: ProductType) => item.parentCat === "women"
+  );
 
   return (
     <>
