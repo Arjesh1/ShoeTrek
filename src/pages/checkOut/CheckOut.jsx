@@ -41,7 +41,7 @@ const CheckOut = () => {
         method: "post",
         url: "https://wandering-puce-pigeon.cyclic.app/shoe-trek/payment/create-payment-intent",
         data: {
-          amount: 10000,
+          amount: totalValue * 100,
           currency: "aud",
         },
       });

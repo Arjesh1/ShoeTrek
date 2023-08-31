@@ -166,7 +166,7 @@ const PaymentForm = () => {
     <>
       <OrderStatusModal message={message} />
       <form action="" onSubmit={handleOnSubmit}>
-        <div className="container mx-auto flex flex-col sm:flex-row mt-5 bg-slate-100 p-5 rounded-md">
+        <div className="container mx-auto flex flex-col sm:flex-row my-5 bg-slate-100 p-5 rounded-md">
           <div className="w-full p-3 ">
             <div className="border-b border-gray-900/10 pb-5">
               <h2 className="text-base font-semibold leading-7 text-gray-900">
