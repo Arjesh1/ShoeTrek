@@ -15,6 +15,7 @@ const CheckOut = () => {
   const navigate = useNavigate();
   const [clientSecret, setClientSecret] = useState("");
   const { user } = useSelector((state) => state.user);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -39,13 +40,14 @@ const CheckOut = () => {
     const getSecret = async () => {
       const res = await axios({
         method: "post",
-        url: "https://wandering-puce-pigeon.cyclic.app/shoe-trek/payment/create-payment-intent",
+        url: process.env.REACT_APP_BACKEND_URL,
         data: {
           amount: totalValue * 100,
           currency: "aud",
         },
       });
       setClientSecret(res.data.clientSecret);
+      setIsLoading(false);
     };
     getSecret();
   }, [totalValue]);
@@ -61,10 +63,18 @@ const CheckOut = () => {
   return (
     <>
       <MainLayout>
-        {clientSecret && (
-          <Elements stripe={stripePromise} options={options}>
-            <PaymentForm />
-          </Elements>
+        {isLoading ? (
+          <div className="flex h-screen w-full justify-center items-center ">
+            <span className="loader"></span>
+          </div>
+        ) : (
+          <>
+            {clientSecret && (
+              <Elements stripe={stripePromise} options={options}>
+                <PaymentForm />
+              </Elements>
+            )}
+          </>
         )}
       </MainLayout>
     </>

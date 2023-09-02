@@ -1,7 +1,7 @@
 .button-home {
   --b: 3px; /* border thickness */
   --s: 0.45em; /* size of the corner */
-  --color: rgb(79 70 229);
+  --color: rgb(0, 0, 0);
   --textColor: black;
 
   padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
