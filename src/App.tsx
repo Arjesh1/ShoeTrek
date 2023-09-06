@@ -11,7 +11,6 @@ import ProductOverview from "./pages/product/ProductOverview";
 import Home from "./pages/home/Home";
 import ProductList from "./pages/product/ProductList";
 import { getProductsAction } from "./pages/product/productAction";
-import ShopingCart from "./pages/product/ShopingCart";
 import CheckOut from "./pages/checkOut/CheckOut";
 import OrderHistory from "./pages/order/OrderHistory";
 import UserDetails from "./pages/user/UserDetails";
@@ -20,6 +19,7 @@ import { auth } from "./config/firebase-config";
 import { getClientAction } from "./pages/user/userAction";
 import { setUser } from "./pages/user/userSlice";
 import { PrivateRoute } from "./privateRoute/PrivateRoute";
+import { getReviewsAction } from "./components/reviews/reviewsAction";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +33,10 @@ function App() {
       }
     }
   });
+  useEffect(() => {
+    dispatch(getProductsAction());
+    dispatch(getReviewsAction());
+  }, [dispatch]);
 
   return (
     <>

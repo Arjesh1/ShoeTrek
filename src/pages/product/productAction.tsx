@@ -1,12 +1,12 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { AnyAction } from "redux";
-import { ThunkDispatch } from "redux-thunk";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { setProdu } from "./productSlice";
 import { RootState } from "../../store";
 import { ProductType } from "../../components/interfaces/interface";
 
-export const getProductsAction: any =
+export const getProductsAction: Function =
   () =>
   async (
     dispatch: ThunkDispatch<RootState, undefined, AnyAction>

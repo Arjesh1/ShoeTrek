@@ -16,25 +16,28 @@ const CheckOut = () => {
   const [clientSecret, setClientSecret] = useState("");
   const { user } = useSelector((state) => state.user);
   const [isLoading, setIsLoading] = useState(true);
+  const [initialTotal, setInitialTotal] = useState();
+
+  useEffect(() => {
+    if (user.uid) {
+      const totalPrice = initialTotal;
+      setTotalValue(totalPrice * 100);
+    } else {
+      const totalPrice = initialTotal + 5;
+      setTotalValue(totalPrice * 100);
+    }
+  }, [initialTotal, user.uid]);
 
   useEffect(() => {
     if (cart.length > 0) {
-      const calculatedTotal = (cart) => {
-        return cart?.reduce((total, item) => {
-          return total + +item.price * item.quantity;
-        }, 0);
-      };
-      if (user.uid) {
-        const totalPrice = calculatedTotal(cart);
-        setTotalValue(totalPrice * 100);
-      } else {
-        const totalPrice = calculatedTotal(cart) + 5;
-        setTotalValue(totalPrice * 100);
-      }
+      const calculatedTotal = cart?.reduce((total, item) => {
+        return total + +item.price * item.quantity;
+      }, 0);
+      setInitialTotal(calculatedTotal);
     } else {
       navigate("/");
     }
-  }, [cart.length, setTotalValue, cart, navigate, user.uid]);
+  }, [cart.length, setTotalValue, cart, navigate]);
 
   useEffect(() => {
     const getSecret = async () => {
@@ -42,7 +45,7 @@ const CheckOut = () => {
         method: "post",
         url: process.env.REACT_APP_BACKEND_URL,
         data: {
-          amount: totalValue * 100,
+          amount: +totalValue * 100,
           currency: "aud",
         },
       });

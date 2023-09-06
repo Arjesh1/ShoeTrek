@@ -73,29 +73,54 @@ const Home = () => {
             </div>
 
             <div className="h-auto flex flex-wrap justify-around items-center my-8">
-              <div className="flex justify-center  items-center ">
+              <div
+                className="flex justify-center  items-center "
+                style={{ width: "15%" }}
+              >
                 <Link to="/productList/trending">
-                  <button className="button-home ">Trending</button>
+                  <button className="button-home " style={{ width: "100%" }}>
+                    Trending
+                  </button>
                 </Link>
               </div>
-              <div className="flex justify-center  items-center">
+              <div
+                className="flex justify-center  items-center"
+                style={{ width: "15%" }}
+              >
                 <Link to="/productList/sales">
-                  <button className="button-home ">Sales</button>
+                  <button className="button-home " style={{ width: "100%" }}>
+                    Sales
+                  </button>
                 </Link>
               </div>
-              <div className="flex justify-center  items-center hidden md:block">
+              <div
+                className="flex justify-center  items-center hidden md:block"
+                style={{ width: "15%" }}
+              >
                 <Link to="/productList/men">
-                  <button className="button-home ">Men</button>
+                  <button className="button-home " style={{ width: "100%" }}>
+                    Men
+                  </button>
                 </Link>
               </div>
-              <div className="flex justify-center  items-center hidden md:block">
+              <div
+                className="flex justify-center  items-center hidden md:block"
+                style={{ width: "15%" }}
+              >
                 <Link to="/productList/women">
-                  <button className="button-home ">Women</button>
+                  <button className="button-home " style={{ width: "100%" }}>
+                    Women
+                  </button>
                 </Link>
               </div>
-              <div className="flex justify-center  items-center hidden md:block">
+              <div
+                className="flex justify-center  items-center hidden md:block"
+                style={{ width: "15%" }}
+              >
                 <Link to="/productList/kids">
-                  <button className="button-home ">Kids</button>
+                  <button className="button-home " style={{ width: "100%" }}>
+                    Kids
+                  </button>
                 </Link>
               </div>
             </div>
