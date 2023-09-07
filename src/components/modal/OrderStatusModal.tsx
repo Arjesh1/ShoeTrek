@@ -4,10 +4,18 @@ import { TiTick } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrderModal } from "../../system/cartSlice";
 import { BiSolidErrorCircle } from "react-icons/bi";
+import { RootState } from "../../store";
 
-const OrderStatusModal = (message) => {
+interface MessageType {
+  status?: string | undefined;
+  orderNumber?: string | undefined;
+}
+
+const OrderStatusModal = () => {
   const dispatch = useDispatch();
-  const { orderModal } = useSelector((state) => state.system);
+  const { orderModal, orderStatus }: any = useSelector(
+    (state: RootState) => state.system
+  );
   const cancelButtonRef = useRef(null);
 
   return (
@@ -44,7 +52,7 @@ const OrderStatusModal = (message) => {
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                   <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    {message.status === "successful" ? (
+                    {orderStatus.status === "successful" ? (
                       <div className="flex flex-col items-center">
                         <div className="mx-auto flex sm:w-48 sm:h-48 w-24 h-24 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
                           <TiTick
@@ -61,7 +69,7 @@ const OrderStatusModal = (message) => {
                           </Dialog.Title>
                           <div className="mt-2">
                             <p className="text-md text-gray-500">
-                              Your order number is {message.orderNumber}
+                              Your order number is {orderStatus.orderNumber}
                             </p>
                           </div>
                         </div>

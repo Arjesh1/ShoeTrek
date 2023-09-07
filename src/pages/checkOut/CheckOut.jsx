@@ -40,19 +40,23 @@ const CheckOut = () => {
   }, [cart.length, setTotalValue, cart, navigate]);
 
   useEffect(() => {
-    const getSecret = async () => {
-      const res = await axios({
-        method: "post",
-        url: process.env.REACT_APP_BACKEND_URL,
-        data: {
-          amount: +totalValue * 100,
-          currency: "aud",
-        },
-      });
-      setClientSecret(res.data.clientSecret);
-      setIsLoading(false);
-    };
-    getSecret();
+    if (totalValue !== null && totalValue !== undefined) {
+      const getSecret = async () => {
+        try {
+          const res = await axios({
+            method: "post",
+            url: process.env.REACT_APP_BACKEND_URL,
+            data: {
+              amount: +totalValue,
+              currency: "aud",
+            },
+          });
+          setClientSecret(res.data.clientSecret);
+          setIsLoading(false);
+        } catch (error) {}
+      };
+      getSecret();
+    }
   }, [totalValue]);
 
   const options = {

@@ -4,16 +4,13 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
-import { toast } from "react-toastify";
-import OrderStatusModal from "../../components/modal/OrderStatusModal";
 import { addOrderedProductAction } from "./checkoutAction";
-import { setOrderModal } from "../../system/cartSlice";
+import { setOrderModal, setOrderStatus } from "../../system/cartSlice";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -25,23 +22,24 @@ const PaymentForm = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({});
   const { user } = useSelector((state) => state.user);
-  const [message, setMessage] = useState();
+  const [initialTotal, setInitialTotal] = useState();
+
+  useEffect(() => {
+    if (user.uid) {
+      const totalPrice = initialTotal;
+      setTotalValue(totalPrice);
+    } else {
+      const totalPrice = initialTotal + 5;
+      setTotalValue(totalPrice);
+    }
+  }, [initialTotal, user.uid]);
 
   useEffect(() => {
     if (cart.length > 0) {
-      const calculatedTotal = (cart) => {
-        return cart?.reduce((total, item) => {
-          return total + +item.price * item.quantity;
-        }, 0);
-      };
-
-      if (user.uid) {
-        const totalPrice = calculatedTotal(cart);
-        setTotalValue(totalPrice);
-      } else {
-        const totalPrice = calculatedTotal(cart) + 5;
-        setTotalValue(totalPrice);
-      }
+      const calculatedTotal = cart?.reduce((total, item) => {
+        return total + +item.price * item.quantity;
+      }, 0);
+      setInitialTotal(calculatedTotal);
     } else {
       navigate("/");
     }
@@ -112,10 +110,12 @@ const PaymentForm = () => {
 
       const status = "status";
 
-      setMessage({
-        [status]: "successful",
-        [orderNumber]: generatedOrderNumber,
-      });
+      dispatch(
+        setOrderStatus({
+          [status]: "successful",
+          [orderNumber]: generatedOrderNumber,
+        })
+      );
 
       dispatch(addOrderedProductAction(updatedForm));
 
@@ -146,25 +146,23 @@ const PaymentForm = () => {
               setDoc(doc(db, "product", updatedItem.slug), rest, {
                 merge: true,
               });
-            } catch (error) {
-              toast.error(error.message);
-              console.log(error);
-            }
+            } catch (error) {}
           }
         });
       }
     } else {
       const status = "status";
-      setMessage({
-        [status]: "unsuccessful",
-      });
+      dispatch(
+        setOrderStatus({
+          [status]: "unsuccessful",
+        })
+      );
       dispatch(setOrderModal(true));
     }
   };
 
   return (
     <>
-      <OrderStatusModal message={message} />
       <form action="" onSubmit={handleOnSubmit}>
         <div className="container mx-auto flex flex-col sm:flex-row my-5 bg-slate-100 p-5 rounded-md">
           <div className="w-full p-3 ">
@@ -443,12 +441,12 @@ const PaymentForm = () => {
               <div className=" mt-8 border-b  pb-4">
                 <div className="flex justify-between">
                   <p>Subtotal</p>
-                  <p>${totalValue - 5}</p>
+                  <p>${totalValue}</p>
                 </div>
 
                 <div className="flex justify-between mt-3">
                   <p>Shipping</p>
-                  <p>$5</p>
+                  <p>{!user?.uid ? <span> $5</span> : <span> $0</span>}</p>
                 </div>
               </div>
 

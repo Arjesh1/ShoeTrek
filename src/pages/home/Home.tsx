@@ -12,13 +12,13 @@ import sales1Banner from "../../components/assets/images/salesbanner.jpg";
 import sales2Banner from "../../components/assets/images/sales2banner.jpg";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import BannerRotated from "../../components/banner/BannerRotated";
-import OrderStatusModal from "../../components/modal/OrderStatusModal";
 import { getReviewsAction } from "../../components/reviews/reviewsAction";
 import ImagesBanner from "../../components/banner/ImagesBanner";
 import "./home.css";
 import { Link } from "react-router-dom";
 import { RootState } from "../../store";
 import { ProductType } from "../../components/interfaces/interface";
+import OrderStatusModal from "../../components/modal/OrderStatusModal";
 
 const Home = () => {
   const dispatch = useDispatch();
