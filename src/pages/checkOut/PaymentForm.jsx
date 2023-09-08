@@ -11,6 +11,8 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { addOrderedProductAction } from "./checkoutAction";
 import { setOrderModal, setOrderStatus } from "../../system/cartSlice";
+import OrderDetailsModal from "../../components/modal/OrderDetailsModal";
+import { toast } from "react-toastify";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -57,14 +59,24 @@ const PaymentForm = () => {
     const totalPrice = "totalPrice";
     const orderDate = "orderDate";
 
-    setForm({
-      ...form,
-      [name]: value,
-      uid,
-      [status]: "Processing",
-      [totalPrice]: totalValue,
-      [orderDate]: Date.now(),
-    });
+    if (!uid) {
+      setForm({
+        ...form,
+        [name]: value,
+        [status]: "Processing",
+        [totalPrice]: totalValue,
+        [orderDate]: Date.now(),
+      });
+    } else {
+      setForm({
+        ...form,
+        [name]: value,
+        uid,
+        [status]: "Processing",
+        [totalPrice]: totalValue,
+        [orderDate]: Date.now(),
+      });
+    }
   };
 
   const handleOnSubmit = async (e) => {
@@ -106,7 +118,11 @@ const PaymentForm = () => {
       const generatedOrderNumber = generateOrderNumber();
       const orderNumber = "orderNumber";
 
-      const updatedForm = { ...form, [orderNumber]: generatedOrderNumber };
+      const updatedForm = {
+        ...form,
+        [orderNumber]: generatedOrderNumber,
+      };
+      dispatch(addOrderedProductAction(updatedForm));
 
       const status = "status";
 
@@ -116,8 +132,7 @@ const PaymentForm = () => {
           [orderNumber]: generatedOrderNumber,
         })
       );
-
-      dispatch(addOrderedProductAction(updatedForm));
+      dispatch(setOrderModal(true));
 
       //update the quantity at firebase on successful order
 
@@ -151,21 +166,40 @@ const PaymentForm = () => {
         });
       }
     } else {
-      const status = "status";
-      dispatch(
-        setOrderStatus({
-          [status]: "unsuccessful",
-        })
-      );
-      dispatch(setOrderModal(true));
+      toast.error("We couldn't process this payment. Please try another card.");
     }
   };
 
   return (
     <>
+      <OrderDetailsModal />
       <form action="" onSubmit={handleOnSubmit}>
         <div className="container mx-auto flex flex-col sm:flex-row my-5 bg-slate-100 p-5 rounded-md">
           <div className="w-full p-3 ">
+            {!user?.uid ? (
+              <>
+                <div className="col-span-full ">
+                  <Link to="/login">
+                    <button
+                      type="submit"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-800"
+                    >
+                      Log In/ Register
+                    </button>
+                  </Link>
+                  <p className="text-center text-lg font-medium py-1"> Or</p>
+                </div>
+
+                <div className="col-span-full mb-2">
+                  <div className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-6 py-3 text-base font-medium text-white shadow-sm ">
+                    Continue as Guest
+                  </div>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+
             <div className="border-b border-gray-900/10 pb-5">
               <h2 className="text-base font-semibold leading-7 text-gray-900">
                 Contact Information
@@ -460,7 +494,7 @@ const PaymentForm = () => {
               <div className="col-span-full mt-10 py-4">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-800"
                 >
                   Confirm Order
                 </button>

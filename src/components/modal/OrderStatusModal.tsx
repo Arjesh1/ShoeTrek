@@ -75,7 +75,8 @@ const OrderStatusModal = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex flex-col items-center">
+                      <>
+                        {/* <div className="flex flex-col items-center">
                         <div className="mx-auto flex sm:w-48 sm:h-48 w-24 h-24 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                           <BiSolidErrorCircle
                             className="sm:h-24 sm:w-24 w-12 h-12 text-red-400"
@@ -96,7 +97,8 @@ const OrderStatusModal = () => {
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
+                      </>
                     )}
                   </div>
                 </Dialog.Panel>
