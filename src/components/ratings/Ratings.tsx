@@ -1,11 +1,9 @@
-import React from 'react'
-import {BsStarFill, BsStarHalf, BsStar} from 'react-icons/bs'
-const maxRate = 5
+import React from "react";
+import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
+const maxRate = 5;
 
-const Ratings = ({rate }) => {
-
- 
-  const rateStar = rate || 5
+const Ratings = ({ rate }: any) => {
+  const rateStar = rate || 5;
   const hasDecimalValue = rateStar % 1;
 
   const fullRateStar = Math.floor(rateStar);
@@ -22,10 +20,10 @@ const Ratings = ({rate }) => {
       ))}
       {hasDecimalValue > 0 && <BsStarHalf />}
       {noRateStar.map(() => (
-        <BsStar/>
+        <BsStar />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Ratings
+export default Ratings;

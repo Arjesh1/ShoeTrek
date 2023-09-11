@@ -7,16 +7,17 @@ import { decreaseQty, increateQty, setCartProd } from "./productSlice";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import CheckOut from "../checkOut/CheckOut";
+import { RootState } from "../../store";
 
 const ShopingCart = () => {
   const dispatch = useDispatch();
-  const { cartShow } = useSelector((state) => state.system);
-  const { cart } = useSelector((state) => state.product);
+  const { cartShow } = useSelector((state: RootState) => state.system);
+  const { cart } = useSelector((state: RootState) => state.product);
   const [totalValue, settotalValue] = useState();
 
-  const handleOnDelete = (obj) => {
+  const handleOnDelete = (obj: any) => {
     const updatedCart = cart.filter(
-      (item) => !(item.id === obj.id && item.size === obj.size)
+      (item: any) => !(item.id === obj.id && item.size === obj.size)
     );
     dispatch(setCartProd(updatedCart));
     toast.success("Item has been removed");
@@ -24,8 +25,8 @@ const ShopingCart = () => {
 
   useEffect(() => {
     if (cart.length > 0) {
-      const calculatedTotal = (cart) => {
-        return cart?.reduce((total, item) => {
+      const calculatedTotal = (cart: any) => {
+        return cart?.reduce((total: any, item: any) => {
           return total + +item.price * item.quantity;
         }, 0);
       };
@@ -99,7 +100,7 @@ const ShopingCart = () => {
                                 role="list"
                                 className="-my-6 divide-y divide-gray-200"
                               >
-                                {cart?.map((product) => (
+                                {cart?.map((product: any) => (
                                   <li key={product.id} className="flex py-6">
                                     <Link
                                       to={`/product/${product.id}`}

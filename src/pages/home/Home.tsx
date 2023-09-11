@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/layout/MainLayout";
-import HomeCarousel from "../../components/carousel/Carousel";
 import { getProductsAction } from "../product/productAction";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/product/ProductCard";
@@ -19,6 +18,7 @@ import { Link } from "react-router-dom";
 import { RootState } from "../../store";
 import { ProductType } from "../../components/interfaces/interface";
 import OrderStatusModal from "../../components/modal/OrderStatusModal";
+import HomeCarousel from "../../components/carousel/Carousel";
 
 const Home = () => {
   const dispatch = useDispatch();

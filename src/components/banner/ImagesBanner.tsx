@@ -1,6 +1,11 @@
 import React from "react";
 
-const ImagesBanner = ({ banner1, banner2 }) => {
+interface BannerType {
+  banner1: string;
+  banner2: string;
+}
+
+const ImagesBanner = ({ banner1, banner2 }: BannerType) => {
   return (
     <>
       <div className=" h-auto grid grid-row-2 bg-gray-300  my-4    sm:grid-cols-2 ">
