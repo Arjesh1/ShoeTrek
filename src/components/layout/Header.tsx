@@ -163,8 +163,6 @@ export const Header = () => {
     user: UserType;
   };
 
-  console.log(user, typeof user);
-
   useEffect(() => {
     if (searchValue.length === 0) {
       dispatch(setSearchShow(false));

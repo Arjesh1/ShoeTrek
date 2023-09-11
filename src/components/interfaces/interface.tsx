@@ -45,13 +45,14 @@ export interface ReviewType {
 }
 
 export interface OrderProductType {
-  quantity: number | undefined;
-  price: string | undefined;
-  name: string | undefined;
-  id: string | undefined;
-  size: string | undefined;
-  img: string | undefined;
-  firstName: string | undefined;
+  quantity?: number | undefined;
+  price?: string | undefined;
+  name?: string | undefined;
+  id?: string | undefined;
+  size?: string | undefined;
+  img?: string | undefined;
+  firstName?: string | undefined;
+  reviewId?: string | undefined | null;
 }
 
 export interface OrderType {
