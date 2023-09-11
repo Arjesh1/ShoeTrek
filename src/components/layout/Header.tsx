@@ -23,6 +23,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
 import { setUser } from "../../pages/user/userSlice";
 import { toast } from "react-toastify";
+import { UserType } from "../interfaces/interface";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -158,7 +159,11 @@ export const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const { cart, product } = useSelector((state: RootState) => state.product);
   const { search } = useSelector((state: RootState) => state.system);
-  const { user }: any = useSelector((state: RootState) => state.user);
+  const { user } = useSelector((state: RootState) => state.user) as {
+    user: UserType;
+  };
+
+  console.log(user, typeof user);
 
   useEffect(() => {
     if (searchValue.length === 0) {

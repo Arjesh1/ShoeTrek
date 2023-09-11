@@ -1,4 +1,4 @@
-export interface User {
+export interface UserType {
   city?: string | undefined;
   email?: string | undefined;
   uid?: string | undefined;

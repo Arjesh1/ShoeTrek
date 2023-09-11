@@ -5,10 +5,10 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 import { toast } from "react-toastify";
 import { RootState } from "../../store";
-import { User } from "../../components/interfaces/interface";
+import { UserType } from "../../components/interfaces/interface";
 
 const UserDetails = () => {
-  const [form, setForm] = useState<User>({
+  const [form, setForm] = useState<UserType>({
     city: "",
     email: "",
     postalCode: "",
@@ -21,7 +21,7 @@ const UserDetails = () => {
   });
   const [editForm, setEditForm] = useState(true);
   const { user } = useSelector((state: RootState) => state.user) as {
-    user: User;
+    user: UserType;
   };
 
   useEffect(() => {
