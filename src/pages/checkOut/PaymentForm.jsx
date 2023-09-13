@@ -94,7 +94,7 @@ const PaymentForm = () => {
 
     const { paymentIntent } = await stripe.confirmPayment({
       elements,
-      confirmParams: { return_url: "http://localhost:3001" },
+      confirmParams: { return_url: process.env.REACT_APP_RETURN_LINK },
       redirect: "if_required",
     });
 
