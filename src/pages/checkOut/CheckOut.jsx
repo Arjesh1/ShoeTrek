@@ -40,7 +40,7 @@ const CheckOut = () => {
   }, [cart.length, setTotalValue, cart, navigate]);
 
   useEffect(() => {
-    if (totalValue !== null) {
+    if (totalValue !== null && totalValue !== undefined) {
       const getSecret = async () => {
         try {
           const res = await axios({

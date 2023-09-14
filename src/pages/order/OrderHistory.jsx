@@ -15,6 +15,8 @@ const OrderHistory = () => {
   const [selectedOrder, setSelectedOrder] = useState();
   const [selectedProductReview, setSelectedProductReview] = useState();
   const { email, firstName, lastName, uid } = user;
+  const orderArray = [...userOrders];
+  const sortedOrders = orderArray.sort((a, b) => b.orderDate - a.orderDate);
 
   useEffect(() => {
     dispatch(getUserOrderAction(uid));
@@ -73,7 +75,7 @@ const OrderHistory = () => {
             </p>
           ) : (
             <>
-              {userOrders?.map((item) => (
+              {sortedOrders?.map((item) => (
                 <div className="border border-slate-300 p-3 sm:p-10 rounded-md shadow-xl mt-6">
                   <div className=" flex justify-between items-end sm:items-start border-b border-slate-300 ">
                     <div className=" flex justify-evenly gap-5 sm:gap-16 pb-3 ">

@@ -27,6 +27,7 @@ const PaymentForm = () => {
   const [initialTotal, setInitialTotal] = useState();
 
   useEffect(() => {
+    setForm(user);
     if (user.uid) {
       const totalPrice = initialTotal;
       setTotalValue(totalPrice);
@@ -34,7 +35,7 @@ const PaymentForm = () => {
       const totalPrice = initialTotal + 5;
       setTotalValue(totalPrice);
     }
-  }, [initialTotal, user.uid]);
+  }, [initialTotal, user.uid, user]);
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -184,7 +185,7 @@ const PaymentForm = () => {
                       type="submit"
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-800"
                     >
-                      Log In/ Register
+                      Log In
                     </button>
                   </Link>
                   <p className="text-center text-lg font-medium py-1"> Or</p>
@@ -219,7 +220,7 @@ const PaymentForm = () => {
                       name="email"
                       type="email"
                       required={true}
-                      value={user.email}
+                      value={form?.email}
                       onChange={handleOnChange}
                       autoComplete="email"
                       className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -252,6 +253,7 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="firstName"
                       id="firstName"
+                      value={form?.firstName}
                       autoComplete="given-name"
                       className="block w-full rounded-md pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -272,6 +274,7 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="lastName"
                       id="lastName"
+                      value={form?.lastName}
                       autoComplete="family-name"
                       className="block w-full rounded-md  pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -291,8 +294,7 @@ const PaymentForm = () => {
                       required={true}
                       onChange={handleOnChange}
                       name="phoneNumber"
-                      id="street-address"
-                      autoComplete="street-address"
+                      value={form?.phoneNumber}
                       className="block w-full rounded-md pl-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -312,7 +314,7 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="country"
                       id="country"
-                      autoComplete="family-name"
+                      value={form?.country}
                       className="block w-full rounded-md border-0  pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -332,6 +334,7 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="streetAddress"
                       id="streetAddress"
+                      value={form?.streetAddress}
                       autoComplete="street-address"
                       className="block w-full rounded-md border-0 pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -352,7 +355,7 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="city"
                       id="city"
-                      autoComplete="address-level2"
+                      value={form?.city}
                       className="block w-full rounded-md border-0 pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -363,7 +366,7 @@ const PaymentForm = () => {
                     htmlFor="region"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    State / Province
+                    State
                   </label>
                   <div className="mt-2">
                     <input
@@ -372,7 +375,8 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="region"
                       id="region"
-                      autoComplete="address-level1"
+                      autoComplete="region"
+                      value={form?.region}
                       className="block w-full rounded-md border-0 pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -383,7 +387,7 @@ const PaymentForm = () => {
                     htmlFor="postal-code"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    ZIP / Postal code
+                    Post code
                   </label>
                   <div className="mt-2">
                     <input
@@ -392,6 +396,7 @@ const PaymentForm = () => {
                       onChange={handleOnChange}
                       name="postalCode"
                       id="postalCode"
+                      value={form?.postalCode}
                       autoComplete="postal-code"
                       className="block w-full rounded-md border-0 pl-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -475,7 +480,7 @@ const PaymentForm = () => {
               <div className=" mt-8 border-b  pb-4">
                 <div className="flex justify-between">
                   <p>Subtotal</p>
-                  <p>${totalValue}</p>
+                  <p>${user.uid ? totalValue : totalValue - 5}</p>
                 </div>
 
                 <div className="flex justify-between mt-3">
@@ -494,7 +499,7 @@ const PaymentForm = () => {
               <div className="col-span-full mt-10 py-4">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-800"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent  px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-800 bg-blue-900"
                 >
                   Confirm Order
                 </button>

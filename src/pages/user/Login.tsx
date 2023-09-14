@@ -98,7 +98,7 @@ const Login = () => {
                         onClick={() => {
                           dispatch(setForgetPassword(true));
                         }}
-                        className="font-semibold text-indigo-600 hover:text-indigo-500"
+                        className="font-semibold hover:text-blue-800 text-blue-900"
                       >
                         Forgot password?
                       </button>
@@ -120,7 +120,7 @@ const Login = () => {
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign in
                   </button>
@@ -131,7 +131,7 @@ const Login = () => {
                 Not a member?{" "}
                 <Link
                   to="/register"
-                  className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                  className="font-semibold leading-6 hover:text-blue-800 text-blue-900"
                 >
                   Register Now!
                 </Link>

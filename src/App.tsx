@@ -66,7 +66,7 @@ function App() {
         />
       </Routes>
 
-      <ToastContainer />
+      <ToastContainer theme="colored" />
     </>
   );
 }

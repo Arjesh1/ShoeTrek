@@ -21,9 +21,10 @@ import { RootState } from "../../store";
 import ProductCard from "../product/ProductCard";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
-import { setUser } from "../../pages/user/userSlice";
+import { setUser, setuserOrders } from "../../pages/user/userSlice";
 import { toast } from "react-toastify";
 import { UserType } from "../interfaces/interface";
+import { getUserOrderAction } from "../../pages/order/orderAction";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -193,6 +194,7 @@ export const Header = () => {
   const handleOnLogOut = () => {
     signOut(auth).then(() => {
       dispatch(setUser({}));
+      dispatch(setuserOrders([]));
       toast.success("LogOut Successful");
     });
   };

@@ -41,6 +41,7 @@ const ProductOverview = () => {
 
   useEffect(() => {
     dispatch(getProductsAction());
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   const selectedProduct = product.find((item) => item.slug === productName);

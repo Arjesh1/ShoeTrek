@@ -63,7 +63,7 @@ const Home = () => {
       <OrderStatusModal />
       <MainLayout>
         {isLoading ? (
-          <div className="flex h-screen w-full justify-center items-center ">
+          <div className="flex h-screen w-full justify-center items-center  text-blue-900 ">
             <span className="loader"></span>
           </div>
         ) : (

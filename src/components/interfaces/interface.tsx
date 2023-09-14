@@ -4,7 +4,7 @@ export interface UserType {
   uid?: string | undefined;
   postalCode?: string | undefined;
   firstName?: string | undefined;
-  number?: string | undefined;
+  phoneNumber?: string | undefined;
   country?: string | undefined;
   region?: string | undefined;
   streetAddress?: string | undefined;
