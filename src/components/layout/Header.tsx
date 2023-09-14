@@ -279,7 +279,7 @@ export const Header = () => {
                         <span className="  text-lg">
                           <FaUserAlt />
                         </span>
-                        <p className="  hidden sm:block "> Login/Register</p>
+                        <p className="  hidden sm:block "> Login</p>
                       </div>
                     </Link>
                   </>

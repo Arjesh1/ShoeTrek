@@ -13,9 +13,8 @@ export const getProductsAction: Function =
   ): Promise<void> => {
     try {
       const q = query(
-        collection(db, "product")
-        // can be uncommented when completed -- only calls active products
-        //  where("status", "==", "active")
+        collection(db, "product"),
+        where("status", "==", "active")
       );
       const prodSnap = await getDocs(q);
       const prodList: ProductType[] = [];

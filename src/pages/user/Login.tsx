@@ -57,6 +57,17 @@ const Login = () => {
 
       <MainLayout>
         <>
+          <div className="flex justify-center mt-3">
+            <div className="shadow-lg p-8 rounded">
+              <p className="text-xl leading-7 tracking-tight text-gray-900">
+                Email: b@b.com
+              </p>
+              <p className="text-xl leading-7 tracking-tight text-gray-900">
+                Password: 123456
+              </p>
+            </div>
+          </div>
+
           <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center">
               <div className="flex justify-center ">
