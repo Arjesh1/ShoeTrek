@@ -43,9 +43,7 @@ export const getReviewsAction: Function =
       });
 
       dispatch(setReview(reviewList));
-    } catch (error: any) {
-      console.log(error.message);
-    }
+    } catch (error: any) {}
   };
 
 //add reviews data to db
@@ -110,10 +108,7 @@ export const addReviewAction: Function =
       } else {
         toast.error("Unable to add a review at this time. Try again later.");
       }
-    } catch (error: any) {
-      console.error(error);
-      toast.error(error.message);
-    }
+    } catch (error: any) {}
   };
 
 //delete reviews

@@ -17,8 +17,6 @@ const ShopingCart = () => {
   const [totalValue, settotalValue] = useState<number | undefined>(undefined);
 
   const handleOnDelete = (obj: CartType) => {
-    console.log(obj);
-
     const updatedCart = cart.filter(
       (item: CartType) => !(item.id === obj.id && item.size === obj.size)
     );

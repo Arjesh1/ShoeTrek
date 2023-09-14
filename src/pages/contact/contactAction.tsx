@@ -23,7 +23,5 @@ export const addMessageAction: Function =
         return;
       }
       toast.error("Unable to send message at this time. Try back again later");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };

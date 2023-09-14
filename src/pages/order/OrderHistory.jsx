@@ -24,7 +24,6 @@ const OrderHistory = () => {
 
   const handleOnSelectedOrderDetails = (item) => {
     setSelectedOrder(item);
-    console.log(item);
 
     dispatch(setOrderDetailsModal(true));
   };
