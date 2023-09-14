@@ -40,7 +40,7 @@ const CheckOut = () => {
   }, [cart.length, setTotalValue, cart, navigate]);
 
   useEffect(() => {
-    if (totalValue !== null && totalValue !== undefined) {
+    if (totalValue !== null) {
       const getSecret = async () => {
         try {
           const res = await axios({
@@ -51,6 +51,7 @@ const CheckOut = () => {
               currency: "aud",
             },
           });
+
           setClientSecret(res.data.clientSecret);
           setIsLoading(false);
         } catch (error) {}

@@ -6,8 +6,6 @@ import { OrderProductType, OrderType } from "../interfaces/interface";
 import { RootState } from "../../store";
 
 const OrderDetailsModal = ({ selectedOrder }: any) => {
-  console.log(selectedOrder, typeof selectedOrder);
-
   const dispatch = useDispatch();
   const { orderDetailsModal } = useSelector((state: RootState) => state.system);
   const cancelButtonRef = useRef(null);
