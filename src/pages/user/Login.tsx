@@ -8,11 +8,14 @@ import ForgetPassword from "../../components/modal/ForgetPassword";
 import { setForgetPassword } from "../../system/cartSlice";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { UserType } from "../../components/interfaces/interface";
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { user }: any = useSelector((state: RootState) => state.user);
+  const { user } = useSelector((state: RootState) => ({
+    user: state.user.user as UserType,
+  }));
 
   useEffect(() => {
     if (user.uid) {

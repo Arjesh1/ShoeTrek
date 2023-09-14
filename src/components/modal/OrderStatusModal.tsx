@@ -13,9 +13,10 @@ interface MessageType {
 
 const OrderStatusModal = () => {
   const dispatch = useDispatch();
-  const { orderModal, orderStatus }: any = useSelector(
-    (state: RootState) => state.system
-  );
+  const { orderModal, orderStatus } = useSelector((state: RootState) => ({
+    orderModal: state.system.orderModal as boolean,
+    orderStatus: state.system.orderStatus as MessageType,
+  }));
   const cancelButtonRef = useRef(null);
 
   return (

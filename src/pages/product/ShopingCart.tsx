@@ -8,16 +8,19 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import CheckOut from "../checkOut/CheckOut";
 import { RootState } from "../../store";
+import { CartType } from "../../components/interfaces/interface";
 
 const ShopingCart = () => {
   const dispatch = useDispatch();
   const { cartShow } = useSelector((state: RootState) => state.system);
   const { cart } = useSelector((state: RootState) => state.product);
-  const [totalValue, settotalValue] = useState();
+  const [totalValue, settotalValue] = useState<number | undefined>(undefined);
 
-  const handleOnDelete = (obj: any) => {
+  const handleOnDelete = (obj: CartType) => {
+    console.log(obj);
+
     const updatedCart = cart.filter(
-      (item: any) => !(item.id === obj.id && item.size === obj.size)
+      (item: CartType) => !(item.id === obj.id && item.size === obj.size)
     );
     dispatch(setCartProd(updatedCart));
     toast.success("Item has been removed");
@@ -25,12 +28,12 @@ const ShopingCart = () => {
 
   useEffect(() => {
     if (cart.length > 0) {
-      const calculatedTotal = (cart: any) => {
-        return cart?.reduce((total: any, item: any) => {
+      const calculatedTotal = (cart: CartType[]) => {
+        return cart?.reduce((total: number, item: CartType) => {
           return total + +item.price * item.quantity;
         }, 0);
       };
-      const totalPrice = calculatedTotal(cart);
+      const totalPrice: number = calculatedTotal(cart);
       settotalValue(totalPrice);
     }
   }, [cart.length, settotalValue, cart]);
@@ -100,7 +103,7 @@ const ShopingCart = () => {
                                 role="list"
                                 className="-my-6 divide-y divide-gray-200"
                               >
-                                {cart?.map((product: any) => (
+                                {cart?.map((product: CartType) => (
                                   <li key={product.id} className="flex py-6">
                                     <Link
                                       to={`/product/${product.id}`}

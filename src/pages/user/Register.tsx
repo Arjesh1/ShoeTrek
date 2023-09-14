@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../components/assets/images/dark logo.png";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../store";
+import { UserType } from "../../components/interfaces/interface";
 
 interface FormState {
   firstName: string;
@@ -25,7 +26,9 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
-  const { user }: any = useSelector((state: RootState) => state.user);
+  const { user } = useSelector((state: RootState) => ({
+    user: state.user.user as UserType,
+  }));
 
   useEffect(() => {
     if (user.uid) {
@@ -53,13 +56,6 @@ const Register = () => {
     });
 
     await registerUserAction(form);
-    // if (result && result.type === 'REGISTER_USER_SUCCESS') {
-
-    //   console.log('User registered successfully');
-    // } else {
-
-    //   console.log('User registration failed');
-    // }
   };
 
   return (

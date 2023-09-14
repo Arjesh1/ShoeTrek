@@ -4,7 +4,11 @@ import { FaUserCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
-const Reviews = ({ productName }: any) => {
+interface ProductNameProps {
+  productName: string;
+}
+
+const Reviews = ({ productName }: ProductNameProps) => {
   const { reviews } = useSelector((state: RootState) => state.product);
 
   const selectedProdReviews = reviews?.filter(

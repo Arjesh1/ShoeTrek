@@ -1,7 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ProductType } from "../interfaces/interface";
 
-const ProductCard = ({ product, heading, category, link, icon }: any) => {
+interface ProductCardProps {
+  product?: ProductType[];
+  heading?: string | undefined;
+  category?: string | undefined;
+  link?: string | undefined;
+  icon?: JSX.Element | undefined;
+}
+
+const ProductCard = ({
+  product,
+  heading,
+  category,
+  link,
+  icon,
+}: ProductCardProps) => {
   return (
     <>
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8 ">
@@ -16,7 +31,7 @@ const ProductCard = ({ product, heading, category, link, icon }: any) => {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
-          {product?.map((item: any) => (
+          {product?.map((item: ProductType) => (
             <Link to={`/product/${item.slug}`}>
               <div key={item?.slug} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">

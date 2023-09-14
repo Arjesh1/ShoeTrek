@@ -7,7 +7,11 @@ import { addReviewAction } from "./reviewsAction";
 import { RootState } from "../../store";
 import { ReviewType } from "../interfaces/interface";
 
-const ReviewFormsModal = ({ orderDetails }: any) => {
+interface OrderDetailProps {
+  orderDetails: ReviewType;
+}
+
+const ReviewFormsModal = ({ orderDetails }: OrderDetailProps) => {
   const dispatch = useDispatch();
   const { reviewForm } = useSelector((state: RootState) => state.system);
   const cancelButtonRef = useRef(null);

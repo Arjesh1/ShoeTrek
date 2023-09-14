@@ -23,7 +23,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
 import { setUser, setuserOrders } from "../../pages/user/userSlice";
 import { toast } from "react-toastify";
-import { UserType } from "../interfaces/interface";
+import { CartType, ProductType, UserType } from "../interfaces/interface";
 import { getUserOrderAction } from "../../pages/order/orderAction";
 
 function classNames(...classes: string[]) {
@@ -175,7 +175,7 @@ export const Header = () => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchValue(value);
-    const filteredItem = product.filter((item: any) =>
+    const filteredItem = product.filter((item: ProductType) =>
       item.name.toLowerCase().includes(value.toLowerCase())
     );
 
@@ -183,7 +183,8 @@ export const Header = () => {
   };
 
   const cartItem: number = cart?.reduce(
-    (acc: number, item: any) => acc + item.quantity,
+    (acc: number, item: CartType) => acc + item.quantity,
+
     0
   );
 

@@ -12,8 +12,8 @@ import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { RootState } from "../../store";
 
 interface RegisterUserData {
-  firstName: string;
-  lastName: string;
+  firstName: string | undefined;
+  lastName: string | undefined;
   email: string;
   password?: string | undefined;
   confirmPassword?: string;
@@ -21,9 +21,9 @@ interface RegisterUserData {
 }
 
 interface LoginUserData {
-  firstName?: string;
-  lastName?: string;
-  email?: any;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
   password?: string | undefined;
   uid?: string | undefined;
 }
@@ -56,9 +56,7 @@ export const registerUserAction = async (
     } else {
       return undefined;
     }
-  } catch (error: any) {
-    console.log(error.message);
-  }
+  } catch (error: any) {}
 };
 
 // add register data to db
@@ -68,9 +66,7 @@ export const setClientAction = async ({ uid, ...rest }: RegisterUserData) => {
     if (uid) {
       await setDoc(doc(db, "clients", uid), rest);
     }
-  } catch (error: any) {
-    console.log(error.message);
-  }
+  } catch (error: any) {}
 };
 
 // login to the user account, get user data and mount it to redux store
@@ -123,7 +119,5 @@ export const getClientAction = async ({ uid }: LoginUserData) => {
         return user; // Return the user data instead of dispatching the action
       }
     }
-  } catch (error: any) {
-    console.log(error.message);
-  }
+  } catch (error: any) {}
 };

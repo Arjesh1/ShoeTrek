@@ -1,11 +1,15 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, ReactNode, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrderDetailsModal } from "../../system/cartSlice";
 import { OrderProductType, OrderType } from "../interfaces/interface";
 import { RootState } from "../../store";
 
-const OrderDetailsModal = ({ selectedOrder }: any) => {
+interface SelectedOrderProps {
+  selectedOrder: OrderType;
+}
+
+const OrderDetailsModal = ({ selectedOrder }: SelectedOrderProps) => {
   const dispatch = useDispatch();
   const { orderDetailsModal } = useSelector((state: RootState) => state.system);
   const cancelButtonRef = useRef(null);

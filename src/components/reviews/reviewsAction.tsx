@@ -15,11 +15,15 @@ import { setReview } from "../../pages/product/productSlice";
 import { getUserOrderAction } from "../../pages/order/orderAction";
 import { ThunkDispatch } from "redux-thunk";
 import { RootState } from "../../store";
-import { ReviewType } from "../interfaces/interface";
+import {
+  OrderProductType,
+  OrderType,
+  ReviewType,
+} from "../interfaces/interface";
 import { AnyAction } from "redux";
 
 //get all reviews from db and mount to redux
-export const getReviewsAction: any =
+export const getReviewsAction: Function =
   () =>
   async (
     dispatch: ThunkDispatch<RootState, undefined, AnyAction>
@@ -45,64 +49,86 @@ export const getReviewsAction: any =
   };
 
 //add reviews data to db
-export const addReviewAction: any =
+export const addReviewAction: Function =
   (form: ReviewType) =>
   async (
     dispatch: ThunkDispatch<RootState, undefined, AnyAction>
   ): Promise<void> => {
-    console.log(form);
     try {
+      // Add a review document to the "reviews" collection
       const docRef = await addDoc(collection(db, "reviews"), form);
 
       if (docRef?.id) {
         toast.success("Your review has been added.");
         dispatch(setReviewForm(false));
 
+        // Query the "orders" collection to find the relevant order
         const q = query(
           collection(db, "orders"),
           where("orderNumber", "==", form.orderNumber)
         );
         const prodSnap = await getDocs(q);
-        let reviewProd: any = {};
+
+        // Initialize reviewProd as an empty object
+        let reviewProd: OrderType = {};
+
         prodSnap.forEach((doc) => {
           const catDt = {
             ...doc.data(),
           };
           reviewProd = { ...catDt };
         });
-        const productreview: any = reviewProd.product.find(
-          (item: any) => item.id === form.productId
+
+        // Find the product in the order that matches the review
+        const productReview = reviewProd.product.find(
+          (item: OrderProductType) => item.id === form.productId
         );
 
-        const productIndex = reviewProd.product.findIndex(
-          (item: any) => item.id === form.productId
-        );
+        if (productReview) {
+          const productIndex = reviewProd.product.findIndex(
+            (item: OrderProductType) => item.id === form.productId
+          );
 
-        const updatedproductwithReview = {
-          ...productreview,
-          reviewId: docRef.id,
-        };
+          // Update the product with the reviewId
+          const updatedProductWithReview = {
+            ...productReview,
+            reviewId: docRef.id,
+          };
 
-        reviewProd.product[productIndex] = updatedproductwithReview;
+          reviewProd.product[productIndex] = updatedProductWithReview;
 
-        setDoc(doc(db, "orders", reviewProd.orderNumber), reviewProd);
+          // Set the updated order document in Firestore
+          await setDoc(doc(db, "orders", reviewProd.orderNumber), reviewProd);
 
-        dispatch(getUserOrderAction());
-        dispatch(getReviewsAction());
+          // Dispatch your actions to update the state
+          dispatch(getUserOrderAction());
+          dispatch(getReviewsAction());
 
-        return;
+          return;
+        }
+        toast.error("Product not found in the order.");
+      } else {
+        toast.error("Unable to add a review at this time. Try again later.");
       }
-      toast.error("Unable add review at this time. Try back again later");
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       toast.error(error.message);
     }
   };
 
 //delete reviews
 
-export const deleteReviewAction =
-  (reviewOrderDetails: any) => async (dispatch: any) => {
+interface DeleteReviewType {
+  productId?: string | undefined;
+  orderNumber?: string | undefined;
+  reviewId?: string | undefined | any;
+}
+
+export const deleteReviewAction: Function =
+  (reviewOrderDetails: DeleteReviewType) =>
+  async (
+    dispatch: ThunkDispatch<RootState, undefined, AnyAction>
+  ): Promise<void> => {
     try {
       await deleteDoc(doc(db, "reviews", reviewOrderDetails.reviewId));
 
@@ -111,7 +137,7 @@ export const deleteReviewAction =
         where("orderNumber", "==", reviewOrderDetails.orderNumber)
       );
       const prodSnap = await getDocs(q);
-      let reviewProd: any = {};
+      let reviewProd: OrderType = {};
       prodSnap.forEach((doc) => {
         const catDt = {
           ...doc.data(),
@@ -119,11 +145,11 @@ export const deleteReviewAction =
         reviewProd = { ...catDt };
       });
       const productreview = reviewProd.product.find(
-        (item: any) => item.id === reviewOrderDetails.productId
+        (item: OrderProductType) => item.id === reviewOrderDetails.productId
       );
 
       const productIndex = reviewProd.product.findIndex(
-        (item: any) => item.id === reviewOrderDetails.productId
+        (item: OrderProductType) => item.id === reviewOrderDetails.productId
       );
 
       const updatedproductwithoutReview = { ...productreview, reviewId: null };

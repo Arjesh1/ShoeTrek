@@ -24,7 +24,7 @@ export interface ContactType {
 export interface ProductType {
   description?: string | undefined;
   imgUrlList?: string[] | undefined[];
-  name?: string | undefined;
+  name?: string | undefined | any;
   parentCat?: string | undefined;
   price?: string | undefined;
   quantity?: string | undefined;
@@ -44,6 +44,15 @@ export interface ReviewType {
   reviewId?: string | undefined;
 }
 
+export interface CartType {
+  img?: string | undefined;
+  name?: string | undefined | any;
+  price?: string | undefined | any;
+  id?: string | undefined;
+  size?: string | undefined;
+  quantity?: number | undefined | any;
+}
+
 export interface OrderProductType {
   quantity?: number | undefined;
   price?: string | undefined;
@@ -61,13 +70,14 @@ export interface OrderType {
   uid?: string | undefined;
   city?: string | undefined;
   phoneNumber?: string | undefined;
-  orderNumber?: string | undefined;
+  orderNumber?: string | undefined | any;
   orderDate?: number | undefined;
+  email?: string | undefined;
   region?: string | undefined;
   postalCode?: string | undefined;
   status?: string | undefined;
   firstName?: string | undefined;
   lastName?: string | undefined;
   country?: string | undefined;
-  product?: OrderProductType[];
+  product?: OrderProductType | any;
 }

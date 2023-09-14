@@ -2,7 +2,11 @@ import React from "react";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 const maxRate = 5;
 
-const Ratings = ({ rate }: any) => {
+interface RateProps {
+  rate: number | undefined;
+}
+
+const Ratings = ({ rate }: RateProps) => {
   const rateStar = rate || 5;
   const hasDecimalValue = rateStar % 1;
 

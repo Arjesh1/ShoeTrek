@@ -1,7 +1,13 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
-const FormRatings = ({ value, onChange }: any) => {
+const FormRatings = ({
+  value,
+  onChange,
+}: {
+  value: number;
+  onChange: (newValue: number) => void;
+}) => {
   const stars = [1, 2, 3, 4, 5];
 
   return (
