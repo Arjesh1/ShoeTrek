@@ -45,7 +45,7 @@ const UserDetails = () => {
               <button
                 type="button"
                 onClick={() => setEditForm(false)}
-                className={`flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+                className={`flex justify-center rounded-md  px-3 py-1.5 pb-3text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 ${
                   editForm === false ? "hidden" : ""
                 }`}
               >
@@ -77,7 +77,7 @@ const UserDetails = () => {
                       disabled={editForm}
                       type="text"
                       name="firstName"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -98,7 +98,7 @@ const UserDetails = () => {
                       type="text"
                       name="lastName"
                       autoComplete="family-name"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -117,7 +117,7 @@ const UserDetails = () => {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -133,7 +133,7 @@ const UserDetails = () => {
                       disabled={editForm}
                       name="phoneNumber"
                       type="number"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -153,7 +153,7 @@ const UserDetails = () => {
                       name="country"
                       type="text"
                       autoComplete="country"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ const UserDetails = () => {
                       type="text"
                       name="streetAddress"
                       autoComplete="street-address"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const UserDetails = () => {
                       type="text"
                       name="city"
                       autoComplete="address-level2"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -213,7 +213,7 @@ const UserDetails = () => {
                       type="text"
                       name="region"
                       autoComplete="address-level1"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -233,7 +233,7 @@ const UserDetails = () => {
                       type="number"
                       name="postalCode"
                       autoComplete="postal-code"
-                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md text-center border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -243,7 +243,7 @@ const UserDetails = () => {
                     <button
                       type="submit"
                       disabled={editForm}
-                      className={`flex w-2/6 justify-center rounded-md bg-indigo-600 px-3 py-1.5 pb-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+                      className={`flex w-2/6 justify-center rounded-md bg-blue-900 px-3 py-1.5 pb-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 ${
                         editForm ? "hidden" : ""
                       }`}
                     >

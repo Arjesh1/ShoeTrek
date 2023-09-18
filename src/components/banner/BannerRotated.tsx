@@ -26,7 +26,7 @@ const BannerRotated = ({ banner, heading }: BannerType) => {
               <Link to={`/productList/${heading.toLowerCase()}`}>
                 <button
                   type="submit"
-                  className="rounded-md bg-indigo-600 px-16  mt-3 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-md bg-blue-900 px-16  mt-3 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
                 >
                   Shop Now
                 </button>

@@ -157,7 +157,7 @@ const ShopingCart = () => {
                                             min={1}
                                             required
                                             value={product.quantity}
-                                            className=" block text-center w-3/6 rounded-md border-0 py-1.5  text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                            className=" block text-center w-3/6 rounded-md border-0 py-1.5  text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
                                           />
                                           <span>
                                             <button

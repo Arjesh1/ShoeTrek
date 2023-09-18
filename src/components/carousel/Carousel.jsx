@@ -65,7 +65,7 @@ const HomeCarousel = () => {
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-black hover:ring-gray-900/20">
               Free shipping when you Sign In.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
+              <a href="/" className="font-semibold text-blue-900">
                 <span className="absolute inset-0" aria-hidden="true" />
                 Shop Now<span aria-hidden="true">&rarr;</span>
               </a>

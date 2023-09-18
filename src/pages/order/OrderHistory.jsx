@@ -59,7 +59,7 @@ const OrderHistory = () => {
       <MainLayout>
         <div className="container mx-auto mt-5 sm:mt-12 mb-5 sm:mb-12 p-4 sm:p-0">
           <div className=" mb-4">
-            <h1 className="text-xl sm:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="text-xl  font-bold tracking-tight text-gray-900 sm:text-4xl">
               Order History
             </h1>
 
@@ -145,7 +145,7 @@ const OrderHistory = () => {
                             </div>
                             <div className="flex flex-1 gap-2 items-end justify-end text-sm mt-3">
                               <Link to={`/product/${product.id}`}>
-                                <button class="sm:text-lg font-semibold leading-6 text-indigo-600 pb-2 text-xs">
+                                <button class="sm:text-lg font-semibold leading-6 text-blue-900 hover:text-blue-800 pb-2 text-xs">
                                   View Product
                                 </button>
                               </Link>

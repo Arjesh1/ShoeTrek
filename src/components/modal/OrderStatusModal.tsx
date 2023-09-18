@@ -70,7 +70,7 @@ const OrderStatusModal = () => {
                           </Dialog.Title>
                           <div className="mt-2">
                             <p className="text-md text-gray-500">
-                              Your order number is {orderStatus.orderNumber}
+                              Your order number is <span className="text-blue-900">{orderStatus.orderNumber}</span>
                             </p>
                           </div>
                         </div>

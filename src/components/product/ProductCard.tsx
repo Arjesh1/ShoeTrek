@@ -25,7 +25,7 @@ const ProductCard = ({
             {heading}
           </h2>
           <Link to={`/productList/${category}`} className="flex text-center">
-            <h2 className="text-lg  tracking-tight text-gray-900">{link}</h2>{" "}
+            <h2 className="text-lg  tracking-tight text-blue-900">{link}</h2>{" "}
             {icon}
           </Link>
         </div>

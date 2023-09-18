@@ -407,7 +407,7 @@ export const Header = () => {
                             className={({ selected }) =>
                               classNames(
                                 selected
-                                  ? "border-indigo-600 text-indigo-600"
+                                  ? "border-blue-900 text-blue-900"
                                   : "border-transparent text-gray-900",
                                 "flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
                               )

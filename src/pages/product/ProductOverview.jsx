@@ -250,7 +250,7 @@ const ProductOverview = () => {
                       </h3>
                       <a
                         href="#"
-                        className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                        className="text-sm font-medium text-blue-900 hover:text-blue-800"
                         alt="size"
                       >
                         Size guide
@@ -291,7 +291,7 @@ const ProductOverview = () => {
                                     className={classNames(
                                       active ? "border" : "border-2",
                                       checked
-                                        ? "border-indigo-500"
+                                        ? "border-blue-900"
                                         : "border-transparent",
                                       "pointer-events-none absolute -inset-px rounded-md"
                                     )}
@@ -347,7 +347,7 @@ const ProductOverview = () => {
                             min={1}
                             required
                             value={prodQuantity}
-                            className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+                            className="block w-full rounded-md border-2 sm:border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6 text-center"
                           />
                         </div>
 
