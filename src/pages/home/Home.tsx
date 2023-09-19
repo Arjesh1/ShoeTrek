@@ -34,7 +34,7 @@ const Home = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1200);
   }, []);
 
   //sales product

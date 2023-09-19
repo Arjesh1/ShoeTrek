@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import Login from "./pages/user/Login";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Register from "./pages/user/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -36,7 +36,10 @@ function App() {
   useEffect(() => {
     dispatch(getProductsAction());
     dispatch(getReviewsAction());
+    
   }, [dispatch]);
+
+  
 
   return (
     <>
@@ -64,6 +67,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <ToastContainer theme="colored" />

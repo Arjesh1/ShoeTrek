@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import MainLayout from "../../components/layout/MainLayout";
 import { BsFillBuildingsFill, BsFillTelephoneFill } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
@@ -6,10 +6,24 @@ import { useDispatch } from "react-redux";
 import { addMessageAction } from "./contactAction";
 import { ContactType } from "../../components/interfaces/interface";
 
+const initialState: ContactType = {
+  email: " ",
+  fName: " ",
+  lName: " ",
+  message: " ",
+  phone: " ",
+  subject: " "
+
+}
+
 const Contact = () => {
   const dispatch = useDispatch();
 
-  const [form, setForm] = useState<ContactType>({});
+  const [form, setForm] = useState<ContactType>(initialState);
+
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
 
   const handleOnChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,8 +35,7 @@ const Contact = () => {
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(addMessageAction({ ...form, date: Date.now() }));
-
-    setForm({});
+    setForm(initialState);
   };
 
   return (
