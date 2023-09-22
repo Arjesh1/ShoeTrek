@@ -33,7 +33,7 @@ const ProductCard = ({
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
           {product?.map((item: ProductType) => (
             <Link to={`/product/${item.slug}`}>
-              <div key={item?.slug} className="group relative">
+              <div key={item?.slug} className="group relative rounded-lg border-solid p-2 border-2 ">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                   <img
                     src={item?.thumbnail}
