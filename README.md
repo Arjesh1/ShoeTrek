@@ -41,24 +41,24 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### Technologies:
 React & Redux: Ensuring a user-friendly, smooth, and well-managed website experience.
-### HTML and CSS: The foundation for well-structured and stylish web pages.
-### Tailwind CSS: Speeding up the design process with ready-made styles.
-### TypeScript & JavaScript: Powering the website's interactive features.
-### Stripe: For secure online payments.
-### Node.js & Express.js: Seamlessly integrating Stripe.
-### Canva: Crafting an eye-catching logo.
-### Firebase: Handling behind-the-scenes tasks.
-### Figma: Shaping the website's look and feel.
+HTML and CSS: The foundation for well-structured and stylish web pages.
+Tailwind CSS: Speeding up the design process with ready-made styles.
+TypeScript & JavaScript: Powering the website's interactive features.
+Stripe: For secure online payments.
+Node.js & Express.js: Seamlessly integrating Stripe.
+Canva: Crafting an eye-catching logo.
+Firebase: Handling behind-the-scenes tasks.
+Figma: Shaping the website's look and feel.
 
 ### Client-Side Features 👨‍💻
-### Easy shopping with a user-friendly catalog.
-### Smooth checkout and secure payments.
-### Transparent product ratings and reviews.
-### Quick customer support.
-### Personalized shopping by category.
-### Detailed product information.
-### User profile customization.
-### Special perks for logged-in users.
+Easy shopping with a user-friendly catalog.
+Smooth checkout and secure payments.
+Transparent product ratings and reviews.
+Quick customer support.
+Personalized shopping by category.
+Detailed product information.
+User profile customization.
+Special perks for logged-in users.
 
 
 ## Learn More
