@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { persistor, store } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
+import { Analytics } from "@vercel/analytics/react"
 
 // import { PersistGate } from 'redux-persist/integration/react';
 
@@ -26,6 +27,7 @@ root.render(
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
+          <Analytics />
         </PersistGate>
       </Provider>
     </BrowserRouter>
